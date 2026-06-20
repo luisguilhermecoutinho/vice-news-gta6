@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VICE NEWS — GTA VI Hub</title>
+<meta name="description" content="O teu hub nº1 de GTA 6: novidades, leaks, trailers, clips, tips, carros e mapa de Vice City.">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4677836234279768" crossorigin="anonymous"></script>
+<!-- Google Analytics 4 (preenche GA_ID quando criares a propriedade gratuita) -->
+<script>window.GA_ID="";if(window.GA_ID){var gs=document.createElement('script');gs.async=1;gs.src='https://www.googletagmanager.com/gtag/js?id='+window.GA_ID;document.head.appendChild(gs);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',window.GA_ID);}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Outfit:wght@300;400;600;800;900&family=Audiowide&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#ff2d95; --cyan:#00f0ff; --purple:#7b2ff7; --orange:#ff8a00; --yellow:#ffd166; --gold:#ffd700; --green:#1aff8c;
+  --bg:#0d0221; --bg2:#1a0b2e; --card:#190a32; --text:#f5e9ff; --muted:#b9a4d6;
+  --glow:0 0 18px rgba(255,45,149,.55);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;padding-bottom:64px}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.container{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* backdrop */
+.sky{position:fixed;inset:0;z-index:-3;background:linear-gradient(180deg,#2a0845 0%,#6441a5 28%,#ff2d95 55%,#ff8a00 78%,#ffd166 100%)}
+.grid-floor{position:fixed;bottom:0;left:0;right:0;height:42vh;z-index:-2;background:linear-gradient(180deg,transparent,#0d0221 88%);perspective:300px;overflow:hidden}
+.grid-floor::before{content:"";position:absolute;bottom:-50%;left:-50%;right:-50%;top:0;
+  background-image:linear-gradient(var(--cyan) 1px,transparent 1px),linear-gradient(90deg,var(--cyan) 1px,transparent 1px);
+  background-size:46px 46px;transform:rotateX(72deg);opacity:.30;animation:flow 6s linear infinite}
+@keyframes flow{to{background-position:0 46px,0 0}}
+.overlay-fade{position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(13,2,33,.55) 0%,rgba(13,2,33,.75) 40%,var(--bg) 100%)}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(13,2,33,.6);border-bottom:1px solid rgba(0,240,255,.25)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;max-width:1180px;margin:0 auto;gap:10px}
+.logo{font-family:'Monoton',cursive;font-size:24px;color:var(--cyan);text-shadow:0 0 10px var(--cyan),0 0 24px var(--pink);letter-spacing:1px;white-space:nowrap}
+.logo span{color:var(--pink);text-shadow:0 0 10px var(--pink)}
+.nav-links{display:flex;gap:18px;align-items:center}
+.nav-links a{font-weight:600;font-size:14px;color:var(--text);transition:.2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--cyan);text-shadow:0 0 10px var(--cyan)}
+.btn{display:inline-block;font-weight:800;padding:11px 22px;border-radius:40px;cursor:pointer;border:none;font-family:'Outfit';font-size:15px;transition:transform .15s,box-shadow .2s;letter-spacing:.3px}
+.btn-vip{background:linear-gradient(90deg,var(--pink),var(--orange));color:#fff;box-shadow:var(--glow)}
+.btn-vip:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 0 28px rgba(255,138,0,.8)}
+.btn-ghost{background:transparent;border:2px solid var(--cyan);color:var(--cyan)}
+.btn-ghost:hover{background:var(--cyan);color:var(--bg)}
+.burger{display:none;font-size:28px;color:var(--cyan);background:none;border:none;cursor:pointer}
+
+/* language selector */
+.lang{position:relative}
+.lang-btn{background:rgba(13,2,33,.6);border:1px solid rgba(0,240,255,.4);color:var(--text);padding:8px 12px;border-radius:30px;cursor:pointer;font-family:'Outfit';font-weight:700;font-size:13px;display:flex;align-items:center;gap:6px}
+.lang-menu{position:absolute;top:44px;right:0;background:linear-gradient(160deg,#1f0b3d,#0d0221);border:1px solid var(--cyan);border-radius:12px;padding:6px;min-width:140px;z-index:61;display:none}
+.lang-menu.show{display:block}
+.lang-menu button{width:100%;text-align:left;background:none;border:none;color:var(--text);padding:8px 10px;border-radius:8px;cursor:pointer;font-family:'Outfit';font-size:14px}
+.lang-menu button:hover{background:rgba(0,240,255,.15)}
+
+/* hero */
+.hero{position:relative;min-height:86vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:70px 22px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;background-image:url('https://img.youtube.com/vi/yAi0MYo5Mzw/maxresdefault.jpg');background-size:cover;background-position:center;transform:scale(1.08);filter:saturate(1.2)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,2,33,.55),rgba(13,2,33,.6) 55%,var(--bg))}
+.hero-inner{position:relative;z-index:1;max-width:780px}
+.tag{display:inline-block;font-family:'Audiowide';font-size:13px;letter-spacing:3px;color:var(--cyan);border:1px solid var(--cyan);padding:7px 16px;border-radius:30px;margin-bottom:24px;box-shadow:0 0 16px rgba(0,240,255,.3);text-transform:uppercase}
+.hero h1{font-family:'Monoton',cursive;font-size:clamp(46px,9vw,104px);line-height:.95;color:#fff;text-shadow:0 0 14px var(--pink),0 0 40px var(--pink),0 0 80px var(--purple);margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--cyan);text-shadow:0 0 14px var(--cyan),0 0 44px var(--cyan)}
+.hero p{font-size:clamp(16px,2.2vw,21px);color:#fff;max-width:620px;margin:0 auto 18px;font-weight:300;text-shadow:0 1px 10px rgba(0,0,0,.7)}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.countdown{display:flex;gap:12px;justify-content:center;margin-top:42px;flex-wrap:wrap}
+.cd-box{background:rgba(13,2,33,.65);border:1px solid rgba(0,240,255,.4);border-radius:14px;padding:14px 20px;min-width:86px;backdrop-filter:blur(6px)}
+.cd-box .num{font-family:'Audiowide';font-size:34px;color:var(--cyan);text-shadow:0 0 14px var(--cyan)}
+.cd-box .lbl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.cd-title{width:100%;text-align:center;font-family:'Audiowide';letter-spacing:3px;color:var(--pink);margin-bottom:4px;text-transform:uppercase;font-size:13px;text-shadow:0 0 12px var(--pink)}
+
+/* sections */
+section{padding:66px 0;position:relative}
+.sec-head{text-align:center;margin-bottom:38px}
+.sec-head .k{font-family:'Audiowide';color:var(--orange);letter-spacing:4px;font-size:13px;text-transform:uppercase}
+.sec-head h2{font-family:'Outfit';font-weight:900;font-size:clamp(30px,5vw,46px);margin-top:8px;background:linear-gradient(90deg,var(--cyan),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sec-head p{color:var(--muted);max-width:580px;margin:10px auto 0}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+
+/* news */
+.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.filters button{background:rgba(123,47,247,.18);border:1px solid rgba(0,240,255,.3);color:var(--text);padding:8px 18px;border-radius:30px;cursor:pointer;font-family:'Outfit';font-weight:600;font-size:14px;transition:.2s}
+.filters button:hover{border-color:var(--cyan)}
+.filters button.active{background:linear-gradient(90deg,var(--pink),var(--orange));color:#fff;border-color:transparent;box-shadow:var(--glow)}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.card{background:var(--card);border:1px solid rgba(123,47,247,.4);border-radius:18px;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);border-color:var(--pink);box-shadow:0 10px 40px rgba(255,45,149,.25)}
+.card .thumb{height:175px;position:relative;display:flex;align-items:flex-end;background-size:cover;background-position:center}
+.card .thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(13,2,33,.9))}
+.chip{position:absolute;top:12px;left:12px;z-index:2;background:rgba(13,2,33,.85);color:var(--cyan);font-size:11px;font-weight:700;letter-spacing:1px;padding:5px 11px;border-radius:20px;text-transform:uppercase}
+.chip.breaking{background:linear-gradient(90deg,#ff0040,#ff8a00);color:#fff;animation:pulse 1.4s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,0,64,.6)}50%{box-shadow:0 0 0 8px rgba(255,0,64,0)}}
+.card .body{padding:18px;flex:1;display:flex;flex-direction:column}
+.card h3{font-size:19px;font-weight:800;margin-bottom:8px;color:#fff}
+.card .meta{font-size:12px;color:var(--muted);margin-bottom:10px}
+.card p.exc{color:var(--muted);font-size:14px;flex:1}
+.card .read{margin-top:14px;color:var(--pink);font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:6px}
+.card:hover .read{color:var(--cyan)}
+
+/* clips / shorts */
+.clip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.clip{position:relative;border-radius:18px;overflow:hidden;cursor:pointer;border:1px solid rgba(0,240,255,.35);aspect-ratio:9/13;background:#000}
+.clip img{width:100%;height:100%;object-fit:cover;transition:.35s}
+.clip:hover img{transform:scale(1.07)}
+.clip .ov{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:14px;background:linear-gradient(180deg,rgba(13,2,33,.4),transparent 30%,transparent 60%,rgba(13,2,33,.85))}
+.clip .fire{align-self:flex-end;background:rgba(255,45,149,.9);color:#fff;font-size:12px;font-weight:800;padding:5px 10px;border-radius:20px}
+.clip .play2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:rgba(255,45,149,.92);display:flex;align-items:center;justify-content:center;font-size:24px;color:#fff;box-shadow:0 0 26px rgba(255,45,149,.7)}
+.clip b{color:#fff;font-size:15px;text-shadow:0 2px 8px #000;z-index:2}
+.clip small{color:var(--cyan);font-weight:700;font-size:12px}
+
+/* trailers */
+.trailer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.trailer{position:relative;border-radius:18px;overflow:hidden;cursor:pointer;border:1px solid rgba(0,240,255,.35);aspect-ratio:16/9;background:#000}
+.trailer img{width:100%;height:100%;object-fit:cover;transition:.35s}
+.trailer:hover img{transform:scale(1.06)}
+.trailer .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,transparent,rgba(13,2,33,.55))}
+.trailer .play span{width:74px;height:74px;border-radius:50%;background:rgba(255,45,149,.9);display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;box-shadow:0 0 30px rgba(255,45,149,.7);transition:.25s}
+.trailer:hover .play span{transform:scale(1.12)}
+.trailer .cap{position:absolute;left:0;right:0;bottom:0;padding:16px;z-index:2}
+.trailer .cap b{font-size:19px;color:#fff;display:block;text-shadow:0 2px 8px #000}
+.trailer .cap small{color:var(--cyan);font-weight:700;letter-spacing:1px}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.gallery .shot{position:relative;border-radius:14px;overflow:hidden;cursor:pointer;aspect-ratio:16/10;border:1px solid rgba(0,240,255,.25)}
+.gallery .shot img{width:100%;height:100%;object-fit:cover;transition:.35s}
+.gallery .shot:hover img{transform:scale(1.08)}
+.gallery .shot::after{content:"🔍";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:26px;background:rgba(13,2,33,.45);opacity:0;transition:.25s}
+.gallery .shot:hover::after{opacity:1}
+
+/* tips */
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.tip{background:linear-gradient(160deg,rgba(123,47,247,.18),rgba(13,2,33,.6));border:1px solid rgba(0,240,255,.3);border-radius:18px;padding:26px;transition:.2s;position:relative}
+.tip:hover{border-color:var(--cyan);box-shadow:0 0 26px rgba(0,240,255,.2);transform:translateY(-4px)}
+.tip .ic{font-size:40px;margin-bottom:14px}
+.tip h3{font-size:18px;margin-bottom:8px;color:var(--cyan)}
+.tip p{color:var(--muted);font-size:14px}
+.lock{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:1px;cursor:pointer}
+.tip.vip-lock{border-color:rgba(255,215,0,.45);background:linear-gradient(160deg,rgba(255,215,0,.08),rgba(13,2,33,.6))}
+.tip.vip-lock .lock.unlocked{color:var(--green)}
+body.is-vip .tip.vip-lock{border-color:var(--green);box-shadow:0 0 22px rgba(57,255,186,.18)}
+.vip-ribbon{position:absolute;top:12px;right:-30px;transform:rotate(45deg);background:linear-gradient(90deg,var(--gold),var(--orange));color:#3a2600;font-size:10px;font-weight:900;letter-spacing:1px;padding:4px 34px}
+
+/* cars */
+.car-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.car{background:var(--card);border:1px solid rgba(255,45,149,.35);border-radius:18px;overflow:hidden;transition:.2s}
+.car:hover{transform:translateY(-5px);box-shadow:0 12px 38px rgba(255,45,149,.25)}
+.car .pic{height:150px;display:flex;align-items:center;justify-content:center;font-size:70px;position:relative}
+.car .pic.grad-1{background:linear-gradient(135deg,#ff8a00,#ff2d95)}
+.car .pic.grad-2{background:linear-gradient(135deg,#00f0ff,#7b2ff7)}
+.car .pic.grad-3{background:linear-gradient(135deg,#ff2d95,#7b2ff7)}
+.car .pic.grad-4{background:linear-gradient(135deg,#7b2ff7,#00f0ff)}
+.car .pic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(13,2,33,.7))}
+.car .info{padding:18px}
+.car h3{font-size:20px;color:#fff;margin-bottom:4px}
+.car .class{font-size:12px;color:var(--orange);letter-spacing:1px;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+.stat{margin-bottom:9px}
+.stat .row{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:3px}
+.bar{height:7px;background:rgba(255,255,255,.1);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--cyan),var(--pink));width:0;transition:width 1.1s ease}
+
+/* map */
+.map-wrap{position:relative;border-radius:22px;overflow:hidden;border:1px solid rgba(0,240,255,.4);box-shadow:0 0 50px rgba(0,240,255,.15)}
+.map-canvas{position:relative;height:480px;background:radial-gradient(circle at 30% 40%,rgba(123,47,247,.5),transparent 40%),radial-gradient(circle at 70% 65%,rgba(255,45,149,.45),transparent 45%),linear-gradient(135deg,#0a1f3a,#1a0b2e)}
+.map-canvas::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(0,240,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,.12) 1px,transparent 1px);background-size:40px 40px}
+.water{position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(180deg,transparent,rgba(0,240,255,.18))}
+.pin{position:absolute;transform:translate(-50%,-100%);cursor:pointer;text-align:center;z-index:2}
+.pin .dot{font-size:30px;filter:drop-shadow(0 0 6px var(--pink));transition:.2s}
+.pin:hover .dot{transform:scale(1.3)}
+.pin .name{display:block;font-size:11px;font-weight:700;background:rgba(13,2,33,.85);padding:3px 8px;border-radius:8px;margin-top:-6px;white-space:nowrap;border:1px solid rgba(0,240,255,.3)}
+.pin.vip .dot{filter:drop-shadow(0 0 8px var(--gold))}
+.map-legend{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:18px;font-size:13px;color:var(--muted)}
+.map-legend span{display:inline-flex;align-items:center;gap:6px}
+
+/* community VIP */
+#comunidade{position:relative}
+.comm-wrap{max-width:760px;margin:0 auto;position:relative;border-radius:22px;border:2px solid var(--gold);background:linear-gradient(180deg,rgba(255,215,0,.07),var(--card));padding:28px;box-shadow:0 0 40px rgba(255,215,0,.15)}
+.comm-head{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.comm-head .gold-badge{background:linear-gradient(90deg,var(--gold),var(--orange));color:#3a2600;font-weight:900;font-size:12px;padding:5px 12px;border-radius:20px;letter-spacing:1px}
+.composer{display:flex;gap:10px;margin-bottom:18px}
+.composer textarea{flex:1;background:rgba(13,2,33,.6);border:1px solid rgba(255,215,0,.4);border-radius:12px;color:#fff;padding:12px;font-family:'Outfit';font-size:14px;resize:vertical;min-height:48px}
+.composer textarea:focus{outline:none;border-color:var(--gold)}
+.feed-post{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.feed-post .pav{width:38px;height:38px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--gold),var(--orange))}
+.feed-post .pmeta{font-size:12px;color:var(--muted);margin-bottom:3px}
+.feed-post .pmeta b{color:var(--gold)}
+.feed-post .ptext{font-size:14px;color:var(--text)}
+.comm-locked{text-align:center;padding:20px}
+.comm-locked .big{font-size:54px;margin-bottom:10px}
+.comm-locked h3{font-size:22px;color:#fff;margin-bottom:8px}
+.comm-locked p{color:var(--muted);margin-bottom:20px}
+.comm-preview{filter:blur(4px);opacity:.5;pointer-events:none;margin-bottom:-40px}
+
+/* premium */
+#premium{padding-top:80px}
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px;align-items:stretch;max-width:980px;margin:0 auto}
+.plan{background:var(--card);border:1px solid rgba(123,47,247,.4);border-radius:22px;padding:34px 28px;display:flex;flex-direction:column;position:relative;transition:.25s}
+.plan:hover{transform:translateY(-6px)}
+.plan.pop{border:2px solid var(--gold);box-shadow:0 0 50px rgba(255,215,0,.3);background:linear-gradient(180deg,rgba(255,215,0,.1),var(--card))}
+.plan .badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--gold),var(--orange));color:#3a2600;font-size:11px;font-weight:800;letter-spacing:1.5px;padding:6px 16px;border-radius:20px;text-transform:uppercase}
+.plan h3{font-family:'Audiowide';font-size:22px;color:var(--cyan);margin-bottom:6px}
+.plan.pop h3{color:var(--gold)}
+.plan .desc{color:var(--muted);font-size:13px;margin-bottom:18px;min-height:36px}
+.plan .price{font-size:46px;font-weight:900;color:#fff;line-height:1}
+.plan .price small{font-size:15px;color:var(--muted);font-weight:400}
+.plan ul{list-style:none;margin:22px 0;flex:1}
+.plan li{padding:9px 0;font-size:14px;color:var(--text);border-bottom:1px solid rgba(255,255,255,.07);display:flex;gap:10px;align-items:flex-start}
+.plan li::before{content:"✦";color:var(--pink)}
+.plan.pop li::before{content:"★";color:var(--gold)}
+.plan li.off{color:var(--muted);opacity:.55}
+.plan li.off::before{content:"✕";color:var(--muted)}
+.plan .btn{width:100%;text-align:center;margin-top:6px}
+
+/* discord */
+.discord-card{background:linear-gradient(135deg,#5865F2 0%,#7b2ff7 60%,#ff2d95 100%);border-radius:24px;padding:44px;text-align:center;position:relative;overflow:hidden}
+.discord-card::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.18),transparent 50%)}
+.discord-card h3{font-family:'Audiowide';font-size:30px;color:#fff;margin-bottom:10px;position:relative}
+.discord-card p{color:rgba(255,255,255,.9);max-width:540px;margin:0 auto 24px;position:relative}
+.discord-card .stats{display:flex;gap:30px;justify-content:center;margin:0 0 26px;position:relative;flex-wrap:wrap}
+.discord-card .stats div{text-align:center}
+.discord-card .stats .n{font-family:'Audiowide';font-size:26px;color:#fff}
+.discord-card .stats .l{font-size:12px;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:1px}
+.btn-discord{background:#fff;color:#5865F2;position:relative}
+.btn-discord:hover{transform:translateY(-2px) scale(1.03)}
+
+/* member banner */
+.member-banner{display:none;background:linear-gradient(90deg,rgba(255,215,0,.25),rgba(255,45,149,.2));border:1px solid var(--gold);border-radius:16px;padding:16px 22px;margin:0 auto 30px;max-width:980px;align-items:center;gap:14px;justify-content:center;text-align:center;flex-wrap:wrap}
+body.is-vip .member-banner{display:flex}
+.member-banner b{color:var(--yellow)}
+
+/* auth */
+.user-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(13,2,33,.6);border:1px solid rgba(0,240,255,.4);padding:5px 6px 5px 12px;border-radius:40px;cursor:pointer;font-weight:700;font-size:14px}
+.user-chip .av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;background:linear-gradient(135deg,var(--purple),var(--pink))}
+.user-chip.vip .av{background:linear-gradient(135deg,var(--gold),var(--orange));box-shadow:0 0 12px rgba(255,215,0,.7)}
+.badge-vip{font-size:10px;font-weight:800;letter-spacing:1px;color:#3a2600;background:linear-gradient(90deg,var(--gold),var(--orange));padding:3px 8px;border-radius:20px}
+.badge-free{font-size:10px;font-weight:800;letter-spacing:1px;color:var(--cyan);border:1px solid var(--cyan);padding:2px 8px;border-radius:20px}
+.dropdown{position:absolute;top:64px;right:22px;background:linear-gradient(160deg,#1f0b3d,#0d0221);border:1px solid var(--pink);border-radius:16px;padding:14px;min-width:230px;z-index:62;box-shadow:0 10px 40px rgba(0,0,0,.5);display:none}
+.dropdown.show{display:block}
+.dropdown .who{font-size:13px;color:var(--muted);padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:8px}
+.dropdown button{width:100%;text-align:left;background:none;border:none;color:var(--text);padding:9px 8px;border-radius:8px;cursor:pointer;font-family:'Outfit';font-size:14px}
+.dropdown button:hover{background:rgba(255,45,149,.18)}
+.auth-tabs{display:flex;gap:8px;margin-bottom:16px}
+.auth-tabs button{flex:1;background:rgba(123,47,247,.18);border:1px solid rgba(0,240,255,.3);color:var(--text);padding:9px;border-radius:10px;cursor:pointer;font-family:'Outfit';font-weight:700}
+.auth-tabs button.active{background:linear-gradient(90deg,var(--pink),var(--orange));color:#fff;border-color:transparent}
+.social{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.social button{display:flex;align-items:center;justify-content:center;gap:10px;padding:11px;border-radius:12px;border:none;cursor:pointer;font-family:'Outfit';font-weight:700;font-size:14px}
+.s-google{background:#fff;color:#3c4043}
+.s-fb{background:#1877f2;color:#fff}
+.s-discord{background:#5865F2;color:#fff}
+.social button:hover{filter:brightness(1.05);transform:translateY(-1px)}
+.divider{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px;margin:4px 0 14px}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.15)}
+.auth-form{display:flex;flex-direction:column;gap:12px;text-align:left}
+.auth-form label{font-size:12px;color:var(--muted);font-weight:600;display:block}
+.auth-form label span{display:block;margin-bottom:2px}
+.auth-form input{padding:12px 14px;border-radius:10px;border:1px solid rgba(0,240,255,.4);background:rgba(13,2,33,.6);color:#fff;font-size:15px;font-family:'Outfit';margin-top:4px;width:100%}
+.auth-form input:focus{outline:none;border-color:var(--pink)}
+.auth-err{color:var(--pink);font-size:13px;min-height:18px}
+
+/* ===== ADS ===== */
+.adslot{position:relative;background:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 12px,rgba(255,255,255,.07) 12px 24px);border:1px dashed rgba(0,240,255,.45);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);text-align:center;padding:18px;overflow:hidden}
+.adslot .adtag{position:absolute;top:8px;left:8px;font-size:9px;letter-spacing:1px;text-transform:uppercase;background:rgba(13,2,33,.8);color:var(--cyan);padding:3px 7px;border-radius:6px}
+.adslot .adbig{font-size:18px;font-weight:800;color:#fff;margin:4px 0}
+.adslot .adsub{font-size:12px}
+.ad-banner{min-height:120px;margin:34px auto;max-width:980px}
+.ad-card{min-height:240px}
+.ad-side{position:fixed;top:120px;width:160px;min-height:420px;z-index:40;display:none}
+.ad-side.left{left:12px}
+.ad-side.right{right:12px}
+body:not(.is-vip) .ad-side{display:flex}
+@media(max-width:1500px){.ad-side{display:none!important}}
+body.is-vip .adslot{display:none!important}
+body.is-vip .ad-banner{display:none!important}
+/* quando o AdSense real está ligado, esconde os placeholders de demonstração */
+body.adsense-on .adslot .adbig,body.adsense-on .adslot .adsub,body.adsense-on .sticky-ad .smsg b{display:none}
+
+/* sticky bottom ad — sempre presente */
+.sticky-ad{position:fixed;left:0;right:0;bottom:0;z-index:80;background:linear-gradient(90deg,rgba(13,2,33,.97),rgba(25,10,50,.97));border-top:1px solid var(--cyan);display:flex;align-items:center;gap:14px;padding:8px 16px;backdrop-filter:blur(8px)}
+body.is-vip .sticky-ad{display:none}
+.sticky-ad .stag{font-size:9px;color:var(--cyan);text-transform:uppercase;letter-spacing:1px;border:1px solid var(--cyan);padding:2px 6px;border-radius:6px}
+.sticky-ad .smsg{flex:1;font-size:13px;color:var(--text)}
+.sticky-ad .smsg b{color:var(--yellow)}
+.sticky-ad .svip{font-size:12px;color:var(--gold);cursor:pointer;text-decoration:underline;white-space:nowrap}
+.sticky-ad .sclose{background:none;border:none;color:var(--muted);font-size:16px;cursor:pointer}
+
+/* entry interstitial */
+.interstitial{position:fixed;inset:0;background:rgba(5,1,15,.92);backdrop-filter:blur(8px);z-index:120;display:none;align-items:center;justify-content:center;padding:22px}
+.interstitial.show{display:flex}
+.inter-box{background:linear-gradient(160deg,#1f0b3d,#0d0221);border:1px solid var(--cyan);border-radius:20px;max-width:520px;width:100%;padding:14px;position:relative}
+.inter-ad{min-height:300px;border-radius:14px}
+.inter-close{position:absolute;top:-14px;right:-10px;background:var(--pink);color:#fff;border:none;width:36px;height:36px;border-radius:50%;font-size:16px;cursor:pointer;box-shadow:0 0 16px rgba(255,45,149,.7)}
+.inter-close:disabled{background:#555;cursor:not-allowed;box-shadow:none}
+.inter-skip{text-align:center;color:var(--muted);font-size:12px;margin-top:10px}
+.inter-skip b{color:var(--cyan)}
+
+/* earnings */
+.owner-fab{position:fixed;bottom:74px;right:20px;z-index:85;background:linear-gradient(135deg,#1aff8c,#00f0ff);color:#06210f;border:none;border-radius:40px;padding:12px 18px;font-family:'Outfit';font-weight:800;cursor:pointer;box-shadow:0 6px 24px rgba(26,255,140,.5);display:none;align-items:center;gap:8px}
+body.owner .owner-fab{display:flex}
+.owner-fab:hover{transform:translateY(-2px)}
+.earn-modal,.modal,.lb{position:fixed;inset:0;backdrop-filter:blur(8px);z-index:130;display:none;align-items:center;justify-content:center;padding:22px}
+.earn-modal{background:rgba(5,1,15,.85)}
+.earn-modal.show,.modal.show,.lb.show{display:flex;animation:fade .25s}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.earn-box{background:linear-gradient(160deg,#0a2a1a,#0d0221);border:1px solid var(--green);border-radius:22px;max-width:560px;width:100%;padding:30px;box-shadow:0 0 50px rgba(26,255,140,.3)}
+.earn-box h3{font-family:'Audiowide';color:var(--green);font-size:22px;margin-bottom:4px}
+.earn-box .muted{color:var(--muted);font-size:13px;margin-bottom:20px}
+.earn-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.earn-cell{background:rgba(255,255,255,.04);border:1px solid rgba(26,255,140,.25);border-radius:14px;padding:16px}
+.earn-cell .v{font-family:'Audiowide';font-size:26px;color:#fff}
+.earn-cell .k2{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.earn-total{background:linear-gradient(90deg,rgba(26,255,140,.2),rgba(0,240,255,.12));border:1px solid var(--green);border-radius:14px;padding:18px;text-align:center;margin-bottom:16px}
+.earn-total .v{font-family:'Audiowide';font-size:38px;color:var(--green)}
+.earn-note{font-size:11px;color:var(--muted);text-align:center}
+.earn-box .close,.modal-box .close{margin-top:14px;color:var(--muted);font-size:13px;cursor:pointer;text-align:center}
+.toast{position:fixed;bottom:130px;right:20px;z-index:95;background:rgba(13,2,33,.95);border:1px solid var(--green);color:var(--green);padding:10px 16px;border-radius:12px;font-weight:700;font-size:13px;opacity:0;transform:translateY(10px);transition:.3s;pointer-events:none}
+.toast.show{opacity:1;transform:none}
+
+/* modal generic */
+.modal{background:rgba(5,1,15,.8)}
+.modal-box{background:linear-gradient(160deg,#1f0b3d,#0d0221);border:1px solid var(--pink);border-radius:22px;max-width:440px;width:100%;padding:32px;text-align:center;box-shadow:0 0 60px rgba(255,45,149,.4)}
+.modal-box .em{font-size:50px;margin-bottom:10px}
+.modal-box h3{font-family:'Audiowide';color:var(--cyan);font-size:21px;margin-bottom:8px}
+.modal-box p{color:var(--muted);margin-bottom:20px;font-size:14px}
+
+/* lightbox */
+.lb{background:rgba(5,1,15,.92);z-index:125}
+.lb-inner{width:min(1000px,100%);position:relative}
+.lb-inner .frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;box-shadow:0 0 60px rgba(255,45,149,.4);border:1px solid var(--pink)}
+.lb-inner.vertical .frame{aspect-ratio:9/16;max-width:420px;margin:0 auto}
+.lb-inner iframe,.lb-inner img{width:100%;height:100%;border:0;object-fit:contain;background:#000}
+.lb-close{position:absolute;top:-46px;right:0;font-size:30px;color:#fff;background:none;border:none;cursor:pointer}
+.lb-close:hover{color:var(--pink)}
+
+/* footer */
+footer{border-top:1px solid rgba(0,240,255,.2);padding:40px 0 30px;margin-top:40px;text-align:center;color:var(--muted);font-size:13px}
+footer .logo{font-size:22px;margin-bottom:14px}
+.foot-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.foot-links a:hover{color:var(--cyan)}
+.disclaimer{font-size:11px;opacity:.6;max-width:660px;margin:18px auto 0}
+
+/* community rich */
+.comm-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.comm-tabs{display:flex;gap:8px;flex-wrap:wrap;flex:1}
+.comm-tabs button{background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.35);color:var(--text);padding:7px 14px;border-radius:30px;cursor:pointer;font-family:'Outfit';font-weight:700;font-size:13px;transition:.2s}
+.comm-tabs button:hover{border-color:var(--gold)}
+.comm-tabs button.active{background:linear-gradient(90deg,var(--gold),var(--orange));color:#3a2600;border-color:transparent}
+.comm-online{font-size:13px;color:var(--muted);white-space:nowrap}
+.comm-online b{color:#39ffba}
+.poll-composer{display:flex;flex-direction:column;gap:8px;margin-bottom:18px;background:rgba(13,2,33,.5);border:1px solid rgba(255,215,0,.3);border-radius:14px;padding:14px}
+.poll-composer input{background:rgba(13,2,33,.6);border:1px solid rgba(255,215,0,.3);border-radius:10px;color:#fff;padding:10px;font-family:'Outfit';font-size:14px}
+.poll-composer input:focus{outline:none;border-color:var(--gold)}
+.vtag{font-size:9px;font-weight:800;color:#3a2600;background:linear-gradient(90deg,var(--gold),var(--orange));padding:1px 6px;border-radius:10px;letter-spacing:.5px}
+.rxbar{display:flex;gap:8px;margin-top:8px}
+.rxbar .rx{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:var(--text);border-radius:20px;padding:3px 10px;font-size:13px;cursor:pointer;transition:.15s}
+.rxbar .rx:hover{border-color:var(--pink)}
+.rxbar .rx.on{background:rgba(255,45,149,.2);border-color:var(--pink)}
+.poll{margin:4px 0 2px}
+.poll .pq{font-weight:800;color:#fff;margin-bottom:8px}
+.popt{position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(255,215,0,.3);border-radius:10px;padding:9px 12px;margin-bottom:7px;cursor:pointer;overflow:hidden;display:flex;justify-content:space-between;align-items:center}
+.popt .pfill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,rgba(255,215,0,.35),rgba(255,138,0,.25));transition:width .5s;z-index:0}
+.popt span,.popt b{position:relative;z-index:1;font-size:14px}
+.popt.mine{border-color:var(--gold)}
+.ptotal{font-size:12px;color:var(--muted);margin-top:4px}
+.empty{text-align:center;color:var(--muted);padding:24px;font-style:italic}
+/* news reactions (públicas) */
+.nrx{display:flex;gap:7px;margin-top:12px;flex-wrap:wrap}
+.nrx button{background:rgba(255,255,255,.05);border:1px solid rgba(0,240,255,.2);color:var(--text);border-radius:20px;padding:3px 9px;font-size:12px;cursor:pointer;transition:.15s}
+.nrx button:hover{border-color:var(--cyan)}
+.nrx button.on{background:rgba(0,240,255,.18);border-color:var(--cyan)}
+
+@media(max-width:880px){
+  .nav-links{position:fixed;top:62px;right:0;flex-direction:column;background:rgba(13,2,33,.98);width:260px;padding:24px;border-left:1px solid var(--cyan);height:100vh;transform:translateX(100%);transition:.3s;align-items:flex-start;overflow-y:auto}
+  .nav-links.open{transform:translateX(0)}
+  .burger{display:block}
+  .earn-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="sky"></div>
+<div class="grid-floor"></div>
+<div class="overlay-fade"></div>
+
+<header>
+  <nav>
+    <a href="#top" class="logo">VICE<span>NEWS</span></a>
+    <div class="nav-links" id="navlinks">
+      <a href="#news" data-i18n="nav_news">Novidades</a>
+      <a href="#clips" data-i18n="nav_clips">A Bombar</a>
+      <a href="#trailers" data-i18n="nav_trailers">Trailers</a>
+      <a href="#tips" data-i18n="nav_tips">Tips</a>
+      <a href="#cars" data-i18n="nav_cars">Carros</a>
+      <a href="#map" data-i18n="nav_map">Mapa</a>
+      <a href="#comunidade" data-i18n="nav_community">Comunidade</a>
+      <a href="#premium" data-i18n="nav_premium">Premium</a>
+      <a href="#discord">Discord</a>
+      <div class="lang">
+        <button class="lang-btn" onclick="toggleLang(event)">🌐 <span id="langCur">PT</span> ▾</button>
+        <div class="lang-menu" id="langMenu">
+          <button onclick="setLang('pt')">🇵🇹 Português</button>
+          <button onclick="setLang('en')">🇬🇧 English</button>
+          <button onclick="setLang('es')">🇪🇸 Español</button>
+        </div>
+      </div>
+      <span id="authArea"></span>
+    </div>
+    <button class="burger" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div id="top" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <span class="tag" data-i18n="hero_tag">⚡ O teu hub nº1 de Vice City</span>
+    <h1>GTA <em>VI</em><br>VICE NEWS</h1>
+    <p data-i18n="hero_sub">Novidades, leaks, trailers, clips a bombar, tips, carros e o mapa de Leonida — direto das ruas neon de Vice City.</p>
+    <div class="hero-btns">
+      <a href="#clips" class="btn btn-ghost" data-i18n="hero_clips">🔥 Ver Clips</a>
+      <button class="btn btn-vip" onclick="goVip()" data-i18n="hero_vip">Tornar-me VIP ★</button>
+    </div>
+    <div class="countdown" id="cd">
+      <div class="cd-title" data-i18n="cd_title">⏳ Contagem decrescente — 19 nov 2026</div>
+      <div class="cd-box"><div class="num" id="d">--</div><div class="lbl" data-i18n="cd_d">Dias</div></div>
+      <div class="cd-box"><div class="num" id="h">--</div><div class="lbl" data-i18n="cd_h">Horas</div></div>
+      <div class="cd-box"><div class="num" id="m">--</div><div class="lbl" data-i18n="cd_m">Min</div></div>
+      <div class="cd-box"><div class="num" id="s">--</div><div class="lbl" data-i18n="cd_s">Seg</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="container">
+    <div class="member-banner" id="memberBanner">🌴 <span data-i18n="mb_pre">Bem-vindo de volta,</span> <b id="mbName">VIP</b>! <span data-i18n="mb_post">Estás no clube VIP — sem anúncios, early access e tudo desbloqueado. ⭐</span></div>
+    <div class="sec-head reveal">
+      <div class="k" data-i18n="news_k">Última Hora</div>
+      <h2 data-i18n="news_h">Novidades & Leaks</h2>
+      <p data-i18n="news_p">Notícias com links diretos para a fonte. As importantes saem na hora; as de rotina, todas as manhãs.</p>
+    </div>
+    <div class="filters reveal">
+      <button class="active" data-f="all" data-i18n="f_all">Tudo</button>
+      <button data-f="oficial" data-i18n="f_official">Oficial</button>
+      <button data-f="leak" data-i18n="f_leak">Leaks</button>
+      <button data-f="trailer" data-i18n="f_trailer">Trailers</button>
+      <button data-f="data" data-i18n="f_data">Datas</button>
+    </div>
+    <div class="news-grid" id="newsGrid">
+      <article class="card reveal" data-cat="leak">
+        <a href="https://www.altchar.com/game-news/gta-6-trailer-3-is-coming-soon-and-a-leak-puts-the-pc-version-in-february-2027-asxcn1x9ugDg" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/9zVIy_La7nk/hq1.jpg')"><span class="chip">Leak</span></div></a>
+        <div class="body">
+          <h3>Leak: versão de PC só em fevereiro de 2027?</h3>
+          <div class="meta">20 jun 2026 · AltChar</div>
+          <p class="exc">Com o Trailer 3 à porta, um novo leak aponta a versão para PC para fevereiro de 2027 — uns meses depois das consolas. Nada oficial, mas a malta do rato e teclado que respire fundo.</p>
+          <a href="https://www.altchar.com/game-news/gta-6-trailer-3-is-coming-soon-and-a-leak-puts-the-pc-version-in-february-2027-asxcn1x9ugDg" target="_blank" rel="noopener" class="read">Ler na fonte →</a>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="trailer">
+        <a href="https://comicbook.com/gaming/news/gta-6-trailer-release-date-july/" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/inQelDKULOQ/hq2.jpg')"><span class="chip">Trailer</span></div></a>
+        <div class="body">
+          <h3>Trailer 3: e se afinal só aterra em julho?</h3>
+          <div class="meta">20 jun 2026 · ComicBook</div>
+          <p class="exc">Nem todos apostam no dia 25. Há quem leia os sinais da Rockstar e aponte o Trailer 3 para julho — outro cinemático de história, com a gameplay a ficar para o fim do verão.</p>
+          <a href="https://comicbook.com/gaming/news/gta-6-trailer-release-date-july/" target="_blank" rel="noopener" class="read">Ler na fonte →</a>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="data">
+        <a href="https://www.vice.com/en/article/take-two-ceo-confirms-gta-6-wont-be-delayed-again-and-teases-next-trailer-date/" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/yAi0MYo5Mzw/hq2.jpg')"><span class="chip">Take-Two</span></div></a>
+        <div class="body">
+          <h3>Zelnick em pessoa: Trailer 3 para o fim de junho/início de julho</h3>
+          <div class="meta">20 jun 2026 · VICE / Take-Two</div>
+          <p class="exc">O CEO da Take-Two, Strauss Zelnick, reafirmou que GTA VI não volta a atrasar e deu a entender que o próximo trailer chega no fim de junho ou começo de julho. Vento de feição para a malta que aposta no dia 25.</p>
+          <a href="https://www.vice.com/en/article/take-two-ceo-confirms-gta-6-wont-be-delayed-again-and-teases-next-trailer-date/" target="_blank" rel="noopener" class="read">Ler na fonte →</a>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="oficial">
+        <a href="https://gamerant.com/gta-6-missing-release-date-worry/" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/9zVIy_La7nk/maxresdefault.jpg')"><span class="chip">Site oficial</span></div></a>
+        <div class="body">
+          <h3>A data sumiu do site oficial — e a malta entrou em pânico</h3>
+          <div class="meta">20 jun 2026 · GameRant</div>
+          <p class="exc">Quem foi espreitar a página renovada de GTA VI reparou que o "19 de novembro" deixou de estar em destaque. Calma na alma: não há atraso nenhum — a data continua de pé, é só o site a vestir o fato novo para a campanha.</p>
+          <a href="https://gamerant.com/gta-6-missing-release-date-worry/" target="_blank" rel="noopener" class="read">Ler na fonte →</a>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="trailer">
+        <a href="https://beebom.com/we-get-a-new-look-at-vice-city-skyline-in-gta-6/" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/inQelDKULOQ/maxresdefault.jpg')"><span class="chip">Vice City</span></div></a>
+        <div class="body">
+          <h3>Novo olhar sobre o skyline de Vice City — magnífico</h3>
+          <div class="meta">20 jun 2026 · Beebom / GamingBible</div>
+          <p class="exc">Vê-se um pedaço enorme da cidade ao pôr-do-sol: arranha-céus, a roda-gigante, o porto e uma grua. Maior, mais densa e mais oitentista do que nunca — o maior mundo aberto da história da Rockstar.</p>
+          <a href="https://beebom.com/we-get-a-new-look-at-vice-city-skyline-in-gta-6/" target="_blank" rel="noopener" class="read">Ler na fonte →</a>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="data">
+        <a href="https://sundayguardianlive.com/tech-news/gta-6-news-is-gta-6-trailer-3-releasing-on-june-23-fans-expecting-major-announcement-as-rockstar-games-marketing-window-nears-take-two-interactive-208355/" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/9zVIy_La7nk/hq3.jpg')"><span class="chip">Contagem</span></div></a>
+        <div class="body">
+          <h3>Começa o verão, começa o marketing: olhos postos em 23–25 de junho</h3>
+          <div class="meta">20 jun 2026 · Sunday Guardian / Take-Two</div>
+          <p class="exc">A Take-Two prometeu arrancar a campanha no verão. Com o verão a abrir a 21 de junho e as pré-encomendas a 25, os fãs apontam o dia 23 para um anúncio grande — talvez o Trailer 3.</p>
+          <a href="https://sundayguardianlive.com/tech-news/gta-6-news-is-gta-6-trailer-3-releasing-on-june-23-fans-expecting-major-announcement-as-rockstar-games-marketing-window-nears-take-two-interactive-208355/" target="_blank" rel="noopener" class="read">Ler na fonte →</a>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="leak">
+        <a href="https://egw.news/gaming/news/35578/gta-6-trailer-3-is-rumored-to-be-20-minutes-long-a-9OdETRXvK" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/inQelDKULOQ/hq2.jpg')"><span class="chip breaking">Leak</span></div></a>
+        <div class="body">
+          <h3>Rumor: Trailer 3 com ~20 min a 25 de junho</h3>
+          <div class="meta">20 jun 2026 · EGW / DarkViperAU</div>
+          <p class="exc">Insiders apontam para um terceiro trailer extenso (cerca de 20 minutos) a estrear no mesmo dia das pré-encomendas, 25 de junho. Ainda não confirmado pela Rockstar.</p>
+          <a href="https://egw.news/gaming/news/35578/gta-6-trailer-3-is-rumored-to-be-20-minutes-long-a-9OdETRXvK" target="_blank" rel="noopener" class="read">Ler na fonte →</a>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="data">
+        <a href="https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/yAi0MYo5Mzw/maxresdefault.jpg')"><span class="chip breaking">Oficial</span></div></a>
+        <div class="body">
+          <h3>Rockstar confirma: GTA VI a 19 de novembro de 2026</h3>
+          <div class="meta">Rockstar Newswire</div>
+          <p class="exc">Anúncio oficial no Newswire: a data passou para 19 nov 2026 para um acabamento com o polimento esperado.</p>
+          <a href="https://www.rockstargames.com/newswire/article/ak3ak31a49a221/grand-theft-auto-vi-is-now-set-to-launch-november-19-2026" target="_blank" rel="noopener" class="read">Ler no Rockstar Newswire →</a>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="oficial">
+        <a href="https://www.gtaboom.com/gta-6-pre-orders-open-june-2026-cover-art-02c3" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/9zVIy_La7nk/hq2.jpg')"><span class="chip">Oficial</span></div></a>
+        <div class="body">
+          <h3>Pré-encomendas a 25 de junho + capa oficial revelada</h3>
+          <div class="meta">18 jun 2026 · GTABoom</div>
+          <p class="exc">Capa oficial com Jason, Lucia, Vice City e um jacaré. Pré-encomendas começam a 25 de junho.</p>
+          <a href="https://www.gtaboom.com/gta-6-pre-orders-open-june-2026-cover-art-02c3" target="_blank" rel="noopener" class="read">Ler na fonte →</a>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="oficial">
+        <a href="https://gamerant.com/grand-theft-auto-gta-6-collectors-edition-items-predictions/" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/inQelDKULOQ/hq3.jpg')"><span class="chip">Edições</span></div></a>
+        <div class="body">
+          <h3>Edições e preços: Standard, Deluxe e Collector's</h3>
+          <div class="meta">jun 2026 · GameRant</div>
+          <p class="exc">Standard ~$70-80, Deluxe com early access ao Online, e uma Collector's com steelbook, mapa e artbook (~$150-200).</p>
+          <a href="https://gamerant.com/grand-theft-auto-gta-6-collectors-edition-items-predictions/" target="_blank" rel="noopener" class="read">Ler na fonte →</a>
+        </div>
+      </article>
+
+      <!-- AD SLOT in-feed -->
+      <div class="adslot ad-card reveal" data-ad="infeed">
+        <span class="adtag">Publicidade</span>
+        <div class="adbig" data-i18n="ad_here">O teu anúncio aqui</div>
+        <div class="adsub" data-i18n="ad_infeed">Espaço AdSense in-feed · ganhas por cada visualização 👀</div>
+      </div>
+
+      <article class="card reveal" data-cat="trailer">
+        <a href="https://www.youtube.com/watch?v=yAi0MYo5Mzw" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/yAi0MYo5Mzw/hq1.jpg')"><span class="chip">Trailer</span></div></a>
+        <div class="body">
+          <h3>Trailer 2 faz 1 ano com ~165M de views</h3>
+          <div class="meta">mai 2026 · GTABoom</div>
+          <p class="exc">O maior lançamento de vídeo de sempre continua a bater recordes um ano depois da estreia.</p>
+          <a href="https://www.youtube.com/watch?v=yAi0MYo5Mzw" target="_blank" rel="noopener" class="read">Ver trailer →</a>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="oficial">
+        <a href="https://www.rockstargames.com/VI" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/inQelDKULOQ/hq1.jpg')"><span class="chip">Oficial</span></div></a>
+        <div class="body">
+          <h3>Página oficial de GTA VI na Rockstar</h3>
+          <div class="meta">Sempre atualizado · Rockstar Games</div>
+          <p class="exc">A fonte oficial: trailers, capturas e novidades em primeira mão diretamente da Rockstar.</p>
+          <a href="https://www.rockstargames.com/VI" target="_blank" rel="noopener" class="read">Abrir rockstargames.com/VI →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- AD BANNER -->
+<div class="container"><div class="adslot ad-banner" data-ad="banner">
+  <span class="adtag">Publicidade</span>
+  <div class="adbig">Banner · 728×90</div>
+  <div class="adsub" data-i18n="ad_banner">Pronto para Google AdSense — rende por impressão</div>
+</div></div>
+
+<!-- CLIPS / SHORTS -->
+<section id="clips">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="k" data-i18n="clips_k">A Bombar 🔥</div>
+      <h2 data-i18n="clips_h">Clips & Shorts</h2>
+      <p data-i18n="clips_p">Os vídeos curtos de GTA 6 que estão a dar que falar. Carrega para ver.</p>
+    </div>
+    <div class="clip-grid">
+      <div class="clip reveal" onclick="playVid('yAi0MYo5Mzw',true)">
+        <img src="https://img.youtube.com/vi/yAi0MYo5Mzw/maxresdefault.jpg" loading="lazy" alt="clip">
+        <div class="ov"><span class="fire">🔥 165M</span><div class="play2">▶</div><div><small>VICE CITY</small><br><b>Trailer 2 — momentos virais</b></div></div>
+      </div>
+      <div class="clip reveal" onclick="playVid('inQelDKULOQ',true)">
+        <img src="https://img.youtube.com/vi/inQelDKULOQ/maxresdefault.jpg" loading="lazy" alt="clip">
+        <div class="ov"><span class="fire">🔥 200M+</span><div class="play2">▶</div><div><small>REVEAL</small><br><b>O trailer que parou a internet</b></div></div>
+      </div>
+      <div class="clip reveal" onclick="playVid('9zVIy_La7nk',true)">
+        <img src="https://img.youtube.com/vi/9zVIy_La7nk/maxresdefault.jpg" loading="lazy" alt="clip">
+        <div class="ov"><span class="fire">🔥 Tech</span><div class="play2">▶</div><div><small>ANÁLISE</small><br><b>Tech Breakdown do realismo</b></div></div>
+      </div>
+      <div class="clip reveal" onclick="playVid('9zVIy_La7nk',true)">
+        <img src="https://img.youtube.com/vi/9zVIy_La7nk/hq2.jpg" loading="lazy" alt="clip">
+        <div class="ov"><span class="fire">🔥 Viral</span><div class="play2">▶</div><div><small>LUCIA & JASON</small><br><b>Detalhes que ninguém viu</b></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAILERS -->
+<section id="trailers">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="k" data-i18n="tr_k">Vê em grande</div>
+      <h2 data-i18n="tr_h">Trailers Oficiais</h2>
+      <p data-i18n="tr_p">Os trailers reais da Rockstar, aqui mesmo no site.</p>
+    </div>
+    <div class="trailer-grid">
+      <div class="trailer reveal" onclick="playVid('inQelDKULOQ')">
+        <img src="https://img.youtube.com/vi/inQelDKULOQ/maxresdefault.jpg" alt="GTA VI Trailer 1" loading="lazy">
+        <div class="play"><span>▶</span></div>
+        <div class="cap"><small>DEZ 2023</small><b>Trailer 1 — Reveal Oficial</b></div>
+      </div>
+      <div class="trailer reveal" onclick="playVid('yAi0MYo5Mzw')">
+        <img src="https://img.youtube.com/vi/yAi0MYo5Mzw/maxresdefault.jpg" alt="GTA VI Trailer 2" loading="lazy">
+        <div class="play"><span>▶</span></div>
+        <div class="cap"><small>MAI 2025</small><b>Trailer 2 — Vice City</b></div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:24px" class="reveal">
+      <a href="https://www.youtube.com/playlist?list=PLRl-GW89Gbw_JgV-0udGrvAMSxv3EHGvR" target="_blank" rel="noopener" class="btn btn-ghost">Playlist oficial no YouTube ↗</a>
+    </p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="k" data-i18n="gal_k">Vice City em imagens</div>
+      <h2 data-i18n="gal_h">Galeria</h2>
+      <p data-i18n="gal_p">Frames reais dos trailers oficiais. Carrega para ampliar.</p>
+    </div>
+    <div class="gallery">
+      <div class="shot reveal" onclick="showImg('https://img.youtube.com/vi/yAi0MYo5Mzw/maxresdefault.jpg')"><img src="https://img.youtube.com/vi/yAi0MYo5Mzw/hq1.jpg" loading="lazy" alt="GTA VI"></div>
+      <div class="shot reveal" onclick="showImg('https://img.youtube.com/vi/inQelDKULOQ/maxresdefault.jpg')"><img src="https://img.youtube.com/vi/inQelDKULOQ/hq2.jpg" loading="lazy" alt="GTA VI"></div>
+      <div class="shot reveal" onclick="showImg('https://img.youtube.com/vi/9zVIy_La7nk/maxresdefault.jpg')"><img src="https://img.youtube.com/vi/9zVIy_La7nk/hq3.jpg" loading="lazy" alt="GTA VI"></div>
+      <div class="shot reveal" onclick="showImg('https://img.youtube.com/vi/yAi0MYo5Mzw/maxresdefault.jpg')"><img src="https://img.youtube.com/vi/yAi0MYo5Mzw/hq2.jpg" loading="lazy" alt="GTA VI"></div>
+      <div class="shot reveal" onclick="showImg('https://img.youtube.com/vi/inQelDKULOQ/maxresdefault.jpg')"><img src="https://img.youtube.com/vi/inQelDKULOQ/hq3.jpg" loading="lazy" alt="GTA VI"></div>
+      <div class="shot reveal" onclick="showImg('https://img.youtube.com/vi/9zVIy_La7nk/maxresdefault.jpg')"><img src="https://img.youtube.com/vi/9zVIy_La7nk/hq1.jpg" loading="lazy" alt="GTA VI"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section id="tips">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="k" data-i18n="tips_k">Guia de Sobrevivência</div>
+      <h2 data-i18n="tips_h">Tips & Dicas de Dinheiro</h2>
+      <p data-i18n="tips_p">As dicas com 🔒 são exclusivas dos membros VIP.</p>
+    </div>
+    <div class="tips-grid">
+      <div class="tip reveal"><div class="ic">💸</div><h3>Faz dinheiro cedo</h3><p>As primeiras missões de entregas e os pequenos assaltos dão o capital inicial para investir.</p></div>
+      <div class="tip reveal"><div class="ic">🚗</div><h3>Guarda a tua garagem</h3><p>Estaciona em zonas seguras e usa garagens para não perder os carros raros que apanhas.</p></div>
+      <div class="tip reveal"><div class="ic">⭐</div><h3>Gere o nível de procura</h3><p>Muda de roupa e de veículo para despistar a polícia mais depressa nas perseguições.</p></div>
+      <div class="tip reveal vip-lock"><span class="vip-ribbon">VIP</span><div class="ic">🔓</div><h3>Rota secreta de dinheiro</h3><p data-lock="Um circuito de investimentos que multiplica o teu saldo na primeira semana..." data-unlock="Compra a loja de penhores em Little Havana logo no início, revende as joias das missões e reinveste em imóveis de Ocean Beach — o aluguer paga-se sozinho e dá saldo passivo todas as semanas.">Um circuito de investimentos que multiplica o teu saldo na primeira semana...</p><span class="lock" onclick="goVip()">🔒 Conteúdo VIP</span></div>
+      <div class="tip reveal vip-lock"><span class="vip-ribbon">VIP</span><div class="ic">🏝️</div><h3>Localizações secretas</h3><p data-lock="Easter eggs, caches escondidas e armas raras mapeadas pela comunidade..." data-unlock="A cache do farol dos Everglades tem dinheiro + uma arma rara; o jacaré dourado aparece de madrugada na doca sul; e há um carro escondido na garagem abandonada a norte de Vice City Centro.">Easter eggs, caches escondidas e armas raras mapeadas pela comunidade...</p><span class="lock" onclick="goVip()">🔒 Conteúdo VIP</span></div>
+      <div class="tip reveal vip-lock"><span class="vip-ribbon">VIP</span><div class="ic">📈</div><h3>Build de stats óptima</h3><p data-lock="A ordem certa para subir força, stamina e pontaria sem perder tempo..." data-unlock="Sobe primeiro Stamina (corre/nada), depois Força em lutas, e Pontaria por último no campo de tiro. Assim aguentas as perseguições cedo e a mira fica afinada quando já tens dinheiro para armas boas.">A ordem certa para subir força, stamina e pontaria sem perder tempo...</p><span class="lock" onclick="goVip()">🔒 Conteúdo VIP</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CARS -->
+<section id="cars">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="k" data-i18n="cars_k">Garagem</div>
+      <h2 data-i18n="cars_h">Carros de Vice City</h2>
+      <p data-i18n="cars_p">Stats baseados em leaks da comunidade.</p>
+    </div>
+    <div class="car-grid">
+      <div class="car reveal"><div class="pic grad-1">🏎️</div><div class="info"><h3>Declasse Vigero</h3><div class="class">Muscle · Clássico</div>
+        <div class="stat"><div class="row"><span>Velocidade</span><span>82</span></div><div class="bar"><i data-w="82"></i></div></div>
+        <div class="stat"><div class="row"><span>Aceleração</span><span>74</span></div><div class="bar"><i data-w="74"></i></div></div>
+        <div class="stat"><div class="row"><span>Travagem</span><span>60</span></div><div class="bar"><i data-w="60"></i></div></div></div></div>
+      <div class="car reveal"><div class="pic grad-2">🚙</div><div class="info"><h3>Pfister Comet</h3><div class="class">Sports · Premium</div>
+        <div class="stat"><div class="row"><span>Velocidade</span><span>91</span></div><div class="bar"><i data-w="91"></i></div></div>
+        <div class="stat"><div class="row"><span>Aceleração</span><span>88</span></div><div class="bar"><i data-w="88"></i></div></div>
+        <div class="stat"><div class="row"><span>Travagem</span><span>79</span></div><div class="bar"><i data-w="79"></i></div></div></div></div>
+      <div class="car reveal"><div class="pic grad-3">🏍️</div><div class="info"><h3>Western Bagger</h3><div class="class">Mota · Cruiser</div>
+        <div class="stat"><div class="row"><span>Velocidade</span><span>77</span></div><div class="bar"><i data-w="77"></i></div></div>
+        <div class="stat"><div class="row"><span>Aceleração</span><span>85</span></div><div class="bar"><i data-w="85"></i></div></div>
+        <div class="stat"><div class="row"><span>Travagem</span><span>55</span></div><div class="bar"><i data-w="55"></i></div></div></div></div>
+      <div class="car reveal"><div class="pic grad-4">🚓</div><div class="info"><h3>Bravado Buffalo</h3><div class="class">Muscle · Versátil</div>
+        <div class="stat"><div class="row"><span>Velocidade</span><span>80</span></div><div class="bar"><i data-w="80"></i></div></div>
+        <div class="stat"><div class="row"><span>Aceleração</span><span>83</span></div><div class="bar"><i data-w="83"></i></div></div>
+        <div class="stat"><div class="row"><span>Travagem</span><span>70</span></div><div class="bar"><i data-w="70"></i></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section id="map">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="k" data-i18n="map_k">Estado de Leonida</div>
+      <h2 data-i18n="map_h">Mapa Interativo</h2>
+      <p data-i18n="map_p">As localizações ★ secretas são exclusivas VIP.</p>
+    </div>
+    <div class="map-wrap reveal">
+      <div class="map-canvas">
+        <div class="water"></div>
+        <div class="pin" style="left:30%;top:35%"><div class="dot">📍</div><span class="name">Vice City Centro</span></div>
+        <div class="pin" style="left:55%;top:28%"><div class="dot">🏖️</div><span class="name">Ocean Beach</span></div>
+        <div class="pin" style="left:72%;top:50%"><div class="dot">🐊</div><span class="name">Everglades</span></div>
+        <div class="pin" style="left:42%;top:62%"><div class="dot">🏘️</div><span class="name">Little Havana</span></div>
+        <div class="pin" style="left:20%;top:58%"><div class="dot">🏭</div><span class="name">Zona Industrial</span></div>
+        <div class="pin vip" style="left:62%;top:72%" onclick="vipPin()"><div class="dot">⭐</div><span class="name">Cache secreta 🔒</span></div>
+        <div class="pin vip" style="left:84%;top:30%" onclick="vipPin()"><div class="dot">⭐</div><span class="name">Garagem rara 🔒</span></div>
+      </div>
+    </div>
+    <div class="map-legend">
+      <span>📍 Zonas</span><span>🏖️ Praias</span><span>🐊 Natureza</span><span style="color:var(--gold)">⭐ VIP</span>
+    </div>
+  </div>
+</section>
+
+<!-- COMUNIDADE VIP -->
+<section id="comunidade">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="k" data-i18n="comm_k">Zona de Membros</div>
+      <h2 data-i18n="comm_h">Comunidade VIP</h2>
+      <p data-i18n="comm_p">O mural privado dos membros VIP — partilha teorias, clips e leaks aqui mesmo no site.</p>
+    </div>
+    <div class="comm-wrap reveal">
+      <div class="comm-head"><span class="gold-badge">⭐ VIP</span> <b style="color:var(--gold)">Mural da Comunidade</b></div>
+      <!-- bloqueado (não-VIP) -->
+      <div id="commLocked">
+        <div class="comm-preview">
+          <div class="feed-post"><div class="pav">M</div><div><div class="pmeta"><b>MiamiVice</b> · há 5 min</div><div class="ptext">Alguém viu o detalhe do reflexo nas montras no Trailer 2?? 🤯</div></div></div>
+          <div class="feed-post"><div class="pav">L</div><div><div class="pmeta"><b>LuciaFan</b> · há 12 min</div><div class="ptext">A minha teoria sobre os assaltos a dois...</div></div></div>
+        </div>
+        <div class="comm-locked">
+          <div class="big">🔒</div>
+          <h3 data-i18n="comm_locked_h">Mural exclusivo para VIP</h3>
+          <p data-i18n="comm_locked_p">Torna-te VIP para entrares no mural, publicar e ver tudo o que a comunidade partilha.</p>
+          <button class="btn btn-vip" onclick="goVip()" data-i18n="comm_unlock_btn">Desbloquear com VIP ★</button>
+        </div>
+      </div>
+      <!-- desbloqueado (VIP) -->
+      <div id="commUnlocked" style="display:none">
+        <div class="comm-bar">
+          <div class="comm-tabs" id="commTabs">
+            <button class="active" data-ch="geral">💬 Geral</button>
+            <button data-ch="leaks">🕵️ Leaks</button>
+            <button data-ch="teorias">🧠 Teorias</button>
+            <button data-ch="clips">🎬 Clips</button>
+            <button data-ch="sondagens">📊 Sondagens</button>
+          </div>
+          <span class="comm-online">🟢 <b id="commOnline">—</b> online</span>
+        </div>
+        <div id="composerWrap"></div>
+        <div id="commFeed"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREMIUM -->
+<section id="premium">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="k" data-i18n="prem_k">Vice News VIP</div>
+      <h2 data-i18n="prem_h">Torna-te Premium</h2>
+      <p data-i18n="prem_p">Sem anúncios, acesso antecipado e a comunidade VIP. Apoia o site e joga melhor.</p>
+    </div>
+    <div class="price-grid">
+      <div class="plan reveal">
+        <h3>Free</h3>
+        <div class="desc" data-i18n="plan_free_d">Para começar a explorar Leonida.</div>
+        <div class="price">€0<small>/sempre</small></div>
+        <ul>
+          <li>Novidades, clips e galeria</li><li>Tips básicas</li><li>Mapa público</li>
+          <li class="off">Sem anúncios</li><li class="off">Early access</li><li class="off">Comunidade VIP</li>
+        </ul>
+        <button class="btn btn-ghost" onclick="modal('🎉','Free','Estás no plano Free. Faz upgrade para VIP quando quiseres.')" data-i18n="plan_free_btn">Plano atual</button>
+      </div>
+      <div class="plan pop reveal">
+        <span class="badge">⭐ Mais popular</span>
+        <h3>VIP Mensal</h3>
+        <div class="desc" data-i18n="plan_m_d">A experiência completa, mensal.</div>
+        <div class="price">€4,99<small>/mês</small></div>
+        <ul>
+          <li>🚫 <b>Zero anúncios</b></li><li>⚡ <b>Early access</b> a novidades</li>
+          <li>💬 Comunidade VIP no site + Discord</li><li>🔓 Tips e rotas secretas</li>
+          <li>⭐ Localizações VIP no mapa</li><li>📈 Builds de stats óptimas</li>
+        </ul>
+        <button class="btn btn-vip" onclick="checkout('VIP Mensal','€4,99/mês')">Subscrever ★</button>
+      </div>
+      <div class="plan reveal">
+        <h3>VIP Anual</h3>
+        <div class="desc" data-i18n="plan_y_d">Poupa 2 meses.</div>
+        <div class="price">€49,99<small>/ano</small></div>
+        <ul>
+          <li>Tudo do VIP Mensal</li><li>💰 <b>2 meses grátis</b></li><li>🏆 Badge "Founder"</li>
+          <li>🎁 Sorteios mensais</li><li>📨 Newsletter VIP</li><li>🥇 Suporte prioritário</li>
+        </ul>
+        <button class="btn btn-vip" onclick="checkout('VIP Anual','€49,99/ano')">Subscrever ★</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCORD -->
+<section id="discord">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="k" data-i18n="dc_k">Comunidade</div>
+      <h2 data-i18n="dc_h">Servidor de Discord</h2>
+      <p data-i18n="dc_p">Leaks em primeira mão, canais VIP e eventos.</p>
+    </div>
+    <div class="discord-card reveal">
+      <h3>🎮 Vice News — GTA 6</h3>
+      <p data-i18n="dc_card">Notícias instantâneas, clips, canais só para VIP e a comunidade mais ativa de GTA 6 em português.</p>
+      <div class="stats">
+        <div><div class="n" id="dcMembers">1 240</div><div class="l" data-i18n="dc_members">Membros</div></div>
+        <div><div class="n" id="dcOnline">312</div><div class="l" data-i18n="dc_online">Online</div></div>
+        <div><div class="n">9</div><div class="l" data-i18n="dc_channels">Canais</div></div>
+      </div>
+      <a href="https://discord.gg/XF5aAHfXhw" target="_blank" rel="noopener" class="btn btn-discord" data-i18n="dc_join">Entrar no Discord ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="logo">VICE<span style="color:var(--pink)">NEWS</span></div>
+    <div class="foot-links">
+      <a href="#news" data-i18n="nav_news">Novidades</a><a href="#clips" data-i18n="nav_clips">A Bombar</a><a href="#trailers" data-i18n="nav_trailers">Trailers</a>
+      <a href="#comunidade" data-i18n="nav_community">Comunidade</a><a href="#premium" data-i18n="nav_premium">Premium</a><a href="#discord">Discord</a>
+    </div>
+    <div class="foot-links" style="margin-top:0">
+      <a href="sobre.html" data-i18n="nav_about">Sobre</a><a href="guia-dinheiro.html">Guia de Dinheiro</a><a href="guia-iniciante.html">Guia de Iniciante</a><a href="privacy.html" data-i18n="nav_privacy">Política de Privacidade</a>
+    </div>
+    <p data-i18n="foot_made">© 2026 Vice News — feito por fãs, para fãs. 🌴</p>
+    <p class="disclaimer">Site não oficial de fãs. Não afiliado nem endossado pela Rockstar Games ou Take-Two Interactive. "GTA", "Grand Theft Auto" e "Vice City" são marcas dos respetivos donos. Imagens/vídeos pertencem à Rockstar Games e são apresentados a partir de fontes oficiais (YouTube/Newswire) para fins informativos.</p>
+  </div>
+</footer>
+
+<!-- SIDE ADS (desktop largo) -->
+<div class="adslot ad-side left" data-ad="side"><span class="adtag">Ad</span><div class="adsub">160×600<br>AdSense</div></div>
+<div class="adslot ad-side right" data-ad="side"><span class="adtag">Ad</span><div class="adsub">160×600<br>AdSense</div></div>
+
+<!-- STICKY BOTTOM AD (sempre presente) -->
+<div class="sticky-ad" id="stickyAd">
+  <span class="stag">Publicidade</span>
+  <div class="smsg" data-i18n="sticky_msg">📢 Anúncio sempre presente — cada segundo rende. <b>O teu banner AdSense aqui.</b></div>
+  <span class="svip" onclick="goVip()" data-i18n="sticky_vip">Remover com VIP ★</span>
+  <button class="sclose" onclick="document.getElementById('stickyAd').style.display='none'">✕</button>
+</div>
+
+<!-- ENTRY INTERSTITIAL -->
+<div class="interstitial" id="inter">
+  <div class="inter-box">
+    <button class="inter-close" id="interClose" onclick="closeInter()" disabled>✕</button>
+    <div class="adslot inter-ad" data-ad="interstitial">
+      <span class="adtag">Publicidade</span>
+      <div class="adbig" data-i18n="ad_welcome">Anúncio de boas-vindas</div>
+      <div class="adsub" data-i18n="ad_welcome_sub">Espaço AdSense de entrada · cada visita conta 💰</div>
+    </div>
+    <div class="inter-skip"><span data-i18n="inter_skip">Podes fechar em</span> <b id="interCd">5</b>s &nbsp;·&nbsp; <span style="cursor:pointer;text-decoration:underline" onclick="goVip()" data-i18n="inter_remove">Remover anúncios com VIP</span></div>
+  </div>
+</div>
+
+<!-- AUTH DROPDOWN -->
+<div class="dropdown" id="dropdown"></div>
+
+<!-- AUTH MODAL -->
+<div class="modal" id="authModal">
+  <div class="modal-box" style="border-color:var(--cyan);max-width:420px">
+    <div class="em">🔐</div>
+    <h3 id="authTitle" data-i18n="auth_login">Entrar na Vice News</h3>
+    <div class="social">
+      <button class="s-google" onclick="socialLogin('google')"><span style="font-weight:900">G</span> <span data-i18n="auth_google">Continuar com Google</span></button>
+      <button class="s-fb" onclick="socialLogin('facebook')">f <span data-i18n="auth_fb">Continuar com Facebook</span></button>
+      <button class="s-discord" onclick="socialLogin('discord')">🎮 <span data-i18n="auth_discord">Continuar com Discord</span></button>
+    </div>
+    <div class="divider" data-i18n="auth_or">ou com email</div>
+    <div class="auth-tabs">
+      <button id="tabLogin" class="active" onclick="authTab('login')" data-i18n="auth_tab_login">Entrar</button>
+      <button id="tabSignup" onclick="authTab('signup')" data-i18n="auth_tab_signup">Criar conta</button>
+    </div>
+    <div class="auth-form">
+      <div id="nameWrap" style="display:none"><label><span data-i18n="auth_name">Nome</span><input id="auName" type="text" placeholder="O teu nome" autocomplete="name"></label></div>
+      <label><span data-i18n="auth_email">Email</span><input id="auEmail" type="email" placeholder="email@exemplo.com" autocomplete="email"></label>
+      <label><span data-i18n="auth_pass">Password</span><input id="auPass" type="password" placeholder="••••••••" autocomplete="current-password"></label>
+      <div class="auth-err" id="authErr"></div>
+      <button class="btn btn-vip" style="width:100%" onclick="authSubmit()" id="authBtn" data-i18n="auth_tab_login">Entrar</button>
+    </div>
+    <div class="close" onclick="closeAuth()" data-i18n="cancel">cancelar</div>
+  </div>
+</div>
+
+<!-- OWNER EARNINGS -->
+<button class="owner-fab" onclick="openEarn()">💰 <span data-i18n="earn_fab">Ganhos</span></button>
+<div class="earn-modal" id="earnModal">
+  <div class="earn-box">
+    <h3 data-i18n="earn_title">💰 Painel de Ganhos (simulação)</h3>
+    <div class="muted" data-i18n="earn_sub">Estimativa em tempo real — publicidade + subscrições VIP. Valores fictícios para demonstração.</div>
+    <div class="earn-total"><div class="v" id="eTotal">€0,00</div><div class="earn-note" data-i18n="earn_total">Receita estimada este mês</div></div>
+    <div class="earn-grid">
+      <div class="earn-cell"><div class="v" id="eViews">0</div><div class="k2" data-i18n="earn_views">Visualizações de anúncios</div></div>
+      <div class="earn-cell"><div class="v" id="eAdRev">€0,00</div><div class="k2" data-i18n="earn_adrev">Receita de anúncios (CPM €2,80)</div></div>
+      <div class="earn-cell"><div class="v" id="eSubs">0</div><div class="k2" data-i18n="earn_subs">Subscritores VIP</div></div>
+      <div class="earn-cell"><div class="v" id="eSubRev">€0,00</div><div class="k2" data-i18n="earn_subrev">Receita VIP (MRR)</div></div>
+    </div>
+    <div class="earn-note" data-i18n="earn_note">Cada view de anúncio acrescenta receita. Liga AdSense + Stripe e hospeda o site para passar a real.</div>
+    <div class="close" onclick="closeEarn()" data-i18n="close">fechar</div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <div class="em" id="mEm">★</div>
+    <h3 id="mTitle">Título</h3>
+    <p id="mText">Texto</p>
+    <button class="btn btn-vip" onclick="closeModal()" style="width:100%" data-i18n="close_btn">Fechar</button>
+    <div class="close" onclick="closeModal()" data-i18n="cancel">cancelar</div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <div class="lb-inner" id="lbInner">
+    <button class="lb-close" onclick="closeLb()">✕</button>
+    <div class="frame" id="lbFrame"></div>
+  </div>
+</div>
+
+<script>
+/* ============ I18N ============ */
+const I18N={
+ pt:{nav_news:"Novidades",nav_clips:"A Bombar",nav_trailers:"Trailers",nav_tips:"Tips",nav_cars:"Carros",nav_map:"Mapa",nav_community:"Comunidade",nav_premium:"Premium",
+   hero_tag:"⚡ O teu hub nº1 de Vice City",hero_sub:"Novidades, leaks, trailers, clips a bombar, tips, carros e o mapa de Leonida — direto das ruas neon de Vice City.",hero_clips:"🔥 Ver Clips",hero_vip:"Tornar-me VIP ★",
+   cd_title:"⏳ Contagem decrescente — 19 nov 2026",cd_d:"Dias",cd_h:"Horas",cd_m:"Min",cd_s:"Seg",
+   mb_pre:"Bem-vindo de volta,",mb_post:"Estás no clube VIP — sem anúncios, early access e tudo desbloqueado. ⭐",
+   news_k:"Última Hora",news_h:"Novidades & Leaks",news_p:"Notícias com links diretos para a fonte. As importantes saem na hora; as de rotina, todas as manhãs.",
+   f_all:"Tudo",f_official:"Oficial",f_leak:"Leaks",f_trailer:"Trailers",f_data:"Datas",
+   clips_k:"A Bombar 🔥",clips_h:"Clips & Shorts",clips_p:"Os vídeos curtos de GTA 6 que estão a dar que falar. Carrega para ver.",
+   tr_k:"Vê em grande",tr_h:"Trailers Oficiais",tr_p:"Os trailers reais da Rockstar, aqui mesmo no site.",
+   gal_k:"Vice City em imagens",gal_h:"Galeria",gal_p:"Frames reais dos trailers oficiais. Carrega para ampliar.",
+   tips_k:"Guia de Sobrevivência",tips_h:"Tips & Dicas de Dinheiro",tips_p:"As dicas com 🔒 são exclusivas dos membros VIP.",
+   cars_k:"Garagem",cars_h:"Carros de Vice City",cars_p:"Stats baseados em leaks da comunidade.",
+   map_k:"Estado de Leonida",map_h:"Mapa Interativo",map_p:"As localizações ★ secretas são exclusivas VIP.",
+   comm_k:"Zona de Membros",comm_h:"Comunidade VIP",comm_p:"O mural privado dos membros VIP — partilha teorias, clips e leaks aqui mesmo no site.",
+   comm_locked_h:"Mural exclusivo para VIP",comm_locked_p:"Torna-te VIP para entrares no mural, publicar e ver tudo o que a comunidade partilha.",comm_unlock_btn:"Desbloquear com VIP ★",comm_ph:"Partilha algo com a comunidade VIP...",
+   prem_k:"Vice News VIP",prem_h:"Torna-te Premium",prem_p:"Sem anúncios, acesso antecipado e a comunidade VIP. Apoia o site e joga melhor.",
+   plan_free_d:"Para começar a explorar Leonida.",plan_free_btn:"Plano atual",plan_m_d:"A experiência completa, mensal.",plan_y_d:"Poupa 2 meses.",
+   dc_k:"Comunidade",dc_h:"Servidor de Discord",dc_p:"Leaks em primeira mão, canais VIP e eventos.",dc_card:"Notícias instantâneas, clips, canais só para VIP e a comunidade mais ativa de GTA 6 em português.",dc_members:"Membros",dc_online:"Online",dc_channels:"Canais",dc_join:"Entrar no Discord ↗",
+   nav_about:"Sobre",nav_privacy:"Política de Privacidade",foot_made:"© 2026 Vice News — feito por fãs, para fãs. 🌴",
+   ad_here:"O teu anúncio aqui",ad_infeed:"Espaço AdSense in-feed · ganhas por cada visualização 👀",ad_banner:"Pronto para Google AdSense — rende por impressão",ad_welcome:"Anúncio de boas-vindas",ad_welcome_sub:"Espaço AdSense de entrada · cada visita conta 💰",
+   sticky_msg:"📢 Anúncio sempre presente — cada segundo rende. O teu banner AdSense aqui.",sticky_vip:"Remover com VIP ★",
+   inter_skip:"Podes fechar em",inter_remove:"Remover anúncios com VIP",
+   auth_login:"Entrar na Vice News",auth_google:"Continuar com Google",auth_fb:"Continuar com Facebook",auth_discord:"Continuar com Discord",auth_or:"ou com email",auth_tab_login:"Entrar",auth_tab_signup:"Criar conta",auth_name:"Nome",auth_email:"Email",auth_pass:"Password",cancel:"cancelar",
+   earn_fab:"Ganhos",earn_title:"💰 Painel de Ganhos (simulação)",earn_sub:"Estimativa em tempo real — publicidade + subscrições VIP. Valores fictícios para demonstração.",earn_total:"Receita estimada este mês",earn_views:"Visualizações de anúncios",earn_adrev:"Receita de anúncios (CPM €2,80)",earn_subs:"Subscritores VIP",earn_subrev:"Receita VIP (MRR)",earn_note:"Cada view de anúncio acrescenta receita. Liga AdSense + Stripe e hospeda o site para passar a real.",close:"fechar",close_btn:"Fechar",login_btn:"Entrar / Registar"},
+ en:{nav_news:"News",nav_clips:"Trending",nav_trailers:"Trailers",nav_tips:"Tips",nav_cars:"Cars",nav_map:"Map",nav_community:"Community",nav_premium:"Premium",
+   hero_tag:"⚡ Your #1 Vice City hub",hero_sub:"News, leaks, trailers, trending clips, tips, cars and the map of Leonida — straight from the neon streets of Vice City.",hero_clips:"🔥 Watch Clips",hero_vip:"Become VIP ★",
+   cd_title:"⏳ Countdown — Nov 19, 2026",cd_d:"Days",cd_h:"Hours",cd_m:"Min",cd_s:"Sec",
+   mb_pre:"Welcome back,",mb_post:"You're in the VIP club — no ads, early access and everything unlocked. ⭐",
+   news_k:"Breaking",news_h:"News & Leaks",news_p:"News with direct links to the source. Big stories drop instantly; routine ones every morning.",
+   f_all:"All",f_official:"Official",f_leak:"Leaks",f_trailer:"Trailers",f_data:"Dates",
+   clips_k:"Trending 🔥",clips_h:"Clips & Shorts",clips_p:"The short GTA 6 videos everyone's talking about. Tap to watch.",
+   tr_k:"Watch big",tr_h:"Official Trailers",tr_p:"The real Rockstar trailers, right here.",
+   gal_k:"Vice City in pictures",gal_h:"Gallery",gal_p:"Real frames from the official trailers. Tap to enlarge.",
+   tips_k:"Survival Guide",tips_h:"Tips & Money",tips_p:"Tips marked 🔒 are exclusive to VIP members.",
+   cars_k:"Garage",cars_h:"Vice City Cars",cars_p:"Stats based on community leaks.",
+   map_k:"State of Leonida",map_h:"Interactive Map",map_p:"★ secret locations are VIP-only.",
+   comm_k:"Members Area",comm_h:"VIP Community",comm_p:"The private wall for VIP members — share theories, clips and leaks right here.",
+   comm_locked_h:"VIP-only wall",comm_locked_p:"Become VIP to join the wall, post and see everything the community shares.",comm_unlock_btn:"Unlock with VIP ★",comm_ph:"Share something with the VIP community...",
+   prem_k:"Vice News VIP",prem_h:"Go Premium",prem_p:"No ads, early access and the VIP community. Support the site and play better.",
+   plan_free_d:"To start exploring Leonida.",plan_free_btn:"Current plan",plan_m_d:"The full experience, monthly.",plan_y_d:"Save 2 months.",
+   dc_k:"Community",dc_h:"Discord Server",dc_p:"First-hand leaks, VIP channels and events.",dc_card:"Instant news, clips, VIP-only channels and the most active GTA 6 community.",dc_members:"Members",dc_online:"Online",dc_channels:"Channels",dc_join:"Join Discord ↗",
+   nav_about:"About",nav_privacy:"Privacy Policy",foot_made:"© 2026 Vice News — by fans, for fans. 🌴",
+   ad_here:"Your ad here",ad_infeed:"In-feed AdSense slot · you earn per view 👀",ad_banner:"Ready for Google AdSense — earns per impression",ad_welcome:"Welcome ad",ad_welcome_sub:"Entry AdSense slot · every visit counts 💰",
+   sticky_msg:"📢 Always-on ad — every second earns. Your AdSense banner here.",sticky_vip:"Remove with VIP ★",
+   inter_skip:"You can close in",inter_remove:"Remove ads with VIP",
+   auth_login:"Sign in to Vice News",auth_google:"Continue with Google",auth_fb:"Continue with Facebook",auth_discord:"Continue with Discord",auth_or:"or with email",auth_tab_login:"Sign in",auth_tab_signup:"Sign up",auth_name:"Name",auth_email:"Email",auth_pass:"Password",cancel:"cancel",
+   earn_fab:"Earnings",earn_title:"💰 Earnings panel (simulation)",earn_sub:"Real-time estimate — ads + VIP subscriptions. Fictional demo values.",earn_total:"Estimated revenue this month",earn_views:"Ad views",earn_adrev:"Ad revenue (CPM €2.80)",earn_subs:"VIP subscribers",earn_subrev:"VIP revenue (MRR)",earn_note:"Each ad view adds revenue. Connect AdSense + Stripe and host the site to go real.",close:"close",close_btn:"Close",login_btn:"Sign in / Sign up"},
+ es:{nav_news:"Noticias",nav_clips:"Tendencia",nav_trailers:"Trailers",nav_tips:"Tips",nav_cars:"Coches",nav_map:"Mapa",nav_community:"Comunidad",nav_premium:"Premium",
+   hero_tag:"⚡ Tu hub nº1 de Vice City",hero_sub:"Noticias, leaks, trailers, clips virales, tips, coches y el mapa de Leonida — directo de las calles neón de Vice City.",hero_clips:"🔥 Ver Clips",hero_vip:"Hazte VIP ★",
+   cd_title:"⏳ Cuenta atrás — 19 nov 2026",cd_d:"Días",cd_h:"Horas",cd_m:"Min",cd_s:"Seg",
+   mb_pre:"Bienvenido de nuevo,",mb_post:"Estás en el club VIP — sin anuncios, acceso anticipado y todo desbloqueado. ⭐",
+   news_k:"Última Hora",news_h:"Noticias & Leaks",news_p:"Noticias con enlaces directos a la fuente. Las importantes salen al momento; las de rutina, cada mañana.",
+   f_all:"Todo",f_official:"Oficial",f_leak:"Leaks",f_trailer:"Trailers",f_data:"Fechas",
+   clips_k:"Tendencia 🔥",clips_h:"Clips & Shorts",clips_p:"Los vídeos cortos de GTA 6 de los que todos hablan. Toca para ver.",
+   tr_k:"Míralo en grande",tr_h:"Trailers Oficiales",tr_p:"Los trailers reales de Rockstar, aquí mismo.",
+   gal_k:"Vice City en imágenes",gal_h:"Galería",gal_p:"Frames reales de los trailers oficiales. Toca para ampliar.",
+   tips_k:"Guía de Supervivencia",tips_h:"Tips & Dinero",tips_p:"Los tips con 🔒 son exclusivos de miembros VIP.",
+   cars_k:"Garaje",cars_h:"Coches de Vice City",cars_p:"Stats basados en leaks de la comunidad.",
+   map_k:"Estado de Leonida",map_h:"Mapa Interactivo",map_p:"Las ubicaciones ★ secretas son solo VIP.",
+   comm_k:"Zona de Miembros",comm_h:"Comunidad VIP",comm_p:"El muro privado de los miembros VIP — comparte teorías, clips y leaks aquí mismo.",
+   comm_locked_h:"Muro solo para VIP",comm_locked_p:"Hazte VIP para entrar en el muro, publicar y ver todo lo que comparte la comunidad.",comm_unlock_btn:"Desbloquear con VIP ★",comm_ph:"Comparte algo con la comunidad VIP...",
+   prem_k:"Vice News VIP",prem_h:"Hazte Premium",prem_p:"Sin anuncios, acceso anticipado y la comunidad VIP. Apoya el sitio y juega mejor.",
+   plan_free_d:"Para empezar a explorar Leonida.",plan_free_btn:"Plan actual",plan_m_d:"La experiencia completa, mensual.",plan_y_d:"Ahorra 2 meses.",
+   dc_k:"Comunidad",dc_h:"Servidor de Discord",dc_p:"Leaks de primera mano, canales VIP y eventos.",dc_card:"Noticias al instante, clips, canales solo VIP y la comunidad más activa de GTA 6.",dc_members:"Miembros",dc_online:"En línea",dc_channels:"Canales",dc_join:"Entrar en Discord ↗",
+   nav_about:"Acerca de",nav_privacy:"Política de Privacidad",foot_made:"© 2026 Vice News — por fans, para fans. 🌴",
+   ad_here:"Tu anuncio aquí",ad_infeed:"Espacio AdSense in-feed · ganas por cada visualización 👀",ad_banner:"Listo para Google AdSense — gana por impresión",ad_welcome:"Anuncio de bienvenida",ad_welcome_sub:"Espacio AdSense de entrada · cada visita cuenta 💰",
+   sticky_msg:"📢 Anuncio siempre presente — cada segundo rinde. Tu banner AdSense aquí.",sticky_vip:"Quitar con VIP ★",
+   inter_skip:"Puedes cerrar en",inter_remove:"Quitar anuncios con VIP",
+   auth_login:"Entrar en Vice News",auth_google:"Continuar con Google",auth_fb:"Continuar con Facebook",auth_discord:"Continuar con Discord",auth_or:"o con email",auth_tab_login:"Entrar",auth_tab_signup:"Crear cuenta",auth_name:"Nombre",auth_email:"Email",auth_pass:"Contraseña",cancel:"cancelar",
+   earn_fab:"Ganancias",earn_title:"💰 Panel de Ganancias (simulación)",earn_sub:"Estimación en tiempo real — anuncios + suscripciones VIP. Valores ficticios de demo.",earn_total:"Ingresos estimados este mes",earn_views:"Visualizaciones de anuncios",earn_adrev:"Ingresos de anuncios (CPM €2,80)",earn_subs:"Suscriptores VIP",earn_subrev:"Ingresos VIP (MRR)",earn_note:"Cada vista de anuncio suma ingresos. Conecta AdSense + Stripe y aloja el sitio para que sea real.",close:"cerrar",close_btn:"Cerrar",login_btn:"Entrar / Registrarse"}
+};
+let LANG=localStorage.getItem('vn_lang')||'pt';
+function applyLang(l){const d=I18N[l]||I18N.pt;
+  document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(d[k]!=null)e.textContent=d[k]});
+  document.querySelectorAll('[data-i18n-ph]').forEach(e=>{const k=e.dataset.i18nPh;if(d[k]!=null)e.placeholder=d[k]});
+  document.documentElement.lang=l;document.getElementById('langCur').textContent=l.toUpperCase();
+  renderAuth();
+}
+function setLang(l){LANG=l;localStorage.setItem('vn_lang',l);document.getElementById('langMenu').classList.remove('show');applyLang(l)}
+function toggleLang(e){e.stopPropagation();document.getElementById('langMenu').classList.toggle('show')}
+function t(k){return (I18N[LANG]&&I18N[LANG][k])||I18N.pt[k]||k}
+
+/* ============ INTEGRAÇÕES REAIS (AdSense + Stripe) ============
+   Para LIGAR a sério, preenche estas 3 linhas com os teus dados:
+   1) ADSENSE_CLIENT  -> o teu ID do Google AdSense (ex: "ca-pub-1234567890123456")
+   2) STRIPE_LINKS.monthly -> o teu Stripe Payment Link do plano mensal
+   3) STRIPE_LINKS.yearly  -> o teu Stripe Payment Link do plano anual
+   (O AdSense só serve anúncios depois do site estar ONLINE e aprovado pela Google.) */
+const ADSENSE_CLIENT="ca-pub-4677836234279768"; // AdSense ligado
+const STRIPE_LINKS={monthly:"https://buy.stripe.com/test_fZu3cvfz0aR02gxfFF4Ni00",yearly:"https://buy.stripe.com/test_aFafZh2Me4sCg7n6554Ni01"}; // Stripe ligado (modo TESTE)
+
+function initAdSense(){
+  if(!ADSENSE_CLIENT)return;
+  if(!document.querySelector('script[src*="adsbygoogle.js"]')){
+    const s=document.createElement('script');
+    s.async=true;s.setAttribute('crossorigin','anonymous');
+    s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client='+ADSENSE_CLIENT;
+    document.head.appendChild(s);
+  }
+  try{(window.adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:ADSENSE_CLIENT,enable_page_level_ads:true});}catch(e){}
+  document.body.classList.add('adsense-on'); // esconde os placeholders de demonstração
+}
+function stripeFor(plan){return plan&&plan.toLowerCase().includes('anual')?STRIPE_LINKS.yearly:STRIPE_LINKS.monthly;}
+
+/* ============ COUNTDOWN ============ */
+const target=new Date('2026-11-19T00:00:00').getTime();
+function tick(){const diff=target-Date.now();
+  if(diff<0){document.getElementById('cd').innerHTML='<div class="cd-title">🎉 JÁ DISPONÍVEL!</div>';return}
+  const d=Math.floor(diff/864e5),h=Math.floor(diff%864e5/36e5),m=Math.floor(diff%36e5/6e4),s=Math.floor(diff%6e4/1e3);
+  document.getElementById('d').textContent=d;document.getElementById('h').textContent=String(h).padStart(2,'0');
+  document.getElementById('m').textContent=String(m).padStart(2,'0');document.getElementById('s').textContent=String(s).padStart(2,'0');}
+tick();setInterval(tick,1000);
+
+/* ============ REVEAL / BARS / NAV ============ */
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const barIo=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.bar i').forEach(i=>i.style.width=i.dataset.w+'%');barIo.unobserve(e.target)}})},{threshold:.3});
+document.querySelectorAll('.car').forEach(c=>barIo.observe(c));
+const navA=[...document.querySelectorAll('.nav-links a[href^="#"]')];
+const secIo=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id))}})},{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>secIo.observe(s));
+
+/* news filter */
+document.querySelectorAll('.filters button').forEach(b=>{b.addEventListener('click',()=>{
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  const f=b.dataset.f;document.querySelectorAll('#newsGrid .card').forEach(c=>{c.style.display=(f==='all'||c.dataset.cat===f)?'flex':'none'});});});
+
+/* ============ AUTH ============ */
+const DB='vn_users',CUR='vn_current',STATS='vn_stats',POSTS='vn_posts';
+function getUsers(){try{return JSON.parse(localStorage.getItem(DB))||{}}catch(e){return {}}}
+function saveUsers(u){localStorage.setItem(DB,JSON.stringify(u))}
+function currentUser(){const e=localStorage.getItem(CUR);if(!e)return null;return getUsers()[e]||null}
+let authMode='login';
+function openAuth(mode){authMode=mode||'login';authTab(authMode);document.getElementById('authErr').textContent='';document.getElementById('authModal').classList.add('show')}
+function closeAuth(){document.getElementById('authModal').classList.remove('show')}
+function authTab(mode){authMode=mode;
+  document.getElementById('tabLogin').classList.toggle('active',mode==='login');
+  document.getElementById('tabSignup').classList.toggle('active',mode==='signup');
+  document.getElementById('nameWrap').style.display=mode==='signup'?'block':'none';
+  document.getElementById('authTitle').textContent=mode==='signup'?t('auth_tab_signup'):t('auth_login');
+  document.getElementById('authBtn').textContent=mode==='signup'?t('auth_tab_signup'):t('auth_tab_login');}
+function authSubmit(){
+  const email=document.getElementById('auEmail').value.trim().toLowerCase();
+  const pass=document.getElementById('auPass').value;const name=document.getElementById('auName').value.trim();
+  const err=document.getElementById('authErr');
+  if(!email||!email.includes('@')){err.textContent='Email inválido.';return}
+  if(pass.length<4){err.textContent='Password ≥ 4 caracteres.';return}
+  const users=getUsers();
+  if(authMode==='signup'){
+    if(users[email]){err.textContent='Conta já existe. Entra.';return}
+    users[email]={name:name||email.split('@')[0],email,pass,vip:false,since:Date.now()};saveUsers(users);
+    localStorage.setItem(CUR,email);closeAuth();applyMembership();
+    modal('🎉','OK','Conta criada! Bem-vindo, '+users[email].name+'.');
+  }else{
+    if(!users[email]||users[email].pass!==pass){err.textContent='Email ou password errados.';return}
+    localStorage.setItem(CUR,email);closeAuth();applyMembership();
+    const u=users[email];modal(u.vip?'⭐':'👋','Olá '+u.name+'!',u.vip?'Clube VIP — tudo desbloqueado.':'Plano Free.');
+  }
+}
+function socialLogin(prov){
+  const domains={google:'gmail.com',facebook:'facebook.com',discord:'discord.gg'};
+  const labels={google:'Google',facebook:'Facebook',discord:'Discord'};
+  const id='jogador'+Math.floor(1000+Math.random()*9000);
+  const email=id+'@'+domains[prov];const users=getUsers();
+  if(!users[email]){users[email]={name:id,email,pass:'',vip:false,prov:prov,since:Date.now()};saveUsers(users)}
+  localStorage.setItem(CUR,email);closeAuth();applyMembership();
+  modal('✅','OK','Sessão iniciada com '+labels[prov]+' como '+id+'. (login social simulado)');
+}
+function logout(){localStorage.removeItem(CUR);document.getElementById('dropdown').classList.remove('show');applyMembership()}
+function makeVip(){const u=currentUser();if(!u)return;const users=getUsers();users[u.email].vip=true;saveUsers(users);applyMembership();updateEarn()}
+function renderAuth(){const area=document.getElementById('authArea');const u=currentUser();
+  if(!u){area.innerHTML='<button class="btn btn-vip" onclick="openAuth(\'login\')">'+t('login_btn')+'</button>';return}
+  const initial=(u.name||u.email)[0].toUpperCase();
+  area.innerHTML='<span class="user-chip '+(u.vip?'vip':'')+'" onclick="toggleDropdown(event)"><span class="av">'+initial+'</span>'+u.name.split(' ')[0]+' '+(u.vip?'<span class="badge-vip">VIP ★</span>':'<span class="badge-free">FREE</span>')+'</span>';}
+function toggleDropdown(e){e.stopPropagation();const d=document.getElementById('dropdown');const u=currentUser();if(!u)return;
+  d.innerHTML='<div class="who">'+u.email+'<br><b style="color:'+(u.vip?'var(--gold)':'var(--cyan)')+'">'+(u.vip?'Membro VIP ⭐':'Plano Free')+'</b></div>'+
+    (u.vip?'':'<button onclick="goVip();document.getElementById(\'dropdown\').classList.remove(\'show\')">⭐ Upgrade VIP</button>')+
+    (isOwner()?'<button onclick="openEarn();document.getElementById(\'dropdown\').classList.remove(\'show\')">💰 Painel de ganhos</button>':'')+
+    '<button onclick="logout()">🚪 Terminar sessão</button>';
+  d.classList.toggle('show');}
+document.addEventListener('click',()=>{document.getElementById('dropdown').classList.remove('show');document.getElementById('langMenu').classList.remove('show')});
+
+function applyMembership(){const u=currentUser();const vip=!!(u&&u.vip);
+  document.body.classList.toggle('is-vip',vip);document.body.classList.toggle('logged',!!u);renderAuth();
+  if(u)document.getElementById('mbName').textContent=u.name;
+  document.querySelectorAll('.tip.vip-lock').forEach(tp=>{const p=tp.querySelector('p');const lock=tp.querySelector('.lock');
+    if(vip){p.textContent=p.dataset.unlock;lock.textContent='✓ Desbloqueado VIP';lock.classList.add('unlocked');lock.onclick=null}
+    else{p.textContent=p.dataset.lock;lock.textContent='🔒 Conteúdo VIP';lock.classList.remove('unlocked');lock.onclick=goVip}});
+  const secret=['🐊 Jacaré dourado','🚗 Garagem secreta'];
+  document.querySelectorAll('.pin.vip .name').forEach((n,i)=>{n.textContent=vip?(secret[i]||'VIP ✓'):(i===0?'Cache secreta 🔒':'Garagem rara 🔒')});
+  document.getElementById('commLocked').style.display=vip?'none':'block';
+  document.getElementById('commUnlocked').style.display=vip?'block':'none';
+  if(vip){renderComposer();renderComm();}
+}
+function vipPin(){const u=currentUser();if(u&&u.vip){modal('⭐','Localização VIP','Já tens acesso às localizações secretas no mapa!')}else goVip()}
+function checkout(plan,price){const u=currentUser();
+  if(!u){closeModal();openAuth('signup');setTimeout(()=>{document.getElementById('authErr').textContent='Cria conta primeiro para subscrever '+plan+'.'},50);return}
+  const link=stripeFor(plan);
+  if(link){ // Stripe real configurado -> abre o checkout verdadeiro
+    window.open(link,'_blank');
+    modal('💳','Stripe — '+plan,'Abri o checkout seguro do Stripe numa nova aba. Conclui lá o pagamento de '+price+'.');
+    return;
+  }
+  modal('💳','Pagamento simulado — '+plan,'A processar '+price+'... (demo, Stripe ainda não configurado). Carrega Fechar para confirmar o VIP.');
+  document.querySelector('#modal .btn-vip').onclick=function(){makeVip();closeModal();
+    document.querySelector('#modal .btn-vip').onclick=closeModal;
+    setTimeout(()=>modal('⭐','És VIP!','Obrigado, '+currentUser().name+'! Anúncios removidos e tudo desbloqueado. 🌴'),250);};}
+
+/* ============ COMUNIDADE VIP (canais + reações + sondagens) ============ */
+let commCh='geral';
+function escapeHtml(s){return (s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function timeAgo(ts){const s=Math.floor((Date.now()-ts)/1000);if(s<60)return 'agora';if(s<3600)return 'há '+Math.floor(s/60)+' min';if(s<86400)return 'há '+Math.floor(s/3600)+'h';return 'há '+Math.floor(s/86400)+'d';}
+function getPosts(){try{return JSON.parse(localStorage.getItem(POSTS))||null}catch(e){return null}}
+function savePosts(p){localStorage.setItem(POSTS,JSON.stringify(p))}
+function seedPosts(){return [
+  {id:1,ch:'teorias',user:'MiamiVice',text:'A minha teoria: os assaltos vão ter co-op a dois (Jason + Lucia) online. 👀',time:Date.now()-300000,rx:{fire:['LuciaFan'],heart:[],lol:[]}},
+  {id:2,ch:'leaks',user:'LuciaFan',text:'Diz-se que o Trailer 3 pode ter ~20 min. Hype máximo! 🔥',time:Date.now()-720000,rx:{fire:['MiamiVice','VCRadio'],heart:['MiamiVice'],lol:[]}},
+  {id:3,ch:'clips',user:'VCRadio',text:'Já fiz a playlist de synthwave para o dia 19/11 🎶🌴',time:Date.now()-1500000,rx:{fire:[],heart:['LuciaFan'],lol:[]}},
+  {id:4,ch:'geral',user:'NeonRider',text:'Boas malta! Acabei de entrar no VIP, isto está fixe 🌴',time:Date.now()-180000,rx:{fire:['VCRadio'],heart:[],lol:[]}},
+  {id:5,ch:'sondagens',user:'MiamiVice',text:'',time:Date.now()-2000000,poll:{q:'Que personagem vais jogar primeiro?',opts:[{t:'Lucia',v:['LuciaFan']},{t:'Jason',v:['VCRadio']},{t:'Alterno os dois',v:['MiamiVice']}]},rx:{fire:[],heart:[],lol:[]}}
+];}
+function allPosts(){let p=getPosts();if(!p||!p.length||!p[0].ch){p=seedPosts();savePosts(p)}return p}
+function setCommCh(ch){commCh=ch;document.querySelectorAll('#commTabs button').forEach(b=>b.classList.toggle('active',b.dataset.ch===ch));renderComposer();renderComm()}
+function renderComposer(){const w=document.getElementById('composerWrap');if(!w)return;
+  if(commCh==='sondagens'){
+    w.innerHTML='<div class="poll-composer"><input id="pollQ" placeholder="A tua pergunta..."><input id="pollO1" placeholder="Opção 1"><input id="pollO2" placeholder="Opção 2"><input id="pollO3" placeholder="Opção 3 (opcional)"><button class="btn btn-vip" onclick="postPoll()">Criar sondagem 📊</button></div>';
+  }else{
+    w.innerHTML='<div class="composer"><textarea id="commInput" placeholder="Escreve no canal #'+commCh+'..."></textarea><button class="btn btn-vip" onclick="postComm()">Publicar</button></div>';
+  }}
+function postComm(){const u=currentUser();if(!u||!u.vip)return;const inp=document.getElementById('commInput');const txt=inp.value.trim();if(!txt)return;
+  const p=allPosts();p.unshift({id:Date.now(),ch:commCh,user:u.name,text:txt,time:Date.now(),rx:{fire:[],heart:[],lol:[]}});savePosts(p);inp.value='';renderComm();toast('Publicado em #'+commCh+' ⭐')}
+function postPoll(){const u=currentUser();if(!u||!u.vip)return;
+  const q=(document.getElementById('pollQ').value||'').trim();const o1=(document.getElementById('pollO1').value||'').trim();const o2=(document.getElementById('pollO2').value||'').trim();const o3=(document.getElementById('pollO3').value||'').trim();
+  if(!q||!o1||!o2){toast('Precisas de pergunta + 2 opções');return}
+  const opts=[{t:o1,v:[]},{t:o2,v:[]}];if(o3)opts.push({t:o3,v:[]});
+  const p=allPosts();p.unshift({id:Date.now(),ch:'sondagens',user:u.name,text:'',time:Date.now(),poll:{q,opts},rx:{fire:[],heart:[],lol:[]}});savePosts(p);renderComposer();renderComm();toast('Sondagem criada 📊')}
+function react(id,kind){const u=currentUser();if(!u||!u.vip)return;const p=allPosts();const post=p.find(x=>x.id===id);if(!post)return;post.rx=post.rx||{fire:[],heart:[],lol:[]};const arr=post.rx[kind]||(post.rx[kind]=[]);const i=arr.indexOf(u.name);if(i>=0)arr.splice(i,1);else arr.push(u.name);savePosts(p);renderComm()}
+function votePoll(id,oi){const u=currentUser();if(!u||!u.vip)return;const p=allPosts();const post=p.find(x=>x.id===id);if(!post||!post.poll)return;post.poll.opts.forEach(o=>{const k=o.v.indexOf(u.name);if(k>=0)o.v.splice(k,1)});post.poll.opts[oi].v.push(u.name);savePosts(p);renderComm()}
+function rxBtn(post,kind,emoji){const arr=(post.rx&&post.rx[kind])||[];const u=currentUser();const on=u&&arr.indexOf(u.name)>=0;return '<button class="rx'+(on?' on':'')+'" onclick="react('+post.id+',\''+kind+'\')">'+emoji+' '+(arr.length||'')+'</button>'}
+function renderComm(){const feed=document.getElementById('commFeed');if(!feed)return;
+  const posts=allPosts().filter(p=>p.ch===commCh);
+  if(!posts.length){feed.innerHTML='<div class="empty">Ainda não há nada em #'+commCh+'. Sê o primeiro! 🌴</div>';return}
+  feed.innerHTML=posts.map(p=>{const ini=(p.user||'?')[0].toUpperCase();let body;
+    if(p.poll){const total=p.poll.opts.reduce((s,o)=>s+o.v.length,0);const u=currentUser();const voted=u&&p.poll.opts.some(o=>o.v.indexOf(u.name)>=0);
+      body='<div class="poll"><div class="pq">📊 '+escapeHtml(p.poll.q)+'</div>'+p.poll.opts.map((o,i)=>{const pct=total?Math.round(o.v.length/total*100):0;const mine=u&&o.v.indexOf(u.name)>=0;return '<div class="popt'+(mine?' mine':'')+'" onclick="votePoll('+p.id+','+i+')"><div class="pfill" style="width:'+(voted?pct:0)+'%"></div><span>'+escapeHtml(o.t)+'</span><b>'+(voted?pct+'%':'')+'</b></div>';}).join('')+'<div class="ptotal">'+total+' votos · carrega para votar</div></div>';
+    }else{body='<div class="ptext">'+escapeHtml(p.text)+'</div>';}
+    return '<div class="feed-post"><div class="pav">'+ini+'</div><div style="flex:1"><div class="pmeta"><b>'+escapeHtml(p.user)+'</b> <span class="vtag">VIP</span> · '+timeAgo(p.time)+'</div>'+body+'<div class="rxbar">'+rxBtn(p,'fire','🔥')+rxBtn(p,'heart','❤️')+rxBtn(p,'lol','😂')+'</div></div></div>';
+  }).join('');}
+setInterval(()=>{const el=document.getElementById('commOnline');if(el)el.textContent=(38+Math.floor(Math.random()*28))},4500);
+
+/* ===== reações públicas nas notícias (interação entre todos) ===== */
+function newsReactions(){
+  const grid=document.getElementById('newsGrid');if(!grid)return;
+  let store=JSON.parse(localStorage.getItem('vn_nrx')||'{}');
+  let mine=JSON.parse(localStorage.getItem('vn_nrx_me')||'{}');
+  const kinds=[['fire','🔥'],['heart','❤️'],['lol','😂'],['eyes','👀']];
+  grid.querySelectorAll('.card').forEach((c,idx)=>{
+    const body=c.querySelector('.body');if(!body||body.querySelector('.nrx'))return;
+    const key='c'+idx;if(!store[key])store[key]={fire:1+((idx*3)%9),heart:1+(idx%4),lol:idx%3,eyes:2+((idx*2)%7)};
+    const bar=document.createElement('div');bar.className='nrx';
+    bar.innerHTML=kinds.map(([k,e])=>'<button data-k="'+k+'" data-key="'+key+'">'+e+' <span>'+store[key][k]+'</span></button>').join('');
+    body.appendChild(bar);
+  });
+  localStorage.setItem('vn_nrx',JSON.stringify(store));
+  grid.querySelectorAll('.nrx button').forEach(b=>{const key=b.dataset.key,k=b.dataset.k,id=key+'_'+k;
+    if(mine[id])b.classList.add('on');
+    b.addEventListener('click',()=>{let st=JSON.parse(localStorage.getItem('vn_nrx')||'{}');let mn=JSON.parse(localStorage.getItem('vn_nrx_me')||'{}');st[key]=st[key]||{fire:0,heart:0,lol:0,eyes:0};
+      if(mn[id]){st[key][k]=Math.max(0,st[key][k]-1);delete mn[id];b.classList.remove('on')}else{st[key][k]++;mn[id]=1;b.classList.add('on')}
+      b.querySelector('span').textContent=st[key][k];localStorage.setItem('vn_nrx',JSON.stringify(st));localStorage.setItem('vn_nrx_me',JSON.stringify(mn));});
+  });
+}
+
+/* ============ ADS + INTERSTITIAL ============ */
+function closeInter(){document.getElementById('inter').classList.remove('show')}
+function showInterstitial(){const u=currentUser();if(u&&u.vip)return;
+  const inter=document.getElementById('inter');inter.classList.add('show');
+  let n=5;const cd=document.getElementById('interCd');const btn=document.getElementById('interClose');btn.disabled=true;cd.textContent=n;
+  const tm=setInterval(()=>{n--;cd.textContent=n;if(n<=0){clearInterval(tm);btn.disabled=false;countAdView('interstitial')}},1000);}
+
+/* ============ GANHOS ============ */
+function getStats(){try{return JSON.parse(localStorage.getItem(STATS))||{views:0,month:new Date().getMonth()}}catch(e){return {views:0,month:new Date().getMonth()}}}
+function saveStats(s){localStorage.setItem(STATS,JSON.stringify(s))}
+let stats=getStats();if(stats.month!==new Date().getMonth())stats={views:0,month:new Date().getMonth()};
+const CPM=2.80,VIP_PRICE=4.99;
+function countAdView(src,silent){const u=currentUser();if(u&&u.vip)return;stats.views++;saveStats(stats);updateEarn();if(!silent&&isOwner())toast('+€'+(CPM/1000).toFixed(3)+' 👀')}
+function vipCount(){return Object.values(getUsers()).filter(u=>u.vip).length}
+function updateEarn(){const adRev=stats.views*(CPM/1000),subs=vipCount(),subRev=subs*VIP_PRICE,total=adRev+subRev;
+  const f=n=>'€'+n.toLocaleString('pt-PT',{minimumFractionDigits:2,maximumFractionDigits:2});
+  document.getElementById('eViews').textContent=stats.views.toLocaleString('pt-PT');
+  document.getElementById('eAdRev').textContent=f(adRev);document.getElementById('eSubs').textContent=subs;
+  document.getElementById('eSubRev').textContent=f(subRev);document.getElementById('eTotal').textContent=f(total);}
+function openEarn(){updateEarn();document.getElementById('earnModal').classList.add('show')}
+function closeEarn(){document.getElementById('earnModal').classList.remove('show')}
+document.getElementById('earnModal').addEventListener('click',e=>{if(e.target.id==='earnModal')closeEarn()});
+document.getElementById('authModal').addEventListener('click',e=>{if(e.target.id==='authModal')closeAuth()});
+let toastT;function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove('show'),1800)}
+setInterval(()=>{const u=currentUser();if(u&&u.vip)return;if(Math.random()<0.6){const b=1+Math.floor(Math.random()*3);for(let i=0;i<b;i++)stats.views++;saveStats(stats);updateEarn();if(isOwner())toast('+'+b+' views 👀 +€'+(b*CPM/1000).toFixed(3))}},5000);
+setInterval(()=>{const el=document.getElementById('dcOnline');if(el)el.textContent=(312+Math.floor(Math.random()*40)-15)},4000);
+
+/* ============ MEDIA / MODALS ============ */
+function playVid(id,vertical){
+  document.getElementById('lbInner').classList.toggle('vertical',!!vertical);
+  document.getElementById('lbFrame').innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1&modestbranding=1" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+  document.getElementById('lb').classList.add('show');countAdView('video',true);}
+function showImg(src){document.getElementById('lbInner').classList.remove('vertical');document.getElementById('lbFrame').innerHTML='<img src="'+src+'" alt="GTA VI">';document.getElementById('lb').classList.add('show')}
+function closeLb(){document.getElementById('lb').classList.remove('show');document.getElementById('lbFrame').innerHTML=''}
+document.getElementById('lb').addEventListener('click',e=>{if(e.target.id==='lb')closeLb()});
+function modal(em,title,text){document.getElementById('mEm').textContent=em;document.getElementById('mTitle').textContent=title;document.getElementById('mText').textContent=text;document.getElementById('modal').classList.add('show')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function goVip(){document.getElementById('navlinks').classList.remove('open');location.hash='#premium'}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLb();closeModal();closeAuth();closeEarn()}});
+
+/* ============ INIT ============ */
+/* modo dono (painel de ganhos só para ti) — acede com ?owner=vice2026 */
+(function(){const p=new URLSearchParams(location.search);
+  if(p.get('owner')==='vice2026')localStorage.setItem('vn_owner','1');
+  if(p.get('owner')==='off')localStorage.removeItem('vn_owner');
+  if(localStorage.getItem('vn_owner')==='1')document.body.classList.add('owner');})();
+function isOwner(){return localStorage.getItem('vn_owner')==='1'}
+document.querySelectorAll('#commTabs button').forEach(b=>b.addEventListener('click',()=>setCommCh(b.dataset.ch)));
+applyLang(LANG);applyMembership();updateEarn();initAdSense();newsReactions();
+window.addEventListener('load',()=>{setTimeout(()=>{showInterstitial();countAdView('pageview',true)},600)});
+</script>
+</body>
+</html>
