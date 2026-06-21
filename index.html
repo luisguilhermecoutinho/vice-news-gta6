@@ -377,6 +377,38 @@ footer .logo{font-size:22px;margin-bottom:14px}
   .nav-links.open{transform:translateX(0)}
   .burger{display:block}
   .earn-grid{grid-template-columns:1fr}
+  .nav-links a{font-size:16px;padding:4px 0}
+}
+@media(max-width:600px){
+  body{padding-bottom:74px}
+  section{padding:46px 0}
+  .container{padding:0 15px}
+  nav{padding:12px 15px}
+  .logo{font-size:21px}
+  .hero{min-height:74vh;padding:46px 16px}
+  .hero p{font-size:16px}
+  .countdown{gap:8px;margin-top:30px}
+  .cd-box{min-width:62px;padding:9px 11px}
+  .cd-box .num{font-size:24px}
+  .sec-head h2{font-size:27px}
+  .news-grid,.clip-grid,.car-grid,.trailer-grid,.gallery,.price-grid,.tips-grid{grid-template-columns:1fr}
+  .clip{aspect-ratio:16/10}
+  .map-canvas{height:340px}
+  .comm-wrap{padding:16px}
+  .comm-tabs button{font-size:12px;padding:6px 11px}
+  .discord-card{padding:28px 18px}
+  .discord-card .stats{gap:18px}
+  .plan{padding:26px 20px}
+  /* modais cabem no ecrã */
+  .modal-box,.earn-box,.inter-box{max-width:94vw!important;max-height:88vh;overflow-y:auto;padding:22px}
+  .lb-inner{width:96vw}
+  .lb-inner.vertical .frame{max-width:88vw}
+  .lb-close{top:-38px}
+  /* barra de publicidade fixa */
+  .sticky-ad{flex-wrap:wrap;padding:7px 12px;gap:6px}
+  .sticky-ad .smsg{font-size:11px;order:3;flex-basis:100%}
+  .owner-fab{bottom:82px;right:12px;padding:9px 14px;font-size:13px}
+  .toast{right:12px;left:12px;bottom:84px;text-align:center}
 }
 </style>
 </head>
@@ -449,7 +481,41 @@ footer .logo{font-size:22px;margin-bottom:14px}
       <button data-f="trailer" data-i18n="f_trailer">Trailers</button>
       <button data-f="data" data-i18n="f_data">Datas</button>
     </div>
+    <!-- last-normal-update: 2026-06-20 -->
     <div class="news-grid" id="newsGrid">
+      <article class="card reveal" data-cat="oficial">
+        <a href="https://www.rockstargames.com/newswire/article/517oa135328155/grand-theft-auto-vi-pre-orders-begin-on-june-25" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/yAi0MYo5Mzw/hq1.jpg')"><span class="chip breaking">Oficial</span></div></a>
+        <div class="body">
+          <h3>É oficial: pré-encomendas de GTA VI abrem a 25 de junho — e a Rockstar revelou a capa</h3>
+          <div class="meta">21 jun 2026 · Rockstar Newswire</div>
+          <p class="exc">Direto do Newswire: a Rockstar confirmou que as pré-encomendas arrancam a 25 de junho e mostrou a capa oficial — Jason e Lucia ao centro, helicóptero a rasgar o céu pastel, mota a fazer cavalinho, lancha, um flamingo cor-de-rosa e até um jacaré. Vice City nunca esteve tão viva. Preços e edições ficam para o dia 25.</p>
+          <a href="https://www.rockstargames.com/newswire/article/517oa135328155/grand-theft-auto-vi-pre-orders-begin-on-june-25" target="_blank" rel="noopener" class="read">Ler no Rockstar Newswire →</a>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="data">
+        <a href="https://www.destructoid.com/take-two-predicts-8-billion-revenue-2027-gta-6/" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/inQelDKULOQ/hq3.jpg')"><span class="chip">Take-Two</span></div></a>
+        <div class="body">
+          <h3>Take-Two aposta ~8 mil milhões $ no ano de GTA VI</h3>
+          <div class="meta">20 jun 2026 · Destructoid / Take-Two</div>
+          <p class="exc">Nas contas oficiais, a Take-Two projeta 7,9 a 8,2 mil milhões de dólares de net bookings em FY2027 — "ancorados", nas palavras de Zelnick, no lançamento de 19 de novembro. Tradução: a casa-mãe da Rockstar está a apostar tudo neste outono. A data está mais presa do que nunca.</p>
+          <a href="https://www.destructoid.com/take-two-predicts-8-billion-revenue-2027-gta-6/" target="_blank" rel="noopener" class="read">Ler na fonte →</a>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="leak">
+        <a href="https://www.gtaboom.com/this-gta-6-server-promises-to-pay-you-to-play-a739" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/9zVIy_La7nk/hq2.jpg')"><span class="chip">Comunidade</span></div></a>
+        <div class="body">
+          <h3>Adin Ross promete servidor RP de GTA 6 que paga em dinheiro real</h3>
+          <div class="meta">20 jun 2026 · GTABoom</div>
+          <p class="exc">O streamer diz que já falou com advogados e quer lançar um servidor de roleplay com economia a sério — salários (faz de estafeta, porteiro ou babysitter) que se levantam em dinheiro ou cripto. Soa bem demais para ser verdade, e provavelmente é: bate em cheio nos termos da Rockstar. Calma com a carteira, malta.</p>
+          <a href="https://www.gtaboom.com/this-gta-6-server-promises-to-pay-you-to-play-a739" target="_blank" rel="noopener" class="read">Ler na fonte →</a>
+        </div>
+      </article>
+
       <article class="card reveal" data-cat="leak">
         <a href="https://www.altchar.com/game-news/gta-6-trailer-3-is-coming-soon-and-a-leak-puts-the-pc-version-in-february-2027-asxcn1x9ugDg" target="_blank" rel="noopener">
           <div class="thumb" style="background-image:url('https://img.youtube.com/vi/9zVIy_La7nk/hq1.jpg')"><span class="chip">Leak</span></div></a>
@@ -538,45 +604,12 @@ footer .logo{font-size:22px;margin-bottom:14px}
         </div>
       </article>
 
-      <article class="card reveal" data-cat="oficial">
-        <a href="https://www.gtaboom.com/gta-6-pre-orders-open-june-2026-cover-art-02c3" target="_blank" rel="noopener">
-          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/9zVIy_La7nk/hq2.jpg')"><span class="chip">Oficial</span></div></a>
-        <div class="body">
-          <h3>Pré-encomendas a 25 de junho + capa oficial revelada</h3>
-          <div class="meta">18 jun 2026 · GTABoom</div>
-          <p class="exc">Capa oficial com Jason, Lucia, Vice City e um jacaré. Pré-encomendas começam a 25 de junho.</p>
-          <a href="https://www.gtaboom.com/gta-6-pre-orders-open-june-2026-cover-art-02c3" target="_blank" rel="noopener" class="read">Ler na fonte →</a>
-        </div>
-      </article>
-
-      <article class="card reveal" data-cat="oficial">
-        <a href="https://gamerant.com/grand-theft-auto-gta-6-collectors-edition-items-predictions/" target="_blank" rel="noopener">
-          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/inQelDKULOQ/hq3.jpg')"><span class="chip">Edições</span></div></a>
-        <div class="body">
-          <h3>Edições e preços: Standard, Deluxe e Collector's</h3>
-          <div class="meta">jun 2026 · GameRant</div>
-          <p class="exc">Standard ~$70-80, Deluxe com early access ao Online, e uma Collector's com steelbook, mapa e artbook (~$150-200).</p>
-          <a href="https://gamerant.com/grand-theft-auto-gta-6-collectors-edition-items-predictions/" target="_blank" rel="noopener" class="read">Ler na fonte →</a>
-        </div>
-      </article>
-
       <!-- AD SLOT in-feed -->
       <div class="adslot ad-card reveal" data-ad="infeed">
         <span class="adtag">Publicidade</span>
         <div class="adbig" data-i18n="ad_here">O teu anúncio aqui</div>
         <div class="adsub" data-i18n="ad_infeed">Espaço AdSense in-feed · ganhas por cada visualização 👀</div>
       </div>
-
-      <article class="card reveal" data-cat="trailer">
-        <a href="https://www.youtube.com/watch?v=yAi0MYo5Mzw" target="_blank" rel="noopener">
-          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/yAi0MYo5Mzw/hq1.jpg')"><span class="chip">Trailer</span></div></a>
-        <div class="body">
-          <h3>Trailer 2 faz 1 ano com ~165M de views</h3>
-          <div class="meta">mai 2026 · GTABoom</div>
-          <p class="exc">O maior lançamento de vídeo de sempre continua a bater recordes um ano depois da estreia.</p>
-          <a href="https://www.youtube.com/watch?v=yAi0MYo5Mzw" target="_blank" rel="noopener" class="read">Ver trailer →</a>
-        </div>
-      </article>
 
       <article class="card reveal" data-cat="oficial">
         <a href="https://www.rockstargames.com/VI" target="_blank" rel="noopener">
@@ -831,6 +864,7 @@ footer .logo{font-size:22px;margin-bottom:14px}
         <button class="btn btn-vip" onclick="checkout('VIP Anual','€49,99/ano')">Subscrever ★</button>
       </div>
     </div>
+    <p style="text-align:center;margin-top:26px;color:var(--muted)" data-i18n="code_have">Já compraste e tens um código? <a href="#" onclick="openCode();return false" style="color:var(--gold);font-weight:700">Ativar código VIP 🎟️</a></p>
   </div>
 </section>
 
@@ -921,6 +955,21 @@ footer .logo{font-size:22px;margin-bottom:14px}
       <button class="btn btn-vip" style="width:100%" onclick="authSubmit()" id="authBtn" data-i18n="auth_tab_login">Entrar</button>
     </div>
     <div class="close" onclick="closeAuth()" data-i18n="cancel">cancelar</div>
+  </div>
+</div>
+
+<!-- CODE REDEEM MODAL -->
+<div class="modal" id="codeModal">
+  <div class="modal-box" style="border-color:var(--gold);max-width:420px">
+    <div class="em">🎟️</div>
+    <h3 style="color:var(--gold)" data-i18n="code_title">Ativar código VIP</h3>
+    <p data-i18n="code_sub">Recebeste um código depois de comprares o VIP? Escreve-o aqui para desbloquear.</p>
+    <div class="auth-form">
+      <input id="codeInput" type="text" placeholder="VICE-XXXXX-XXXXX" style="text-align:center;letter-spacing:1px;text-transform:uppercase;padding:14px;border-radius:10px;border:1px solid rgba(255,215,0,.5);background:rgba(13,2,33,.6);color:#fff;font-family:'Outfit';font-size:16px;width:100%">
+      <div class="auth-err" id="codeErr"></div>
+      <button class="btn btn-vip" style="width:100%" onclick="redeemCode()" data-i18n="code_btn">Ativar VIP ★</button>
+    </div>
+    <div class="close" onclick="closeCode()" data-i18n="cancel">cancelar</div>
   </div>
 </div>
 
@@ -1124,14 +1173,29 @@ function authSubmit(){
   }
 }
 function socialLogin(prov){
-  const domains={google:'gmail.com',facebook:'facebook.com',discord:'discord.gg'};
   const labels={google:'Google',facebook:'Facebook',discord:'Discord'};
-  const id='jogador'+Math.floor(1000+Math.random()*9000);
-  const email=id+'@'+domains[prov];const users=getUsers();
-  if(!users[email]){users[email]={name:id,email,pass:'',vip:false,prov:prov,since:Date.now()};saveUsers(users)}
+  const email=prov+'@vicenews.social';const users=getUsers();
+  if(!users[email]){users[email]={name:labels[prov],email,pass:'',vip:false,prov:prov,since:Date.now()};saveUsers(users)}
   localStorage.setItem(CUR,email);closeAuth();applyMembership();
-  modal('✅','OK','Sessão iniciada com '+labels[prov]+' como '+id+'. (login social simulado)');
+  modal('✅','Sessão iniciada','Entraste com '+labels[prov]+'. (login social simulado) 🌴');
 }
+/* ===== Códigos VIP (1 uso por dispositivo) ===== */
+const VIP_CODES=["3892f17fe17af569c339f99831653e8d16fac28f9e089a270dc59572f1c33ed0","18a6ce0d2ec8f1698ac4f79932b96a08da46287a31a3f457069379d77e9a3e09","5a9be429f7cbc5db975f979df23a3765a288b492e3b207b2bdc2b907e63791df","48c9b37d4a919012e2b72076a0addd82db5e6d9d3b6379eb7278ba033318d0d3","53062b203a070f06da7ac4b0a6c779e7963fbe6ee11a6df3207869980c4afef0","f2de453fd18ef79717817419b7566b725b77e44b85fc1374518bad9e8e82ad81","53a08e408a06db2142b82efb7539834a75d17f3abd9bbfd034606c9cce910adb","834a6f15f21f34203a09c3f21c235f67c98ba7a82414c6bd492547dff91acffa","fa59b03926b259b6a8ac6013f1f43ea7a755829abf6015e52e7c3ab5b079e480","3632ecb2b41994b5187b25cd702c28a43e9c9db26f33215550b14023a1a6235a","a3b8ff89167060ec7cf1dd5a19c846f89938eb55d974bf59c4ae2ee981edc341","aa5a26cd395dd944168c60dd56b6736abe67b08f27f2d03600c3105f71bbce06","09a0b325266971dbcac59f7ffd1d6a590d5047ee68ef3f70660dbdba3cdd0ade","865981297403326855df181d136095038507be3482d1396e305f446e6ed805a2","c1b9b7a8909829e19a80b6620efeb3c69c0ab5d097560c38cacd873af0241a66","842fad60d02b44a070fda9f4e5ae70ff97c7e7984e56895a1028af80a787e5cf","4f4613d731ba6d8eb7e69bd394a63b6680299a66a4e82daca2880d6b8c99e5a9","e1caf37fae7473d2ccd725caa5fc5389603852d08168dad18ca879538bf4fa1f","bdba6b08b4f4ee179ec6241b2829822152cf8e7ef0da2d5dc103beef102d2454","9c238c4cfe57faf778c475fb3245969ccdb41c7ed02e52f1a4be216285dac72d","9831b6ff89cb4f57f52139cacd3556cf2d252a7ce3dac19f7dc49852922bb874","9ba22d6a6e5e6891f13f04dc64484ddfd9160f4bf2235a2f4375fc5719daa716","35a1d003c2be31f8793afc37ed45eb303ceab598b8eacbf9b8cbba5c26612b17","5348461a9a90767aedd294423a8984832dcdaeb4814bd7ee63e1af05170cfaa8","a2586a110a8efd238c934f5c68bdb27cc63a78f57a08ef1e353776ce3442b453","15ff81062ed1e793df07e9f0d23d7aab51194c836ea7a5d312c64f8e57983ad7","41b636efbf9c1154c4d8034e8a8e9c5b0b3de671efc961e5d49593e6573b0d0c","4b192bb24ed84889322118f7b1e127b2f20d678a8692cbe3d8b3961b1954acfd","0adf486a15b1871aee67c4cf2a19bccc1fc7360ffbc3272023c5e207dce24598","58644355f9e5df955435617a8b5aa45f52a7e9b4694f061e47ee4eb98dcab4c3"];
+async function sha256hex(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('')}
+function getRedeemed(){try{return JSON.parse(localStorage.getItem('vn_redeemed'))||[]}catch(e){return []}}
+function openCode(){const u=currentUser();if(!u){openAuth('login');setTimeout(()=>{document.getElementById('authErr').textContent='Entra ou cria conta primeiro para ativares o código.'},60);return}
+  document.getElementById('codeErr').textContent='';document.getElementById('codeInput').value='';document.getElementById('codeModal').classList.add('show');document.getElementById('navlinks').classList.remove('open')}
+function closeCode(){document.getElementById('codeModal').classList.remove('show')}
+async function redeemCode(){const u=currentUser();if(!u){openAuth('login');return}
+  const raw=(document.getElementById('codeInput').value||'').trim().toUpperCase();const err=document.getElementById('codeErr');
+  if(!raw){err.textContent='Escreve o teu código.';return}
+  if(u.vip){err.textContent='Já és VIP! 🌴';return}
+  let h;try{h=await sha256hex(raw)}catch(e){err.textContent='O navegador bloqueou a validação. Tenta noutro browser.';return}
+  const redeemed=getRedeemed();
+  if(!VIP_CODES.includes(h)){err.textContent='Código inválido. Confirma e tenta de novo.';return}
+  if(redeemed.includes(h)){err.textContent='Este código já foi usado.';return}
+  redeemed.push(h);localStorage.setItem('vn_redeemed',JSON.stringify(redeemed));
+  makeVip();closeCode();modal('⭐','VIP ativado!','Bem-vindo ao clube VIP, '+u.name+'! Anúncios removidos e tudo desbloqueado. 🌴');}
 function logout(){localStorage.removeItem(CUR);document.getElementById('dropdown').classList.remove('show');applyMembership()}
 function makeVip(){const u=currentUser();if(!u)return;const users=getUsers();users[u.email].vip=true;saveUsers(users);applyMembership();updateEarn()}
 function renderAuth(){const area=document.getElementById('authArea');const u=currentUser();
@@ -1141,6 +1205,7 @@ function renderAuth(){const area=document.getElementById('authArea');const u=cur
 function toggleDropdown(e){e.stopPropagation();const d=document.getElementById('dropdown');const u=currentUser();if(!u)return;
   d.innerHTML='<div class="who">'+u.email+'<br><b style="color:'+(u.vip?'var(--gold)':'var(--cyan)')+'">'+(u.vip?'Membro VIP ⭐':'Plano Free')+'</b></div>'+
     (u.vip?'':'<button onclick="goVip();document.getElementById(\'dropdown\').classList.remove(\'show\')">⭐ Upgrade VIP</button>')+
+    (u.vip?'':'<button onclick="openCode()">🎟️ Ativar código VIP</button>')+
     (isOwner()?'<button onclick="openEarn();document.getElementById(\'dropdown\').classList.remove(\'show\')">💰 Painel de ganhos</button>':'')+
     '<button onclick="logout()">🚪 Terminar sessão</button>';
   d.classList.toggle('show');}
@@ -1239,8 +1304,9 @@ function newsReactions(){
 /* ============ ADS + INTERSTITIAL ============ */
 function closeInter(){document.getElementById('inter').classList.remove('show')}
 function showInterstitial(){const u=currentUser();if(u&&u.vip)return;
+  if(sessionStorage.getItem('vn_inter'))return; sessionStorage.setItem('vn_inter','1');
   const inter=document.getElementById('inter');inter.classList.add('show');
-  let n=5;const cd=document.getElementById('interCd');const btn=document.getElementById('interClose');btn.disabled=true;cd.textContent=n;
+  let n=3;const cd=document.getElementById('interCd');const btn=document.getElementById('interClose');btn.disabled=true;cd.textContent=n;
   const tm=setInterval(()=>{n--;cd.textContent=n;if(n<=0){clearInterval(tm);btn.disabled=false;countAdView('interstitial')}},1000);}
 
 /* ============ GANHOS ============ */
@@ -1275,7 +1341,8 @@ function modal(em,title,text){document.getElementById('mEm').textContent=em;docu
 function closeModal(){document.getElementById('modal').classList.remove('show')}
 function goVip(){document.getElementById('navlinks').classList.remove('open');location.hash='#premium'}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLb();closeModal();closeAuth();closeEarn()}});
+document.getElementById('codeModal').addEventListener('click',e=>{if(e.target.id==='codeModal')closeCode()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLb();closeModal();closeAuth();closeEarn();closeCode();var it=document.getElementById('interClose');if(it&&!it.disabled)closeInter()}});
 
 /* ============ INIT ============ */
 /* modo dono (painel de ganhos só para ti) — acede com ?owner=vice2026 */
