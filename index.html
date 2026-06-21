@@ -481,7 +481,7 @@ footer .logo{font-size:22px;margin-bottom:14px}
       <button data-f="trailer" data-i18n="f_trailer">Trailers</button>
       <button data-f="data" data-i18n="f_data">Datas</button>
     </div>
-    <!-- last-normal-update: 2026-06-20 -->
+    <!-- last-normal-update: 2026-06-21 -->
     <div class="news-grid" id="newsGrid">
       <article class="card reveal" data-cat="oficial">
         <a href="https://www.rockstargames.com/newswire/article/517oa135328155/grand-theft-auto-vi-pre-orders-begin-on-june-25" target="_blank" rel="noopener">
@@ -494,6 +494,17 @@ footer .logo{font-size:22px;margin-bottom:14px}
         </div>
       </article>
 
+      <article class="card reveal" data-cat="leak">
+        <a href="https://www.gamesradar.com/games/grand-theft-auto/gta-6-prices-potentially-leak-off-a-european-retailer-and-it-looks-like-rockstar-games-is-charging-between-eur90-and-eur200/" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/inQelDKULOQ/hq3.jpg')"><span class="chip">Leak · Preços</span></div></a>
+        <div class="body">
+          <h3>Leak da FNAC: três edições de GTA VI entre 90€ e 200€</h3>
+          <div class="meta">21 jun 2026 · FNAC / GamesRadar</div>
+          <p class="exc">E o leak veio de casa: a FNAC portuguesa deixou escapar SKUs "RS1" a "RS5" de GTA VI com data de 19 nov. Pela leitura, três edições principais — Standard a 89,99€, uma Premium/Deluxe a 119,99€ e uma Collector's a 199,99€. Nada confirmado (os códigos cheiram a placeholder e um insider de peso já pôs água na fervura), mas a malta de Portugal que vá poupando os trocos. A confirmação oficial é já no dia 25.</p>
+          <a href="https://www.gamesradar.com/games/grand-theft-auto/gta-6-prices-potentially-leak-off-a-european-retailer-and-it-looks-like-rockstar-games-is-charging-between-eur90-and-eur200/" target="_blank" rel="noopener" class="read">Ler na fonte →</a>
+        </div>
+      </article>
+
       <article class="card reveal" data-cat="data">
         <a href="https://www.destructoid.com/take-two-predicts-8-billion-revenue-2027-gta-6/" target="_blank" rel="noopener">
           <div class="thumb" style="background-image:url('https://img.youtube.com/vi/inQelDKULOQ/hq3.jpg')"><span class="chip">Take-Two</span></div></a>
@@ -502,17 +513,6 @@ footer .logo{font-size:22px;margin-bottom:14px}
           <div class="meta">20 jun 2026 · Destructoid / Take-Two</div>
           <p class="exc">Nas contas oficiais, a Take-Two projeta 7,9 a 8,2 mil milhões de dólares de net bookings em FY2027 — "ancorados", nas palavras de Zelnick, no lançamento de 19 de novembro. Tradução: a casa-mãe da Rockstar está a apostar tudo neste outono. A data está mais presa do que nunca.</p>
           <a href="https://www.destructoid.com/take-two-predicts-8-billion-revenue-2027-gta-6/" target="_blank" rel="noopener" class="read">Ler na fonte →</a>
-        </div>
-      </article>
-
-      <article class="card reveal" data-cat="leak">
-        <a href="https://www.gtaboom.com/this-gta-6-server-promises-to-pay-you-to-play-a739" target="_blank" rel="noopener">
-          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/9zVIy_La7nk/hq2.jpg')"><span class="chip">Comunidade</span></div></a>
-        <div class="body">
-          <h3>Adin Ross promete servidor RP de GTA 6 que paga em dinheiro real</h3>
-          <div class="meta">20 jun 2026 · GTABoom</div>
-          <p class="exc">O streamer diz que já falou com advogados e quer lançar um servidor de roleplay com economia a sério — salários (faz de estafeta, porteiro ou babysitter) que se levantam em dinheiro ou cripto. Soa bem demais para ser verdade, e provavelmente é: bate em cheio nos termos da Rockstar. Calma com a carteira, malta.</p>
-          <a href="https://www.gtaboom.com/this-gta-6-server-promises-to-pay-you-to-play-a739" target="_blank" rel="noopener" class="read">Ler na fonte →</a>
         </div>
       </article>
 
@@ -1103,6 +1103,7 @@ function t(k){return (I18N[LANG]&&I18N[LANG][k])||I18N.pt[k]||k}
    (O AdSense só serve anúncios depois do site estar ONLINE e aprovado pela Google.) */
 const ADSENSE_CLIENT="ca-pub-4677836234279768"; // AdSense ligado
 const STRIPE_LINKS={monthly:"https://buy.stripe.com/8x214oden0pj697eN64gg01",yearly:"https://buy.stripe.com/cNi8wQfmv4FzbtrawQ4gg00"}; // Stripe LIVE
+const WORKER_URL=""; // <-- cola aqui o URL do teu Cloudflare Worker (ex: https://vice-news-vip.xxxx.workers.dev). Vazio = validação local.
 
 function initAdSense(){
   if(!ADSENSE_CLIENT)return;
@@ -1190,12 +1191,24 @@ async function redeemCode(){const u=currentUser();if(!u){openAuth('login');retur
   const raw=(document.getElementById('codeInput').value||'').trim().toUpperCase();const err=document.getElementById('codeErr');
   if(!raw){err.textContent='Escreve o teu código.';return}
   if(u.vip){err.textContent='Já és VIP! 🌴';return}
+  err.textContent='A validar...';
+  if(WORKER_URL){ /* backend real: uso único global */
+    try{const r=await fetch(WORKER_URL.replace(/\/$/,'')+'/redeem',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:raw,email:u.email})});
+      const d=await r.json();
+      if(d.ok){makeVip();closeCode();modal('⭐','VIP ativado!','Bem-vindo ao clube VIP, '+u.name+'! 🌴');return}
+      err.textContent=d.reason==='used'?'Este código já foi usado.':'Código inválido. Confirma e tenta de novo.';return;
+    }catch(e){err.textContent='Erro de ligação ao servidor. Tenta de novo.';return}
+  }
+  /* fallback local (enquanto o backend não está ligado) */
   let h;try{h=await sha256hex(raw)}catch(e){err.textContent='O navegador bloqueou a validação. Tenta noutro browser.';return}
   const redeemed=getRedeemed();
   if(!VIP_CODES.includes(h)){err.textContent='Código inválido. Confirma e tenta de novo.';return}
   if(redeemed.includes(h)){err.textContent='Este código já foi usado.';return}
   redeemed.push(h);localStorage.setItem('vn_redeemed',JSON.stringify(redeemed));
   makeVip();closeCode();modal('⭐','VIP ativado!','Bem-vindo ao clube VIP, '+u.name+'! Anúncios removidos e tudo desbloqueado. 🌴');}
+async function syncVipStatus(){const u=currentUser();if(!WORKER_URL||!u||u.vip)return;
+  try{const r=await fetch(WORKER_URL.replace(/\/$/,'')+'/status?email='+encodeURIComponent(u.email));const d=await r.json();
+    if(d.vip){const users=getUsers();if(users[u.email]&&!users[u.email].vip){users[u.email].vip=true;saveUsers(users);applyMembership()}}}catch(e){}}
 function logout(){localStorage.removeItem(CUR);document.getElementById('dropdown').classList.remove('show');applyMembership()}
 function makeVip(){const u=currentUser();if(!u)return;const users=getUsers();users[u.email].vip=true;saveUsers(users);applyMembership();updateEarn()}
 function renderAuth(){const area=document.getElementById('authArea');const u=currentUser();
@@ -1352,7 +1365,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLb();closeModa
   if(localStorage.getItem('vn_owner')==='1')document.body.classList.add('owner');})();
 function isOwner(){return localStorage.getItem('vn_owner')==='1'}
 document.querySelectorAll('#commTabs button').forEach(b=>b.addEventListener('click',()=>setCommCh(b.dataset.ch)));
-applyLang(LANG);applyMembership();updateEarn();initAdSense();newsReactions();
+applyLang(LANG);applyMembership();updateEarn();initAdSense();newsReactions();syncVipStatus();
 window.addEventListener('load',()=>{setTimeout(()=>{showInterstitial();countAdView('pageview',true)},600)});
 </script>
 </body>
