@@ -1242,7 +1242,7 @@ function checkout(plan,price){const u=currentUser();
   const link=stripeFor(plan);
   if(link){ // Stripe real configurado -> abre o checkout verdadeiro
     window.open(link,'_blank');
-    modal('💳','Stripe — '+plan,'Abri o checkout seguro do Stripe numa nova aba. Conclui lá o pagamento de '+price+'.');
+    modal('💳','Stripe — '+plan,'Abri o checkout seguro do Stripe numa nova aba. Conclui lá o pagamento de '+price+'. Após o pagamento recebes um email com o teu código VIP — se não aparecer na caixa de entrada, verifica a aba <b>Promoções</b> do Gmail.');
     return;
   }
   modal('💳','Pagamento simulado — '+plan,'A processar '+price+'... (demo, Stripe ainda não configurado). Carrega Fechar para confirmar o VIP.');
