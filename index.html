@@ -937,22 +937,21 @@ footer .logo{font-size:22px;margin-bottom:14px}
   <div class="modal-box" style="border-color:var(--cyan);max-width:420px">
     <div class="em">🔐</div>
     <h3 id="authTitle" data-i18n="auth_login">Entrar na Vice News</h3>
-    <div class="social">
-      <button class="s-google" onclick="socialLogin('google')"><span style="font-weight:900">G</span> <span data-i18n="auth_google">Continuar com Google</span></button>
-      <button class="s-fb" onclick="socialLogin('facebook')">f <span data-i18n="auth_fb">Continuar com Facebook</span></button>
-      <button class="s-discord" onclick="socialLogin('discord')">🎮 <span data-i18n="auth_discord">Continuar com Discord</span></button>
-    </div>
-    <div class="divider" data-i18n="auth_or">ou com email</div>
     <div class="auth-tabs">
       <button id="tabLogin" class="active" onclick="authTab('login')" data-i18n="auth_tab_login">Entrar</button>
       <button id="tabSignup" onclick="authTab('signup')" data-i18n="auth_tab_signup">Criar conta</button>
     </div>
-    <div class="auth-form">
+    <div class="auth-form" id="authFormBody">
       <div id="nameWrap" style="display:none"><label><span data-i18n="auth_name">Nome</span><input id="auName" type="text" placeholder="O teu nome" autocomplete="name"></label></div>
       <label><span data-i18n="auth_email">Email</span><input id="auEmail" type="email" placeholder="email@exemplo.com" autocomplete="email"></label>
       <label><span data-i18n="auth_pass">Password</span><input id="auPass" type="password" placeholder="••••••••" autocomplete="current-password"></label>
       <div class="auth-err" id="authErr"></div>
       <button class="btn btn-vip" style="width:100%" onclick="authSubmit()" id="authBtn" data-i18n="auth_tab_login">Entrar</button>
+    </div>
+    <div id="authPending" style="display:none;text-align:center;padding:20px 0">
+      <div style="font-size:48px;margin-bottom:12px">📧</div>
+      <p style="color:var(--cyan);font-weight:bold;margin:0 0 8px">Email de verificação enviado!</p>
+      <p style="color:#c4b0e0;font-size:14px;line-height:1.6">Verifica a tua caixa de entrada e clica em <b>Verificar email</b>.<br>Se não aparecer, verifica a aba <b>Promoções</b>.</p>
     </div>
     <div class="close" onclick="closeAuth()" data-i18n="cancel">cancelar</div>
   </div>
@@ -1142,43 +1141,45 @@ document.querySelectorAll('.filters button').forEach(b=>{b.addEventListener('cli
   const f=b.dataset.f;document.querySelectorAll('#newsGrid .card').forEach(c=>{c.style.display=(f==='all'||c.dataset.cat===f)?'flex':'none'});});});
 
 /* ============ AUTH ============ */
-const DB='vn_users',CUR='vn_current',STATS='vn_stats',POSTS='vn_posts';
-function getUsers(){try{return JSON.parse(localStorage.getItem(DB))||{}}catch(e){return {}}}
-function saveUsers(u){localStorage.setItem(DB,JSON.stringify(u))}
-function currentUser(){const e=localStorage.getItem(CUR);if(!e)return null;return getUsers()[e]||null}
+const SESSION='vn_session',STATS='vn_stats',POSTS='vn_posts';
+function getSession(){try{return JSON.parse(localStorage.getItem(SESSION))||null}catch(e){return null}}
+function saveSession(s){localStorage.setItem(SESSION,JSON.stringify(s))}
+function currentUser(){return getSession()}
 let authMode='login';
-function openAuth(mode){authMode=mode||'login';authTab(authMode);document.getElementById('authErr').textContent='';document.getElementById('authModal').classList.add('show')}
+function openAuth(mode){authMode=mode||'login';authTab(authMode);document.getElementById('authErr').textContent='';showAuthForm();document.getElementById('authModal').classList.add('show')}
 function closeAuth(){document.getElementById('authModal').classList.remove('show')}
+function showAuthForm(){document.getElementById('authFormBody').style.display='';document.getElementById('authPending').style.display='none'}
+function showAuthPending(){document.getElementById('authFormBody').style.display='none';document.getElementById('authPending').style.display=''}
 function authTab(mode){authMode=mode;
   document.getElementById('tabLogin').classList.toggle('active',mode==='login');
   document.getElementById('tabSignup').classList.toggle('active',mode==='signup');
   document.getElementById('nameWrap').style.display=mode==='signup'?'block':'none';
   document.getElementById('authTitle').textContent=mode==='signup'?t('auth_tab_signup'):t('auth_login');
   document.getElementById('authBtn').textContent=mode==='signup'?t('auth_tab_signup'):t('auth_tab_login');}
-function authSubmit(){
+async function authSubmit(){
   const email=document.getElementById('auEmail').value.trim().toLowerCase();
   const pass=document.getElementById('auPass').value;const name=document.getElementById('auName').value.trim();
-  const err=document.getElementById('authErr');
+  const err=document.getElementById('authErr');const btn=document.getElementById('authBtn');
   if(!email||!email.includes('@')){err.textContent='Email inválido.';return}
-  if(pass.length<4){err.textContent='Password ≥ 4 caracteres.';return}
-  const users=getUsers();
-  if(authMode==='signup'){
-    if(users[email]){err.textContent='Conta já existe. Entra.';return}
-    users[email]={name:name||email.split('@')[0],email,pass,vip:false,since:Date.now()};saveUsers(users);
-    localStorage.setItem(CUR,email);closeAuth();applyMembership();
-    modal('🎉','OK','Conta criada! Bem-vindo, '+users[email].name+'.');
-  }else{
-    if(!users[email]||users[email].pass!==pass){err.textContent='Email ou password errados.';return}
-    localStorage.setItem(CUR,email);closeAuth();applyMembership();
-    const u=users[email];modal(u.vip?'⭐':'👋','Olá '+u.name+'!',u.vip?'Clube VIP — tudo desbloqueado.':'Plano Free.');
-  }
-}
-function socialLogin(prov){
-  const labels={google:'Google',facebook:'Facebook',discord:'Discord'};
-  const email=prov+'@vicenews.social';const users=getUsers();
-  if(!users[email]){users[email]={name:labels[prov],email,pass:'',vip:false,prov:prov,since:Date.now()};saveUsers(users)}
-  localStorage.setItem(CUR,email);closeAuth();applyMembership();
-  modal('✅','Sessão iniciada','Entraste com '+labels[prov]+'. (login social simulado) 🌴');
+  if(pass.length<6){err.textContent='Password ≥ 6 caracteres.';return}
+  btn.textContent='...';btn.disabled=true;err.textContent='';
+  try{
+    if(authMode==='signup'){
+      const r=await fetch(WORKER_URL+'/auth/signup',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,password:pass})});
+      const d=await r.json();
+      if(d.ok){showAuthPending();}
+      else{const m={email_taken:'Este email já tem conta. Entra.',password_too_short:'Password ≥ 6 caracteres.',invalid_email:'Email inválido.'};err.textContent=m[d.error]||'Erro ao criar conta. Tenta de novo.';}
+    }else{
+      const r=await fetch(WORKER_URL+'/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,password:pass})});
+      const d=await r.json();
+      if(d.ok){saveSession(d.user);closeAuth();applyMembership();
+        const u=d.user;
+        if(!u.verified)modal('📧','Olá '+u.name+'!','Bem-vindo! Confirma o email que te enviámos para ativar a conta.');
+        else modal(u.vip?'⭐':'👋','Olá '+u.name+'!',u.vip?'Clube VIP — tudo desbloqueado.':'Plano Free.');
+      }else{err.textContent='Email ou password incorretos.';}
+    }
+  }catch(e){err.textContent='Erro de ligação. Tenta de novo.';}
+  btn.textContent=authMode==='signup'?t('auth_tab_signup'):t('auth_tab_login');btn.disabled=false;
 }
 /* ===== Códigos VIP (1 uso por dispositivo) ===== */
 const VIP_CODES=["3892f17fe17af569c339f99831653e8d16fac28f9e089a270dc59572f1c33ed0","18a6ce0d2ec8f1698ac4f79932b96a08da46287a31a3f457069379d77e9a3e09","5a9be429f7cbc5db975f979df23a3765a288b492e3b207b2bdc2b907e63791df","48c9b37d4a919012e2b72076a0addd82db5e6d9d3b6379eb7278ba033318d0d3","53062b203a070f06da7ac4b0a6c779e7963fbe6ee11a6df3207869980c4afef0","f2de453fd18ef79717817419b7566b725b77e44b85fc1374518bad9e8e82ad81","53a08e408a06db2142b82efb7539834a75d17f3abd9bbfd034606c9cce910adb","834a6f15f21f34203a09c3f21c235f67c98ba7a82414c6bd492547dff91acffa","fa59b03926b259b6a8ac6013f1f43ea7a755829abf6015e52e7c3ab5b079e480","3632ecb2b41994b5187b25cd702c28a43e9c9db26f33215550b14023a1a6235a","a3b8ff89167060ec7cf1dd5a19c846f89938eb55d974bf59c4ae2ee981edc341","aa5a26cd395dd944168c60dd56b6736abe67b08f27f2d03600c3105f71bbce06","09a0b325266971dbcac59f7ffd1d6a590d5047ee68ef3f70660dbdba3cdd0ade","865981297403326855df181d136095038507be3482d1396e305f446e6ed805a2","c1b9b7a8909829e19a80b6620efeb3c69c0ab5d097560c38cacd873af0241a66","842fad60d02b44a070fda9f4e5ae70ff97c7e7984e56895a1028af80a787e5cf","4f4613d731ba6d8eb7e69bd394a63b6680299a66a4e82daca2880d6b8c99e5a9","e1caf37fae7473d2ccd725caa5fc5389603852d08168dad18ca879538bf4fa1f","bdba6b08b4f4ee179ec6241b2829822152cf8e7ef0da2d5dc103beef102d2454","9c238c4cfe57faf778c475fb3245969ccdb41c7ed02e52f1a4be216285dac72d","9831b6ff89cb4f57f52139cacd3556cf2d252a7ce3dac19f7dc49852922bb874","9ba22d6a6e5e6891f13f04dc64484ddfd9160f4bf2235a2f4375fc5719daa716","35a1d003c2be31f8793afc37ed45eb303ceab598b8eacbf9b8cbba5c26612b17","5348461a9a90767aedd294423a8984832dcdaeb4814bd7ee63e1af05170cfaa8","a2586a110a8efd238c934f5c68bdb27cc63a78f57a08ef1e353776ce3442b453","15ff81062ed1e793df07e9f0d23d7aab51194c836ea7a5d312c64f8e57983ad7","41b636efbf9c1154c4d8034e8a8e9c5b0b3de671efc961e5d49593e6573b0d0c","4b192bb24ed84889322118f7b1e127b2f20d678a8692cbe3d8b3961b1954acfd","0adf486a15b1871aee67c4cf2a19bccc1fc7360ffbc3272023c5e207dce24598","58644355f9e5df955435617a8b5aa45f52a7e9b4694f061e47ee4eb98dcab4c3"];
@@ -1206,11 +1207,11 @@ async function redeemCode(){const u=currentUser();if(!u){openAuth('login');retur
   if(redeemed.includes(h)){err.textContent='Este código já foi usado.';return}
   redeemed.push(h);localStorage.setItem('vn_redeemed',JSON.stringify(redeemed));
   makeVip();closeCode();modal('⭐','VIP ativado!','Bem-vindo ao clube VIP, '+u.name+'! Anúncios removidos e tudo desbloqueado. 🌴');}
-async function syncVipStatus(){const u=currentUser();if(!WORKER_URL||!u||u.vip)return;
-  try{const r=await fetch(WORKER_URL.replace(/\/$/,'')+'/status?email='+encodeURIComponent(u.email));const d=await r.json();
-    if(d.vip){const users=getUsers();if(users[u.email]&&!users[u.email].vip){users[u.email].vip=true;saveUsers(users);applyMembership()}}}catch(e){}}
-function logout(){localStorage.removeItem(CUR);document.getElementById('dropdown').classList.remove('show');applyMembership()}
-function makeVip(){const u=currentUser();if(!u)return;const users=getUsers();users[u.email].vip=true;saveUsers(users);applyMembership();updateEarn()}
+async function syncVipStatus(){const u=currentUser();if(!WORKER_URL||!u)return;
+  try{const r=await fetch(WORKER_URL+'/auth/me?email='+encodeURIComponent(u.email));const d=await r.json();
+    if(d.exists){const updated={...u,vip:d.vip,verified:d.verified,name:d.name};saveSession(updated);applyMembership();}}catch(e){}}
+function logout(){localStorage.removeItem(SESSION);document.getElementById('dropdown').classList.remove('show');applyMembership()}
+function makeVip(){const s=getSession();if(!s)return;s.vip=true;saveSession(s);applyMembership();updateEarn()}
 function renderAuth(){const area=document.getElementById('authArea');const u=currentUser();
   if(!u){area.innerHTML='<button class="btn btn-vip" onclick="openAuth(\'login\')">'+t('login_btn')+'</button>';return}
   const initial=(u.name||u.email)[0].toUpperCase();
@@ -1328,7 +1329,7 @@ function saveStats(s){localStorage.setItem(STATS,JSON.stringify(s))}
 let stats=getStats();if(stats.month!==new Date().getMonth())stats={views:0,month:new Date().getMonth()};
 const CPM=2.80,VIP_PRICE=4.99;
 function countAdView(src,silent){const u=currentUser();if(u&&u.vip)return;stats.views++;saveStats(stats);updateEarn();if(!silent&&isOwner())toast('+€'+(CPM/1000).toFixed(3)+' 👀')}
-function vipCount(){return Object.values(getUsers()).filter(u=>u.vip).length}
+function vipCount(){const s=getSession();return(s&&s.vip)?1:0}
 function updateEarn(){const adRev=stats.views*(CPM/1000),subs=vipCount(),subRev=subs*VIP_PRICE,total=adRev+subRev;
   const f=n=>'€'+n.toLocaleString('pt-PT',{minimumFractionDigits:2,maximumFractionDigits:2});
   document.getElementById('eViews').textContent=stats.views.toLocaleString('pt-PT');
@@ -1363,6 +1364,14 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLb();closeModa
   if(p.get('owner')==='vice2026')localStorage.setItem('vn_owner','1');
   if(p.get('owner')==='off')localStorage.removeItem('vn_owner');
   if(localStorage.getItem('vn_owner')==='1')document.body.classList.add('owner');})();
+/* verificação de email via link ?verified=ok&email=xxx */
+(function(){const p=new URLSearchParams(location.search);const v=p.get('verified'),ve=p.get('email');
+  if(!v)return;history.replaceState(null,'',location.pathname);
+  if(v==='ok'&&ve){const s=getSession();if(s&&s.email===decodeURIComponent(ve)){s.verified=true;saveSession(s);applyMembership();}
+    setTimeout(()=>modal('✅','Email verificado!','A tua conta foi ativada. Bem-vindo à Vice News! 🌴'),500);
+  }else if(v==='expired'){setTimeout(()=>modal('⏰','Link expirado','O link de verificação expirou (válido 24h). Entra na tua conta para receber um novo link.'),500);
+  }else if(v==='error'){setTimeout(()=>modal('❌','Link inválido','O link de verificação não é válido. Tenta entrar na tua conta.'),500);}
+})();
 function isOwner(){return localStorage.getItem('vn_owner')==='1'}
 document.querySelectorAll('#commTabs button').forEach(b=>b.addEventListener('click',()=>setCommCh(b.dataset.ch)));
 applyLang(LANG);applyMembership();updateEarn();initAdSense();newsReactions();syncVipStatus();
