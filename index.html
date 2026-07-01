@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VICE NEWS — GTA VI Hub</title>
 <meta name="description" content="O teu hub nº1 de GTA 6: novidades, leaks, trailers, clips, tips, carros e mapa de Vice City.">
+<!-- OpenGraph / Social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vicenewsgta6.com/">
+<meta property="og:title" content="VICE NEWS — GTA VI Hub | Novidades, Leaks & Trailers">
+<meta property="og:description" content="O teu hub nº1 de GTA 6: novidades, leaks, trailers, clips, tips, carros e mapa de Leonida.">
+<meta property="og:image" content="https://img.youtube.com/vi/yAi0MYo5Mzw/maxresdefault.jpg">
+<meta property="og:site_name" content="VICE NEWS GTA VI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VICE NEWS — GTA VI Hub">
+<meta name="twitter:description" content="O teu hub nº1 de GTA 6: novidades, leaks, trailers, clips e muito mais.">
+<meta name="twitter:image" content="https://img.youtube.com/vi/yAi0MYo5Mzw/maxresdefault.jpg">
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4677836234279768" crossorigin="anonymous"></script>
 <!-- Google Analytics 4 (preenche GA_ID quando criares a propriedade gratuita) -->
@@ -410,6 +421,31 @@ footer .logo{font-size:22px;margin-bottom:14px}
   .owner-fab{bottom:82px;right:12px;padding:9px 14px;font-size:13px}
   .toast{right:12px;left:12px;bottom:84px;text-align:center}
 }
+
+/* ── Trailer 3 alert banner ── */
+.t3-alert{background:linear-gradient(90deg,rgba(255,45,149,.18),rgba(0,240,255,.1));border-bottom:1px solid rgba(255,45,149,.45);padding:10px 22px;text-align:center;font-size:14px;font-weight:600;position:relative}
+.t3-chip{background:var(--pink);color:#fff;font-size:10px;font-weight:900;padding:2px 9px;border-radius:20px;margin-right:8px;text-transform:uppercase;letter-spacing:.6px;vertical-align:middle}
+.t3-alert a{color:var(--cyan);text-decoration:underline;margin-left:6px}
+.t3-close{position:absolute;right:16px;top:50%;transform:translateY(-50%);cursor:pointer;color:var(--muted);background:none;border:none;font-size:18px;line-height:1;padding:0}
+.t3-close:hover{color:var(--text)}
+
+/* ── Share buttons on news cards ── */
+.share-row{display:flex;gap:7px;margin-top:9px;flex-wrap:wrap}
+.share-btn{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:5px 11px;border-radius:20px;text-decoration:none;transition:.2s;white-space:nowrap}
+.share-btn.wa{background:#25D366;color:#fff}
+.share-btn.tw{background:#000;color:#fff;border:1px solid #333}
+.share-btn:hover{opacity:.82;transform:translateY(-1px)}
+
+/* ── Newsletter section ── */
+.nl-wrap{background:linear-gradient(135deg,rgba(123,47,247,.18),rgba(255,45,149,.1));border:1px solid rgba(123,47,247,.35);border-radius:22px;padding:36px 28px;text-align:center;margin:48px 0 0}
+.nl-wrap h3{font-family:'Audiowide';color:var(--cyan);font-size:20px;margin-bottom:8px}
+.nl-wrap .sub{color:var(--muted);margin-bottom:24px;font-size:14px;line-height:1.6}
+.nl-form{display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.nl-form input[type=email]{flex:1;min-width:190px;background:rgba(255,255,255,.07);border:1px solid rgba(0,240,255,.3);color:var(--text);border-radius:40px;padding:13px 20px;font-family:'Outfit';font-size:14px}
+.nl-form input[type=email]:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 2px rgba(0,240,255,.15)}
+.nl-form button{background:linear-gradient(90deg,var(--pink),var(--purple));color:#fff;border:none;border-radius:40px;padding:13px 24px;font-family:'Outfit';font-weight:800;cursor:pointer;font-size:14px;transition:.2s}
+.nl-form button:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,45,149,.4)}
+.nl-small{font-size:11px;color:var(--muted);margin-top:10px}
 </style>
 </head>
 <body>
@@ -431,6 +467,7 @@ footer .logo{font-size:22px;margin-bottom:14px}
       <a href="#premium" data-i18n="nav_premium">Premium</a>
       <a href="#discord">Discord</a>
       <a href="https://www.instagram.com/gtavi.vicecitynews/" target="_blank" rel="noopener" title="Instagram GTA VI Vice City News">📸 Instagram</a>
+      <button onclick="requestNotif()" title="Ativar notificações" style="background:none;border:none;cursor:pointer;font-size:18px;line-height:1;padding:0 2px;color:var(--text)" aria-label="Notificações">🔔</button>
       <div class="lang">
         <button class="lang-btn" onclick="toggleLang(event)">🌐 <span id="langCur">PT</span> ▾</button>
         <div class="lang-menu" id="langMenu">
@@ -444,6 +481,14 @@ footer .logo{font-size:22px;margin-bottom:14px}
     <button class="burger" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
   </nav>
 </header>
+
+<!-- TRAILER 3 ALERT BANNER -->
+<div id="t3Alert" class="t3-alert">
+  <span class="t3-chip">🚨 Iminente</span>
+  <strong>Trailer 3 previsto para esta semana</strong> — sê o primeiro a saber quando sair
+  <a href="https://www.instagram.com/gtavi.vicecitynews/" target="_blank" rel="noopener">📸 Instagram</a>
+  <button class="t3-close" onclick="document.getElementById('t3Alert').style.display='none';localStorage.setItem('t3bye','1')" aria-label="Fechar">✕</button>
+</div>
 
 <!-- HERO -->
 <div id="top" class="hero">
@@ -719,8 +764,8 @@ footer .logo{font-size:22px;margin-bottom:14px}
         <img src="https://img.youtube.com/vi/9zVIy_La7nk/maxresdefault.jpg" loading="lazy" alt="clip">
         <div class="ov"><span class="fire">🔥 Tech</span><div class="play2">▶</div><div><small>ANÁLISE</small><br><b>Tech Breakdown do realismo</b></div></div>
       </div>
-      <div class="clip reveal" onclick="playVid('9zVIy_La7nk',true)">
-        <img src="https://img.youtube.com/vi/9zVIy_La7nk/hq2.jpg" loading="lazy" alt="clip">
+      <div class="clip reveal" onclick="playVid('yAi0MYo5Mzw',true)">
+        <img src="https://img.youtube.com/vi/yAi0MYo5Mzw/hq2.jpg" loading="lazy" alt="clip">
         <div class="ov"><span class="fire">🔥 Viral</span><div class="play2">▶</div><div><small>LUCIA & JASON</small><br><b>Detalhes que ninguém viu</b></div></div>
       </div>
       <div class="clip reveal" onclick="playVid('VEwYvi2mIws',true)">
@@ -997,6 +1042,25 @@ footer .logo{font-size:22px;margin-bottom:14px}
   </div>
 </section>
 
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <div class="container">
+    <div class="nl-wrap reveal">
+      <h3>🔔 Sê o primeiro a saber</h3>
+      <p class="sub">Recebe um email quando o Trailer 3 sair, na semana do lançamento e nas maiores novidades de GTA 6.<br>Sem spam — apenas o que interessa.</p>
+      <form class="nl-form" action="https://formsubmit.co/clubpenguinvaidoso1999@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="🎮 Nova subscrição — VICE NEWS GTA 6">
+        <input type="hidden" name="_next" value="https://vicenewsgta6.com/?subscribed=1">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="email" name="email" placeholder="O teu email..." required>
+        <button type="submit">Subscrever 🔔</button>
+      </form>
+      <p class="nl-small">Sem spam. Podes cancelar a qualquer momento.</p>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="container">
     <div class="logo">VICE<span style="color:var(--pink)">NEWS</span></div>
@@ -1243,10 +1307,20 @@ const navA=[...document.querySelectorAll('.nav-links a[href^="#"]')];
 const secIo=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id))}})},{rootMargin:'-45% 0px -50% 0px'});
 document.querySelectorAll('section[id]').forEach(s=>secIo.observe(s));
 
-/* news filter */
+/* news filter — inclui cards dentro de olderNews */
 document.querySelectorAll('.filters button').forEach(b=>{b.addEventListener('click',()=>{
   document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('active'));b.classList.add('active');
-  const f=b.dataset.f;document.querySelectorAll('#newsGrid .card').forEach(c=>{c.style.display=(f==='all'||c.dataset.cat===f)?'flex':'none'});});});
+  const f=b.dataset.f;
+  const older=document.getElementById('olderNews');
+  const mBtn=document.getElementById('moreNewsBtn');
+  // se filtramos por categoria, abre olderNews temporariamente para mostrar todos os resultados
+  if(older) older.style.display=f==='all'?(mBtn&&mBtn.dataset.showing==='1'?'contents':'none'):'contents';
+  document.querySelectorAll('#newsGrid .card').forEach(c=>{
+    const match=f==='all'||c.dataset.cat===f;
+    const hiddenByCollapse=older&&older.contains(c)&&f==='all'&&older.style.display==='none';
+    c.style.display=(match&&!hiddenByCollapse)?'flex':'none';
+  });
+})});
 
 /* ============ AUTH ============ */
 const SESSION='vn_session',STATS='vn_stats',POSTS='vn_posts';
@@ -1399,7 +1473,7 @@ function renderComm(){const feed=document.getElementById('commFeed');if(!feed)re
     return '<div class="feed-post"><div class="pav">'+ini+'</div><div style="flex:1"><div class="pmeta"><b>'+escapeHtml(p.user)+'</b> <span class="vtag">VIP</span> · '+timeAgo(p.time)+'</div>'+body+'<div class="rxbar">'+rxBtn(p,'fire','🔥')+rxBtn(p,'heart','❤️')+rxBtn(p,'lol','😂')+'</div></div></div>';
   }).join('');}
 setInterval(()=>{const el=document.getElementById('commOnline');if(el)el.textContent=(38+Math.floor(Math.random()*28))},4500);
-function toggleMoreNews(){var el=document.getElementById('olderNews');var btn=document.getElementById('moreNewsBtn');var showing=btn.dataset.showing==='1';el.style.display=showing?'none':'contents';btn.dataset.showing=showing?'0':'1';btn.innerHTML=showing?'⬇ Ver mais notícias':'⬆ Ver menos notícias';if(showing)document.getElementById('news').scrollIntoView({behavior:'smooth'});}
+function toggleMoreNews(){var el=document.getElementById('olderNews');var btn=document.getElementById('moreNewsBtn');var showing=btn.dataset.showing==='1';el.style.display=showing?'none':'contents';btn.dataset.showing=showing?'0':'1';btn.innerHTML=showing?'⬇ Ver mais notícias':'⬆ Ver menos notícias';localStorage.setItem('vnNewsExp',showing?'0':'1');if(showing)document.getElementById('news').scrollIntoView({behavior:'smooth'});}
 
 /* ===== reações públicas nas notícias (interação entre todos) ===== */
 function newsReactions(){
@@ -1482,7 +1556,71 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLb();closeModa
 })();
 function isOwner(){return localStorage.getItem('vn_owner')==='1'}
 document.querySelectorAll('#commTabs button').forEach(b=>b.addEventListener('click',()=>setCommCh(b.dataset.ch)));
-applyLang(LANG);applyMembership();updateEarn();initAdSense();newsReactions();syncVipStatus();
+
+/* ── Share buttons (WhatsApp + X) injetados dinamicamente em cada card ── */
+function addShareButtons(){
+  document.querySelectorAll('#newsGrid .card').forEach(function(c){
+    var rl=c.querySelector('.read');
+    if(!rl||c.querySelector('.share-row'))return;
+    var url=rl.href;
+    var title=(c.querySelector('h3')||{}).textContent||'GTA 6 — VICE NEWS';
+    var tEnc=encodeURIComponent(title);
+    var uEnc=encodeURIComponent(url);
+    var row=document.createElement('div');
+    row.className='share-row';
+    row.innerHTML='<a href="https://wa.me/?text='+tEnc+'%20'+uEnc+'" target="_blank" rel="noopener" class="share-btn wa">📱 WhatsApp</a>'
+      +'<a href="https://x.com/intent/tweet?text='+tEnc+'&url='+uEnc+'" target="_blank" rel="noopener" class="share-btn tw">𝕏 X / Twitter</a>';
+    rl.after(row);
+  });
+}
+
+/* ── Browser push notifications ── */
+function requestNotif(){
+  if(!('Notification' in window)){toast('O teu browser não suporta notificações.');return;}
+  if(Notification.permission==='granted'){toast('Notificações já ativas! 🔔');return;}
+  if(Notification.permission==='denied'){toast('Bloqueado no browser — ativa nas definições do site.');return;}
+  Notification.requestPermission().then(function(p){
+    if(p==='granted'){
+      localStorage.setItem('vnNotif','1');
+      toast('Notificações ativas! 🔔 Vamos avisar-te do Trailer 3.');
+      try{new Notification('VICE NEWS — GTA VI 🎮',{body:'Subscrito! Serás avisado das maiores novidades.',icon:'https://img.youtube.com/vi/yAi0MYo5Mzw/default.jpg'});}catch(e){}
+    } else {
+      toast('Notificações não ativadas.');
+    }
+  });
+}
+
+/* ── T3 banner — esconder se já dispensado ── */
+(function(){
+  if(localStorage.getItem('t3bye')==='1'){
+    var el=document.getElementById('t3Alert');
+    if(el)el.style.display='none';
+  }
+})();
+
+/* ── olderNews — restaurar estado entre reloads ── */
+(function(){
+  if(localStorage.getItem('vnNewsExp')==='1'){
+    var el=document.getElementById('olderNews');
+    var btn=document.getElementById('moreNewsBtn');
+    if(el&&btn){
+      el.style.display='contents';
+      btn.dataset.showing='1';
+      btn.innerHTML='⬆ Ver menos notícias';
+    }
+  }
+})();
+
+/* ── Newsletter success toast ── */
+(function(){
+  var p=new URLSearchParams(location.search);
+  if(p.get('subscribed')){
+    history.replaceState(null,'',location.pathname);
+    setTimeout(function(){toast('Subscrito! 🔔 Vais receber as maiores novidades no email.');},800);
+  }
+})();
+
+applyLang(LANG);applyMembership();updateEarn();initAdSense();newsReactions();syncVipStatus();addShareButtons();
 window.addEventListener('load',()=>{setTimeout(()=>{showInterstitial();countAdView('pageview',true)},600)});
 </script>
 </body>
