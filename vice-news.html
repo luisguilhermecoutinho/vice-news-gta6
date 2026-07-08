@@ -711,13 +711,6 @@ footer .logo{font-size:22px;margin-bottom:14px}
         </div>
       </article>
 
-      <!-- AD SLOT in-feed -->
-      <div class="adslot ad-card reveal" data-ad="infeed">
-        <span class="adtag">Publicidade</span>
-        <div class="adbig" data-i18n="ad_here">O teu anúncio aqui</div>
-        <div class="adsub" data-i18n="ad_infeed">Espaço AdSense in-feed · ganhas por cada visualização 👀</div>
-      </div>
-
       <article class="card reveal" data-cat="oficial">
         <a href="https://www.rockstargames.com/VI" target="_blank" rel="noopener">
           <div class="thumb" style="background-image:url('https://img.youtube.com/vi/inQelDKULOQ/hq1.jpg')"><span class="chip">Oficial</span></div></a>
@@ -735,13 +728,6 @@ footer .logo{font-size:22px;margin-bottom:14px}
     </div>
   </div>
 </section>
-
-<!-- AD BANNER -->
-<div class="container"><div class="adslot ad-banner" data-ad="banner">
-  <span class="adtag">Publicidade</span>
-  <div class="adbig">Banner · 728×90</div>
-  <div class="adsub" data-i18n="ad_banner">Pronto para Google AdSense — rende por impressão</div>
-</div></div>
 
 <!-- CLIPS / SHORTS -->
 <section id="clips">
@@ -1077,30 +1063,6 @@ footer .logo{font-size:22px;margin-bottom:14px}
 </footer>
 
 <!-- SIDE ADS (desktop largo) -->
-<div class="adslot ad-side left" data-ad="side"><span class="adtag">Ad</span><div class="adsub">160×600<br>AdSense</div></div>
-<div class="adslot ad-side right" data-ad="side"><span class="adtag">Ad</span><div class="adsub">160×600<br>AdSense</div></div>
-
-<!-- STICKY BOTTOM AD (sempre presente) -->
-<div class="sticky-ad" id="stickyAd">
-  <span class="stag">Publicidade</span>
-  <div class="smsg" data-i18n="sticky_msg">📢 Anúncio sempre presente — cada segundo rende. <b>O teu banner AdSense aqui.</b></div>
-  <span class="svip" onclick="goVip()" data-i18n="sticky_vip">Remover com VIP ★</span>
-  <button class="sclose" onclick="document.getElementById('stickyAd').style.display='none'">✕</button>
-</div>
-
-<!-- ENTRY INTERSTITIAL -->
-<div class="interstitial" id="inter">
-  <div class="inter-box">
-    <button class="inter-close" id="interClose" onclick="closeInter()" disabled>✕</button>
-    <div class="adslot inter-ad" data-ad="interstitial">
-      <span class="adtag">Publicidade</span>
-      <div class="adbig" data-i18n="ad_welcome">Anúncio de boas-vindas</div>
-      <div class="adsub" data-i18n="ad_welcome_sub">Espaço AdSense de entrada · cada visita conta 💰</div>
-    </div>
-    <div class="inter-skip"><span data-i18n="inter_skip">Podes fechar em</span> <b id="interCd">5</b>s &nbsp;·&nbsp; <span style="cursor:pointer;text-decoration:underline" onclick="goVip()" data-i18n="inter_remove">Remover anúncios com VIP</span></div>
-  </div>
-</div>
-
 <!-- AUTH DROPDOWN -->
 <div class="dropdown" id="dropdown"></div>
 
@@ -1497,14 +1459,6 @@ function newsReactions(){
   });
 }
 
-/* ============ ADS + INTERSTITIAL ============ */
-function closeInter(){document.getElementById('inter').classList.remove('show')}
-function showInterstitial(){const u=currentUser();if(u&&u.vip)return;
-  if(sessionStorage.getItem('vn_inter'))return; sessionStorage.setItem('vn_inter','1');
-  const inter=document.getElementById('inter');inter.classList.add('show');
-  let n=3;const cd=document.getElementById('interCd');const btn=document.getElementById('interClose');btn.disabled=true;cd.textContent=n;
-  const tm=setInterval(()=>{n--;cd.textContent=n;if(n<=0){clearInterval(tm);btn.disabled=false;countAdView('interstitial')}},1000);}
-
 /* ============ GANHOS ============ */
 function getStats(){try{return JSON.parse(localStorage.getItem(STATS))||{views:0,month:new Date().getMonth()}}catch(e){return {views:0,month:new Date().getMonth()}}}
 function saveStats(s){localStorage.setItem(STATS,JSON.stringify(s))}
@@ -1538,7 +1492,7 @@ function closeModal(){document.getElementById('modal').classList.remove('show')}
 function goVip(){document.getElementById('navlinks').classList.remove('open');location.hash='#premium'}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
 document.getElementById('codeModal').addEventListener('click',e=>{if(e.target.id==='codeModal')closeCode()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLb();closeModal();closeAuth();closeEarn();closeCode();var it=document.getElementById('interClose');if(it&&!it.disabled)closeInter()}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLb();closeModal();closeAuth();closeEarn();closeCode()}});
 
 /* ============ INIT ============ */
 /* modo dono (painel de ganhos só para ti) — acede com ?owner=vice2026 */
@@ -1621,7 +1575,7 @@ function requestNotif(){
 })();
 
 applyLang(LANG);applyMembership();updateEarn();initAdSense();newsReactions();syncVipStatus();addShareButtons();
-window.addEventListener('load',()=>{setTimeout(()=>{showInterstitial();countAdView('pageview',true)},600)});
+window.addEventListener('load',()=>{setTimeout(()=>{countAdView('pageview',true)},600)});
 </script>
 </body>
 </html>
