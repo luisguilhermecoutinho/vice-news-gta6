@@ -484,9 +484,8 @@ footer .logo{font-size:22px;margin-bottom:14px}
 
 <!-- TRAILER 3 ALERT BANNER -->
 <div id="t3Alert" class="t3-alert">
-  <span class="t3-chip">🚨 Iminente</span>
-  <strong>Trailer 3 previsto para esta semana</strong> — sê o primeiro a saber quando sair
-  <a href="https://www.instagram.com/gtavi.vicecitynews/" target="_blank" rel="noopener">📸 Instagram</a>
+  <span class="t3-chip">🎮 Gameplay</span>
+  <strong>Extended Look saiu!</strong> — 26 min de gameplay oficial. <a href="https://www.youtube.com/watch?v=wSm9GTUttBs" target="_blank" rel="noopener">▶ Ver agora</a> · <a href="https://www.instagram.com/gtavi.vicecitynews/" target="_blank" rel="noopener">📸 Instagram</a>
   <button class="t3-close" onclick="document.getElementById('t3Alert').style.display='none';localStorage.setItem('t3bye','1')" aria-label="Fechar">✕</button>
 </div>
 
@@ -527,8 +526,30 @@ footer .logo{font-size:22px;margin-bottom:14px}
       <button data-f="trailer" data-i18n="f_trailer">Trailers</button>
       <button data-f="data" data-i18n="f_data">Datas</button>
     </div>
-    <!-- last-normal-update: 2026-06-30 -->
+    <!-- last-normal-update: 2026-09-02 -->
     <div class="news-grid" id="newsGrid">
+
+      <article class="card reveal" data-cat="trailer">
+        <a href="https://www.rockstargames.com/newswire/article/9k2kaa1o3297k9/grand-theft-auto-vi-an-extended-look" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/wSm9GTUttBs/maxresdefault.jpg')"><span class="chip breaking">🎮 27 ago · Oficial</span></div></a>
+        <div class="body">
+          <h3>Extended Look: 26 minutos de gameplay oficial — tudo o que foi revelado</h3>
+          <div class="meta">27 ago 2026 · Rockstar Games</div>
+          <p class="exc">A Rockstar lançou 26 minutos de gameplay exclusivo no Netflix e depois no YouTube. Revelou o sistema de 6 estrelas de procura, troca instantânea entre Jason e Lucia, o Criminal Profile que regista o teu comportamento, slim jim para roubar carros sem partir vidros, 600 000 animações de NPCs e confirmou que o jogo corre a 30 FPS na PS5. É o maior reveal da história da série.</p>
+          <a href="https://www.rockstargames.com/newswire/article/9k2kaa1o3297k9/grand-theft-auto-vi-an-extended-look" target="_blank" rel="noopener" class="read">Ler no Rockstar Newswire →</a>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="oficial">
+        <a href="https://rockstarintel.com/new-gta-online-heist-update-revealed-the-kortz-center-heist-confirmed-to-release-in-july/" target="_blank" rel="noopener">
+          <div class="thumb" style="background-image:url('https://d1lss44hh2trtw.cloudfront.net/assets/article/2026/06/17/gta-online-the-kortz-center-heist-update-announcement_feature.jpg')"><span class="chip">🏛️ 14 jul · GTA Online</span></div></a>
+        <div class="body">
+          <h3>Kortz Center Heist: o último grande DLC do GTA Online antes do GTA 6</h3>
+          <div class="meta">14 jul 2026 · RockstarINTEL</div>
+          <p class="exc">A Rockstar lançou o heist da galeria de arte Kortz Center — o primeiro grande heist em quase 6 anos e provavelmente o último DLC de fundo do GTA Online antes do lançamento de GTA 6 a 19 de novembro. Multi-stage, até 4 jogadores, e requer uma Mansão com Art Studio. O programa Fine Art Collector pagou até GTA$1,5 milhões em bónus de preparação.</p>
+          <a href="https://rockstarintel.com/new-gta-online-heist-update-revealed-the-kortz-center-heist-confirmed-to-release-in-july/" target="_blank" rel="noopener" class="read">Ler no RockstarINTEL →</a>
+        </div>
+      </article>
 
       <article class="card reveal" data-cat="oficial">
         <a href="https://rockstarintel.com/gta-6-ps5-pre-orders-outsell-xbox-by-6-to-1/" target="_blank" rel="noopener">
@@ -754,6 +775,10 @@ footer .logo{font-size:22px;margin-bottom:14px}
         <img src="https://img.youtube.com/vi/yAi0MYo5Mzw/hq2.jpg" loading="lazy" alt="clip">
         <div class="ov"><span class="fire">🔥 Viral</span><div class="play2">▶</div><div><small>LUCIA & JASON</small><br><b>Detalhes que ninguém viu</b></div></div>
       </div>
+      <div class="clip reveal" onclick="playVid('wSm9GTUttBs',true)">
+        <img src="https://img.youtube.com/vi/wSm9GTUttBs/maxresdefault.jpg" loading="lazy" alt="clip">
+        <div class="ov"><span class="fire">🔥 26 min!</span><div class="play2">▶</div><div><small>GAMEPLAY OFICIAL</small><br><b>Extended Look — Netflix Exclusive</b></div></div>
+      </div>
       <div class="clip reveal" onclick="playVid('VEwYvi2mIws',true)">
         <img src="https://img.youtube.com/vi/VEwYvi2mIws/maxresdefault.jpg" loading="lazy" alt="clip">
         <div class="ov"><span class="fire">🔥 Jun 2026</span><div class="play2">▶</div><div><small>ANÁLISE</small><br><b>GTA 6 em junho: tudo o que saiu</b></div></div>
@@ -771,6 +796,11 @@ footer .logo{font-size:22px;margin-bottom:14px}
       <p data-i18n="tr_p">Os trailers reais da Rockstar, aqui mesmo no site.</p>
     </div>
     <div class="trailer-grid">
+      <div class="trailer reveal" onclick="playVid('wSm9GTUttBs')">
+        <img src="https://img.youtube.com/vi/wSm9GTUttBs/maxresdefault.jpg" alt="GTA VI Extended Look — 26 min Gameplay" loading="lazy">
+        <div class="play"><span>▶</span></div>
+        <div class="cap"><small>AGO 2026 · 🔥 NOVO</small><b>Extended Look — 26 min Gameplay</b></div>
+      </div>
       <div class="trailer reveal" onclick="playVid('inQelDKULOQ')">
         <img src="https://img.youtube.com/vi/inQelDKULOQ/maxresdefault.jpg" alt="GTA VI Trailer 1" loading="lazy">
         <div class="play"><span>▶</span></div>
@@ -818,7 +848,8 @@ footer .logo{font-size:22px;margin-bottom:14px}
     <div class="tips-grid">
       <div class="tip reveal"><div class="ic">💸</div><h3>Faz dinheiro cedo</h3><p>As primeiras missões de entregas e os pequenos assaltos dão o capital inicial para investir.</p></div>
       <div class="tip reveal"><div class="ic">🚗</div><h3>Guarda a tua garagem</h3><p>Estaciona em zonas seguras e usa garagens para não perder os carros raros que apanhas.</p></div>
-      <div class="tip reveal"><div class="ic">⭐</div><h3>Gere o nível de procura</h3><p>Muda de roupa e de veículo para despistar a polícia mais depressa nas perseguições.</p></div>
+      <div class="tip reveal"><div class="ic">⭐</div><h3>6 estrelas de procura voltaram</h3><p>Muda de roupa, queima o veículo comprometido e procura abrigo — o sistema de procura rastreia a tua aparência e o teu carro, não só a tua posição.</p></div>
+      <div class="tip reveal"><div class="ic">📋</div><h3>Criminal Profile — cuida da tua reputação</h3><p>O novo sistema regista o teu comportamento ao longo do jogo. Menos violência desnecessária pode abrir missões e oportunidades que um perfil "brutal" não tem acesso.</p></div>
       <div class="tip reveal vip-lock"><span class="vip-ribbon">VIP</span><div class="ic">🔓</div><h3>Rota secreta de dinheiro</h3><p data-lock="Um circuito de investimentos que multiplica o teu saldo na primeira semana..." data-unlock="Compra a loja de penhores em Little Havana logo no início, revende as joias das missões e reinveste em imóveis de Ocean Beach — o aluguer paga-se sozinho e dá saldo passivo todas as semanas.">Um circuito de investimentos que multiplica o teu saldo na primeira semana...</p><span class="lock" onclick="goVip()">🔒 Conteúdo VIP</span></div>
       <div class="tip reveal vip-lock"><span class="vip-ribbon">VIP</span><div class="ic">🏝️</div><h3>Localizações secretas</h3><p data-lock="Easter eggs, caches escondidas e armas raras mapeadas pela comunidade..." data-unlock="A cache do farol dos Everglades tem dinheiro + uma arma rara; o jacaré dourado aparece de madrugada na doca sul; e há um carro escondido na garagem abandonada a norte de Vice City Centro.">Easter eggs, caches escondidas e armas raras mapeadas pela comunidade...</p><span class="lock" onclick="goVip()">🔒 Conteúdo VIP</span></div>
       <div class="tip reveal vip-lock"><span class="vip-ribbon">VIP</span><div class="ic">📈</div><h3>Build de stats óptima</h3><p data-lock="A ordem certa para subir força, stamina e pontaria sem perder tempo..." data-unlock="Sobe primeiro Stamina (corre/nada), depois Força em lutas, e Pontaria por último no campo de tiro. Assim aguentas as perseguições cedo e a mira fica afinada quando já tens dinheiro para armas boas.">A ordem certa para subir força, stamina e pontaria sem perder tempo...</p><span class="lock" onclick="goVip()">🔒 Conteúdo VIP</span></div>
@@ -832,7 +863,7 @@ footer .logo{font-size:22px;margin-bottom:14px}
     <div class="sec-head reveal">
       <div class="k" data-i18n="cars_k">Garagem</div>
       <h2 data-i18n="cars_h">Carros de Vice City</h2>
-      <p data-i18n="cars_p">54 veículos confirmados. Stats baseados em trailers e screenshots oficiais.</p>
+      <p data-i18n="cars_p">198+ veículos confirmados. Stats baseados em trailers, Extended Look e screenshots oficiais.</p>
     </div>
     <div class="car-grid">
       <div class="car reveal"><div class="pic" style="background-image:url('https://media-rockstargames-com.akamaized.net/tina-uploads/posts/517oa135328155/e11178dabf62ad8ef865e773b66250b9a26262e6.jpg');background-size:cover;background-position:center"></div><div class="info"><h3>Declasse Sabre Turbo</h3><div class="class">Muscle · Confirmado trailer</div>
@@ -895,6 +926,21 @@ footer .logo{font-size:22px;margin-bottom:14px}
         <div class="stat"><div class="row"><span>Aceleração</span><span>74</span></div><div class="bar"><i data-w="74"></i></div></div>
         <div class="stat"><div class="row"><span>Travagem</span><span>50</span></div><div class="bar"><i data-w="50"></i></div></div>
         <div class="class" style="margin-top:8px;font-size:11px">Gradiente rosa/azul · Washington Beach · crate de explosivos</div></div></div>
+      <div class="car reveal"><div class="pic" style="background-image:url('https://media.gtaboom.com/variants/1920/media/images/00/bd/all-the-official-gta-6-screenshots-and-artwork.jpg');background-size:cover;background-position:center top"></div><div class="info"><h3>Bravado Gauntlet Hellfire <span style="font-size:10px;background:rgba(255,45,149,.25);color:#ff2d95;padding:2px 7px;border-radius:10px;vertical-align:middle;font-weight:900;letter-spacing:.5px">Novo</span></h3><div class="class">Muscle · Confirmado Extended Look</div>
+        <div class="stat"><div class="row"><span>Velocidade</span><span>91</span></div><div class="bar"><i data-w="91"></i></div></div>
+        <div class="stat"><div class="row"><span>Aceleração</span><span>88</span></div><div class="bar"><i data-w="88"></i></div></div>
+        <div class="stat"><div class="row"><span>Travagem</span><span>72</span></div><div class="bar"><i data-w="72"></i></div></div>
+        <div class="class" style="margin-top:8px;font-size:11px">Inspirado no Dodge Challenger SRT Demon · king do muscle</div></div></div>
+      <div class="car reveal"><div class="pic" style="background-image:url('https://media.gtaboom.com/variants/1920/media/images/3a/6a/Declasse_Tulip_M-100.jpg');background-size:cover;background-position:center"></div><div class="info"><h3>Imponte Phoenix <span style="font-size:10px;background:rgba(255,45,149,.25);color:#ff2d95;padding:2px 7px;border-radius:10px;vertical-align:middle;font-weight:900;letter-spacing:.5px">Novo</span></h3><div class="class">Muscle · Clássico Americano</div>
+        <div class="stat"><div class="row"><span>Velocidade</span><span>83</span></div><div class="bar"><i data-w="83"></i></div></div>
+        <div class="stat"><div class="row"><span>Aceleração</span><span>79</span></div><div class="bar"><i data-w="79"></i></div></div>
+        <div class="stat"><div class="row"><span>Travagem</span><span>68</span></div><div class="bar"><i data-w="68"></i></div></div>
+        <div class="class" style="margin-top:8px;font-size:11px">Clássico americano muscle · confirmado Extended Look</div></div></div>
+      <div class="car reveal"><div class="pic" style="background-image:url('https://media.gtaboom.com/variants/1600/media/images/4c/39/Comet_S2_Ocean_Drive_GTA_VI_Trailer.jpg');background-size:cover;background-position:center"></div><div class="info"><h3>Pegassi Tempesta <span style="font-size:10px;background:rgba(255,45,149,.25);color:#ff2d95;padding:2px 7px;border-radius:10px;vertical-align:middle;font-weight:900;letter-spacing:.5px">Novo</span></h3><div class="class">Supercar · Top de gama</div>
+        <div class="stat"><div class="row"><span>Velocidade</span><span>96</span></div><div class="bar"><i data-w="96"></i></div></div>
+        <div class="stat"><div class="row"><span>Aceleração</span><span>93</span></div><div class="bar"><i data-w="93"></i></div></div>
+        <div class="stat"><div class="row"><span>Travagem</span><span>85</span></div><div class="bar"><i data-w="85"></i></div></div>
+        <div class="class" style="margin-top:8px;font-size:11px">Supercar italiano · visto em Vice City no Extended Look</div></div></div>
     </div>
   </div>
 </section>
@@ -905,7 +951,7 @@ footer .logo{font-size:22px;margin-bottom:14px}
     <div class="sec-head reveal">
       <div class="k" data-i18n="map_k">Estado de Leonida</div>
       <h2 data-i18n="map_h">Mapa de Leonida</h2>
-      <p data-i18n="map_p">6 regiões confirmadas · 700+ locais entráveis · Conceito da comunidade GTA Mapping Discord. As localizações ★ secretas são exclusivas VIP.</p>
+      <p data-i18n="map_p">6 regiões oficiais · 700+ locais entráveis · Mapa mostrado no Extended Look de agosto 2026. As localizações ★ secretas são exclusivas VIP.</p>
     </div>
     <div class="map-wrap reveal">
       <iframe src="https://map.stateofleonida.net/" width="100%" height="620" style="border:none;display:block" loading="lazy" title="Mapa de Leonida — State of Leonida Community"></iframe>
@@ -914,7 +960,7 @@ footer .logo{font-size:22px;margin-bottom:14px}
       <span>🏙️ Vice City</span><span>🏝️ Leonida Keys</span><span>🐊 Grassrivers</span><span>🚢 Port Gellhorn</span><span>🌾 Kelly County</span><span>🏡 Hamlet</span><span>🔫 Lojas</span><span style="color:var(--gold)">⭐ VIP</span>
     </div>
     <p style="text-align:center;margin-top:18px;font-size:13px;color:var(--muted)" class="reveal">
-      Conceito baseado no trabalho do <a href="https://map.stateofleonida.net/" target="_blank" rel="noopener" style="color:var(--cyan)">GTA Mapping Community Discord</a> · 700+ estabelecimentos confirmados pela Rockstar incluem nightclubs, motéis, fast food, casas de penhores, supermercados e a rede de metro de Vice City.
+      Mapa interativo baseado no <a href="https://map.stateofleonida.net/" target="_blank" rel="noopener" style="color:var(--cyan)">GTA Mapping Community Discord</a> · O Extended Look de 27 ago mostrou gameplay real em todas as 6 regiões: Vice City, Leonida Keys, Grassrivers, Port Gellhorn, Hamlet e Kelly County · 700+ estabelecimentos entráveis incluindo nightclubs, metro, motéis e casas de penhores.
     </p>
   </div>
 </section>
