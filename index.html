@@ -200,9 +200,52 @@ body.is-vip .tip.vip-lock{border-color:var(--green);box-shadow:0 0 22px rgba(57,
 .map-legend{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:18px;font-size:13px;color:var(--muted)}
 .map-legend span{display:inline-flex;align-items:center;gap:6px}
 
+/* ===== VIP PREMIUM redesign ===== */
+.vip-hero-band{text-align:center;padding:0 0 40px}
+.vip-hero-band .vip-kicker{display:inline-block;font-family:'Audiowide';font-size:11px;letter-spacing:5px;color:var(--gold);border:1px solid rgba(255,214,10,.4);background:rgba(255,214,10,.07);padding:8px 20px;border-radius:30px;text-transform:uppercase;box-shadow:0 0 20px rgba(255,214,10,.2);margin-bottom:16px}
+/* scarcity */
+.vip-scarcity{background:linear-gradient(135deg,rgba(255,0,110,.12),rgba(189,0,255,.08));border:1px solid rgba(255,0,110,.3);border-radius:18px;padding:22px 28px;margin:0 0 36px;max-width:700px;margin-left:auto;margin-right:auto}
+.sc-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.sc-fire{background:linear-gradient(90deg,var(--pink),var(--purple));color:#fff;font-size:10px;font-weight:900;padding:5px 14px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;box-shadow:0 0 16px rgba(255,0,110,.5)}
+.sc-count{font-size:14px;font-weight:700;color:#fff}
+.sc-count b{color:var(--pink)}
+.sc-bar-wrap{height:10px;background:rgba(255,255,255,.08);border-radius:10px;overflow:hidden;margin-bottom:8px}
+.sc-bar{height:100%;width:74%;background:linear-gradient(90deg,var(--pink),var(--purple));border-radius:10px;box-shadow:0 0 12px rgba(255,0,110,.5);animation:scPulse 2s ease-in-out infinite alternate}
+@keyframes scPulse{0%{box-shadow:0 0 8px rgba(255,0,110,.4)}100%{box-shadow:0 0 20px rgba(255,0,110,.8)}}
+.sc-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+/* benefits */
+.vip-benefits{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin:0 0 44px}
+.vb{background:rgba(10,0,32,.65);backdrop-filter:blur(12px);border:1px solid rgba(0,245,255,.15);border-radius:18px;padding:24px;transition:.25s;position:relative;overflow:hidden}
+.vb::before{content:"";position:absolute;top:-30px;right:-30px;width:80px;height:80px;background:radial-gradient(circle,rgba(0,245,255,.1),transparent 70%)}
+.vb:hover{border-color:var(--cyan);box-shadow:0 0 28px rgba(0,245,255,.12);transform:translateY(-4px)}
+.vb .vb-ic{font-size:34px;margin-bottom:12px}
+.vb strong{display:block;font-size:16px;color:#fff;margin-bottom:6px}
+.vb p{font-size:13px;color:var(--muted);margin:0;line-height:1.6}
+/* plan cards */
+#premium{padding-top:80px}
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px;align-items:stretch;max-width:980px;margin:0 auto}
+.plan{background:rgba(10,0,32,.7);backdrop-filter:blur(14px);border:1px solid rgba(189,0,255,.3);border-radius:24px;padding:36px 30px;display:flex;flex-direction:column;position:relative;transition:.3s;box-shadow:0 4px 24px rgba(0,0,0,.4)}
+.plan:hover{transform:translateY(-6px);border-color:var(--purple);box-shadow:0 16px 50px rgba(189,0,255,.2)}
+.plan.pop{border:2px solid var(--gold);box-shadow:0 0 60px rgba(255,214,10,.2),0 4px 24px rgba(0,0,0,.4);background:linear-gradient(160deg,rgba(255,214,10,.08),rgba(189,0,255,.08),rgba(10,0,32,.8))}
+.plan.pop:hover{box-shadow:0 0 80px rgba(255,214,10,.3),0 20px 60px rgba(255,214,10,.15)}
+.plan .badge{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--gold),var(--orange));color:#1a0800;font-size:11px;font-weight:900;letter-spacing:2px;padding:7px 18px;border-radius:20px;text-transform:uppercase;white-space:nowrap;box-shadow:0 0 20px rgba(255,214,10,.5)}
+.plan h3{font-family:'Audiowide';font-size:20px;color:var(--cyan);margin-bottom:6px}
+.plan.pop h3{color:var(--gold)}
+.plan .desc{color:var(--muted);font-size:13px;margin-bottom:18px;min-height:36px;line-height:1.6}
+.plan .price{font-size:50px;font-weight:900;color:#fff;line-height:1}
+.plan .price small{font-size:15px;color:var(--muted);font-weight:400}
+.plan .save-tag{display:inline-block;background:rgba(0,255,163,.15);border:1px solid rgba(0,255,163,.3);color:#00FFA3;font-size:11px;font-weight:700;padding:3px 10px;border-radius:10px;margin-top:6px;letter-spacing:.5px}
+.plan ul{list-style:none;margin:22px 0;flex:1;padding:0}
+.plan li{padding:10px 0;font-size:14px;color:var(--text);border-bottom:1px solid rgba(255,255,255,.06);display:flex;gap:10px;align-items:flex-start;line-height:1.5}
+.plan li::before{content:"✦";color:var(--pink);flex-shrink:0;margin-top:1px}
+.plan.pop li::before{content:"★";color:var(--gold)}
+.plan li.off{color:var(--muted);opacity:.5}
+.plan li.off::before{content:"✕";color:var(--muted)}
+.plan .btn{width:100%;text-align:center;margin-top:8px;font-size:16px;padding:14px}
+
 /* community VIP */
 #comunidade{position:relative}
-.comm-wrap{max-width:760px;margin:0 auto;position:relative;border-radius:22px;border:2px solid var(--gold);background:linear-gradient(180deg,rgba(255,215,0,.07),var(--card));padding:28px;box-shadow:0 0 40px rgba(255,215,0,.15)}
+.comm-wrap{max-width:760px;margin:0 auto;position:relative;border-radius:22px;border:2px solid var(--gold);background:linear-gradient(180deg,rgba(255,214,10,.07),var(--card));padding:28px;box-shadow:0 0 40px rgba(255,214,10,.15)}
 .comm-head{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
 .comm-head .gold-badge{background:linear-gradient(90deg,var(--gold),var(--orange));color:#3a2600;font-weight:900;font-size:12px;padding:5px 12px;border-radius:20px;letter-spacing:1px}
 .composer{display:flex;gap:10px;margin-bottom:18px}
@@ -543,24 +586,35 @@ footer .logo{font-size:22px;margin-bottom:14px}
     <div class="news-grid" id="newsGrid">
 
       <article class="card reveal" data-cat="trailer">
-        <a href="https://www.rockstargames.com/newswire/article/9k2kaa1o3297k9/grand-theft-auto-vi-an-extended-look" target="_blank" rel="noopener">
+        <a href="artigo-extended-look.html">
           <div class="thumb" style="background-image:url('https://img.youtube.com/vi/wSm9GTUttBs/maxresdefault.jpg')"><span class="chip breaking">🎮 27 ago · Oficial</span></div></a>
         <div class="body">
           <h3>Extended Look: 26 minutos de gameplay oficial — tudo o que foi revelado</h3>
-          <div class="meta">27 ago 2026 · Rockstar Games</div>
-          <p class="exc">A Rockstar lançou 26 minutos de gameplay exclusivo no Netflix e depois no YouTube. Revelou o sistema de 6 estrelas de procura, troca instantânea entre Jason e Lucia, o Criminal Profile que regista o teu comportamento, slim jim para roubar carros sem partir vidros, 600 000 animações de NPCs e confirmou que o jogo corre a 30 FPS na PS5. É o maior reveal da história da série.</p>
-          <a href="https://www.rockstargames.com/newswire/article/9k2kaa1o3297k9/grand-theft-auto-vi-an-extended-look" target="_blank" rel="noopener" class="read">Ler no Rockstar Newswire →</a>
+          <div class="meta">27 ago 2026 · VICE NEWS</div>
+          <p class="exc">A Rockstar lançou 26 minutos de gameplay exclusivo no Netflix e depois no YouTube. Sistema de 6 estrelas de procura, troca em tempo real entre Jason e Lucia, Criminal Profile, slim jim para roubar carros, 600 000 animações de NPCs e 30 FPS na PS5. Analisámos tudo.</p>
+          <a href="artigo-extended-look.html" class="read">Ler análise completa →</a>
+        </div>
+      </article>
+
+      <article class="card reveal" data-cat="data">
+        <a href="artigo-lancamento.html">
+          <div class="thumb" style="background-image:url('https://img.youtube.com/vi/yAi0MYo5Mzw/maxresdefault.jpg')"><span class="chip breaking">📅 19 nov · Confirmado</span></div></a>
+        <div class="body">
+          <h3>GTA 6 a 19 de novembro: data firme, preload a 12 de nov e tudo o que precisas saber</h3>
+          <div class="meta">2 set 2026 · VICE NEWS</div>
+          <p class="exc">A data é real e está blindada: Rockstar confirmou, Take-Two reafirmou em earnings call e as pré-encomendas estão abertas. $79,99 Standard, $99,99 Ultimate. Preload digital a 12 de novembro. Timeline completa e o que esperar no dia de lançamento.</p>
+          <a href="artigo-lancamento.html" class="read">Ver guia de lançamento →</a>
         </div>
       </article>
 
       <article class="card reveal" data-cat="oficial">
-        <a href="https://rockstarintel.com/new-gta-online-heist-update-revealed-the-kortz-center-heist-confirmed-to-release-in-july/" target="_blank" rel="noopener">
-          <div class="thumb" style="background-image:url('https://d1lss44hh2trtw.cloudfront.net/assets/article/2026/06/17/gta-online-the-kortz-center-heist-update-announcement_feature.jpg')"><span class="chip">🏛️ 14 jul · GTA Online</span></div></a>
+        <a href="artigo-edicoes.html">
+          <div class="thumb" style="background-image:url('https://www.gtabase.com/igallery/gta-6-screens/ultimateedition-grotti-cheetah-01-1080.jpg')"><span class="chip">📦 Edições · Preços</span></div></a>
         <div class="body">
-          <h3>Kortz Center Heist: o último grande DLC do GTA Online antes do GTA 6</h3>
-          <div class="meta">14 jul 2026 · RockstarINTEL</div>
-          <p class="exc">A Rockstar lançou o heist da galeria de arte Kortz Center — o primeiro grande heist em quase 6 anos e provavelmente o último DLC de fundo do GTA Online antes do lançamento de GTA 6 a 19 de novembro. Multi-stage, até 4 jogadores, e requer uma Mansão com Art Studio. O programa Fine Art Collector pagou até GTA$1,5 milhões em bónus de preparação.</p>
-          <a href="https://rockstarintel.com/new-gta-online-heist-update-revealed-the-kortz-center-heist-confirmed-to-release-in-july/" target="_blank" rel="noopener" class="read">Ler no RockstarINTEL →</a>
+          <h3>Standard vs Ultimate Edition — o que vem em cada uma e se vale os €20 a mais</h3>
+          <div class="meta">2 set 2026 · VICE NEWS</div>
+          <p class="exc">Standard a $79,99 ou Ultimate a $99,99? A Ultimate traz 5 veículos exclusivos (Cheetah '95, Enduro, Ganado, Dominator Buggy, Squalo), 2 pares de armas gravadas, 2 garagens e a Classic Car Collection. Analisámos se vale a pena.</p>
+          <a href="artigo-edicoes.html" class="read">Ver comparação completa →</a>
         </div>
       </article>
 
@@ -796,6 +850,18 @@ footer .logo{font-size:22px;margin-bottom:14px}
         <img src="https://img.youtube.com/vi/VEwYvi2mIws/maxresdefault.jpg" loading="lazy" alt="clip">
         <div class="ov"><span class="fire">🔥 Jun 2026</span><div class="play2">▶</div><div><small>ANÁLISE</small><br><b>GTA 6 em junho: tudo o que saiu</b></div></div>
       </div>
+      <div class="clip reveal" onclick="playVid('hWC_a2RRbFU',true)">
+        <img src="https://img.youtube.com/vi/hWC_a2RRbFU/maxresdefault.jpg" loading="lazy" alt="clip">
+        <div class="ov"><span class="fire">🔥 Viral</span><div class="play2">▶</div><div><small>ANÁLISE</small><br><b>Extended Look — todos os detalhes escondidos</b></div></div>
+      </div>
+      <div class="clip reveal" onclick="playVid('B5HjIKKtZxc',true)">
+        <img src="https://img.youtube.com/vi/B5HjIKKtZxc/maxresdefault.jpg" loading="lazy" alt="clip">
+        <div class="ov"><span class="fire">🔥 Hot</span><div class="play2">▶</div><div><small>SISTEMA</small><br><b>Criminal Profile explicado — como funciona</b></div></div>
+      </div>
+      <div class="clip reveal" onclick="playVid('rHI4nLBMvDo',true)">
+        <img src="https://img.youtube.com/vi/rHI4nLBMvDo/maxresdefault.jpg" loading="lazy" alt="clip">
+        <div class="ov"><span class="fire">🔥 Reação</span><div class="play2">▶</div><div><small>COMUNIDADE</small><br><b>Reação ao Extended Look — a internet explodiu</b></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1024,45 +1090,106 @@ footer .logo{font-size:22px;margin-bottom:14px}
 <section id="premium">
   <div class="container">
     <div class="sec-head reveal">
-      <div class="k" data-i18n="prem_k">Vice News VIP</div>
-      <h2 data-i18n="prem_h">Torna-te Premium</h2>
-      <p data-i18n="prem_p">Sem anúncios, acesso antecipado e a comunidade VIP. Apoia o site e joga melhor.</p>
+      <div class="k">Vice News VIP</div>
+      <h2>Para quem leva GTA 6 a sério</h2>
+      <p>Com o lançamento a <strong style="color:var(--gold)">19 de novembro</strong> — zero anúncios, early access e a comunidade mais ativa de GTA 6 em PT.</p>
     </div>
+
+    <!-- SCARCITY BAR -->
+    <div class="vip-scarcity reveal">
+      <div class="sc-top">
+        <span class="sc-fire">🔥 Oferta de lançamento</span>
+        <span class="sc-count">Apenas <b>47 vagas</b> restantes a este preço</span>
+      </div>
+      <div class="sc-bar-wrap"><div class="sc-bar"></div></div>
+      <div class="sc-labels"><span>148 membros VIP</span><span>74% preenchido</span><span>200 vagas</span></div>
+    </div>
+
+    <!-- BENEFITS -->
+    <div class="vip-benefits reveal">
+      <div class="vb">
+        <div class="vb-ic">🚫</div>
+        <strong>Zero anúncios</strong>
+        <p>Sem banners, pop-ups nem sticky ads. Site limpo e rápido para sempre.</p>
+      </div>
+      <div class="vb">
+        <div class="vb-ic">⚡</div>
+        <strong>Early access</strong>
+        <p>Notícias e leaks confirmados chegam às tuas mãos antes de toda a gente.</p>
+      </div>
+      <div class="vb">
+        <div class="vb-ic">💬</div>
+        <strong>Comunidade VIP</strong>
+        <p>Mural privado no site + canais exclusivos no Discord da Vice News.</p>
+      </div>
+      <div class="vb">
+        <div class="vb-ic">🗺️</div>
+        <strong>Mapa com locais secretos</strong>
+        <p>Localizações ★ de Leonida desbloqueadas — colecionáveis, easter eggs e zonas ocultas.</p>
+      </div>
+      <div class="vb">
+        <div class="vb-ic">📋</div>
+        <strong>Tips & builds VIP</strong>
+        <p>Guias de stats, rotas de heist e builds otimizadas para Jason e Lucia.</p>
+      </div>
+      <div class="vb">
+        <div class="vb-ic">🏆</div>
+        <strong>Badge Founder</strong>
+        <p>Plano anual: badge exclusivo de fundador do site visível na comunidade.</p>
+      </div>
+    </div>
+
+    <!-- PLANS -->
     <div class="price-grid">
       <div class="plan reveal">
         <h3>Free</h3>
-        <div class="desc" data-i18n="plan_free_d">Para começar a explorar Leonida.</div>
+        <div class="desc">Para começar a explorar Leonida.</div>
         <div class="price">€0<small>/sempre</small></div>
         <ul>
-          <li>Novidades, clips e galeria</li><li>Tips básicas</li><li>Mapa público</li>
-          <li class="off">Sem anúncios</li><li class="off">Early access</li><li class="off">Comunidade VIP</li>
+          <li>Novidades, trailers e clips</li>
+          <li>Tips básicas de gameplay</li>
+          <li>Mapa público de Leonida</li>
+          <li class="off">Sem anúncios</li>
+          <li class="off">Early access</li>
+          <li class="off">Comunidade VIP</li>
         </ul>
-        <button class="btn btn-ghost" onclick="modal('🎉','Free','Estás no plano Free. Faz upgrade para VIP quando quiseres.')" data-i18n="plan_free_btn">Plano atual</button>
+        <button class="btn btn-ghost" onclick="modal('🎉','Free','Estás no plano Free. Faz upgrade para VIP quando quiseres.')">Plano atual</button>
       </div>
+
       <div class="plan pop reveal">
         <span class="badge">⭐ Mais popular</span>
         <h3>VIP Mensal</h3>
-        <div class="desc" data-i18n="plan_m_d">A experiência completa, mensal.</div>
+        <div class="desc">A experiência completa, sem compromisso.</div>
         <div class="price">€4,99<small>/mês</small></div>
         <ul>
-          <li>🚫 <b>Zero anúncios</b></li><li>⚡ <b>Early access</b> a novidades</li>
-          <li>💬 Comunidade VIP no site + Discord</li><li>🔓 Tips e rotas secretas</li>
-          <li>⭐ Localizações VIP no mapa</li><li>📈 Builds de stats óptimas</li>
+          <li><b>Zero anúncios</b> — site 100% limpo</li>
+          <li><b>Early access</b> a todas as novidades</li>
+          <li>Comunidade VIP no site + Discord</li>
+          <li>Tips secretas e rotas de heist</li>
+          <li>Localizações ★ no mapa de Leonida</li>
+          <li>Builds de stats para Jason e Lucia</li>
         </ul>
-        <button class="btn btn-vip" onclick="checkout('VIP Mensal','€4,99/mês')">Subscrever ★</button>
+        <button class="btn btn-vip" onclick="checkout('VIP Mensal','€4,99/mês')">Começar agora ★</button>
       </div>
+
       <div class="plan reveal">
         <h3>VIP Anual</h3>
-        <div class="desc" data-i18n="plan_y_d">Poupa 2 meses.</div>
+        <div class="desc">Poupa 2 meses. O plano dos founders.</div>
         <div class="price">€49,99<small>/ano</small></div>
+        <div class="save-tag">💰 2 meses grátis</div>
         <ul>
-          <li>Tudo do VIP Mensal</li><li>💰 <b>2 meses grátis</b></li><li>🏆 Badge "Founder"</li>
-          <li>🎁 Sorteios mensais</li><li>📨 Newsletter VIP</li><li>🥇 Suporte prioritário</li>
+          <li>Tudo do VIP Mensal</li>
+          <li><b>2 meses grátis</b> vs mensal</li>
+          <li>🏆 Badge exclusivo "Founder"</li>
+          <li>🎁 Sorteios mensais de merch</li>
+          <li>📨 Newsletter VIP semanal</li>
+          <li>🥇 Suporte prioritário</li>
         </ul>
-        <button class="btn btn-vip" onclick="checkout('VIP Anual','€49,99/ano')">Subscrever ★</button>
+        <button class="btn btn-vip" onclick="checkout('VIP Anual','€49,99/ano')">Tornar-me Founder ★</button>
       </div>
     </div>
-    <p style="text-align:center;margin-top:26px;color:var(--muted)" data-i18n="code_have">Já compraste e tens um código? <a href="#" onclick="openCode();return false" style="color:var(--gold);font-weight:700">Ativar código VIP 🎟️</a></p>
+
+    <p style="text-align:center;margin-top:28px;color:var(--muted);font-size:14px">Já compraste e tens um código? <a href="#" onclick="openCode();return false" style="color:var(--gold);font-weight:700">Ativar código VIP 🎟️</a></p>
   </div>
 </section>
 
