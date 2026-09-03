@@ -40,6 +40,14 @@ strong{color:var(--text)}
 footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 22px 50px;border-top:1px solid rgba(0,245,255,.1);margin-top:40px}
 footer a{color:var(--muted)}footer a:hover{color:var(--cyan)}
 .foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:10px}
+
+.share-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:36px 0 0;padding:20px;background:rgba(10,0,32,.6);border:1px solid rgba(0,245,255,.15);border-radius:14px}
+.share-label{font-size:13px;color:var(--muted);font-weight:700;margin-right:4px}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:30px;font-size:13px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:.2s;font-family:'Outfit',sans-serif}
+.share-btn.whatsapp{background:rgba(37,211,102,.15);border:1px solid rgba(37,211,102,.4);color:#25D366}.share-btn.whatsapp:hover{background:#25D366;color:#000}
+.share-btn.tw{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff}.share-btn.tw:hover{background:#fff;color:#000}
+.share-btn.facebook{background:rgba(24,119,242,.15);border:1px solid rgba(24,119,242,.4);color:#1877F2}.share-btn.facebook:hover{background:#1877F2;color:#fff}
+.share-btn.copy{background:rgba(0,245,255,.1);border:1px solid rgba(0,245,255,.3);color:var(--cyan)}.share-btn.copy:hover{background:var(--cyan);color:var(--bg)}
 </style>
 </head>
 <body>
@@ -85,6 +93,19 @@ footer a{color:var(--muted)}footer a:hover{color:var(--cyan)}
     <h3>✅ Conclusão Vice News</h3>
     <p>Se tens PS5, estás bem posicionado para o lançamento de novembro. Se não tens e queres uma, não esperes até outubro para comprar — os preços podem subir. Para jogadores Xbox: o jogo fica igual em qualidade, só a comunidade online pode ser menor nos primeiros meses.</p>
   </div>
+  <div class="share-bar">
+    <span class="share-label">Partilhar:</span>
+    <a class="share-btn whatsapp" href="#" onclick="shareWA(event)">💬 WhatsApp</a>
+    <a class="share-btn tw" href="#" onclick="shareX(event)">𝕏 Twitter</a>
+    <a class="share-btn facebook" href="#" onclick="shareFB(event)">Facebook</a>
+    <button class="share-btn copy" onclick="copyLink(this)">🔗 Copiar link</button>
+  </div>
+  <script>
+  function shareWA(e){e.preventDefault();window.open('https://wa.me/?text='+encodeURIComponent(document.title+' — '+location.href),'_blank')}
+  function shareX(e){e.preventDefault();window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href),'_blank')}
+  function shareFB(e){e.preventDefault();window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank')}
+  function copyLink(b){navigator.clipboard.writeText(location.href).then(()=>{b.textContent='✅ Copiado!';setTimeout(()=>b.textContent='🔗 Copiar link',2000)})}
+  </script>
 </div>
 <footer>
   <div class="foot-links">

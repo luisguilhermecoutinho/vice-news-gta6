@@ -59,6 +59,14 @@ a{color:var(--pink)}a:hover{color:var(--cyan)}
 .foot{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08)}
 .foot a{color:var(--cyan);font-weight:600;font-size:14px}
 footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 22px;border-top:1px solid rgba(0,240,255,.2)}
+
+.share-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:36px 0 0;padding:20px;background:rgba(10,0,32,.6);border:1px solid rgba(0,245,255,.15);border-radius:14px}
+.share-label{font-size:13px;color:var(--muted);font-weight:700;margin-right:4px}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:30px;font-size:13px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:.2s;font-family:'Outfit',sans-serif}
+.share-btn.whatsapp{background:rgba(37,211,102,.15);border:1px solid rgba(37,211,102,.4);color:#25D366}.share-btn.whatsapp:hover{background:#25D366;color:#000}
+.share-btn.tw{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff}.share-btn.tw:hover{background:#fff;color:#000}
+.share-btn.facebook{background:rgba(24,119,242,.15);border:1px solid rgba(24,119,242,.4);color:#1877F2}.share-btn.facebook:hover{background:#1877F2;color:#fff}
+.share-btn.copy{background:rgba(0,245,255,.1);border:1px solid rgba(0,245,255,.3);color:var(--cyan)}.share-btn.copy:hover{background:var(--cyan);color:var(--bg)}
 </style>
 </head>
 <body>
@@ -250,6 +258,19 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 22px;bor
     <a href="index.html#cars">Carros Confirmados</a>
     <a href="sobre.html">Sobre</a>
   </div>
+  <div class="share-bar">
+    <span class="share-label">Partilhar:</span>
+    <a class="share-btn whatsapp" href="#" onclick="shareWA(event)">💬 WhatsApp</a>
+    <a class="share-btn tw" href="#" onclick="shareX(event)">𝕏 Twitter</a>
+    <a class="share-btn facebook" href="#" onclick="shareFB(event)">Facebook</a>
+    <button class="share-btn copy" onclick="copyLink(this)">🔗 Copiar link</button>
+  </div>
+  <script>
+  function shareWA(e){e.preventDefault();window.open('https://wa.me/?text='+encodeURIComponent(document.title+' — '+location.href),'_blank')}
+  function shareX(e){e.preventDefault();window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href),'_blank')}
+  function shareFB(e){e.preventDefault();window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank')}
+  function copyLink(b){navigator.clipboard.writeText(location.href).then(()=>{b.textContent='✅ Copiado!';setTimeout(()=>b.textContent='🔗 Copiar link',2000)})}
+  </script>
 </div>
 <footer>Site não oficial de fãs. Não afiliado à Rockstar Games ou Take-Two Interactive. © 2026 Vice News. · <a href="privacy.html" style="color:var(--muted)">Política de Privacidade</a></footer>
 </body>
