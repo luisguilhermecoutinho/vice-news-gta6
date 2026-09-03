@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Story — Novo Artigo</title>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Outfit:wght@300;400;600;800;900&family=Audiowide&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#111;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:'Outfit',sans-serif}
+.story{width:390px;height:694px;position:relative;overflow:hidden;background:#04010E;display:flex;flex-direction:column;justify-content:space-between;padding:40px 28px 36px}
+.bg-sky{position:absolute;inset:0;background:linear-gradient(180deg,#000 0%,#05001E 20%,#110045 40%,#3D006B 60%,#CC0040 85%,#FF4500 100%);opacity:.45;z-index:0}
+.bg-noise{position:absolute;inset:0;z-index:1;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+.grid{position:absolute;bottom:0;left:0;right:0;height:40%;z-index:1;background-image:linear-gradient(rgba(0,245,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,255,.5) 1px,transparent 1px);background-size:36px 36px;opacity:.1;-webkit-mask-image:linear-gradient(to top,rgba(0,0,0,.9),transparent);mask-image:linear-gradient(to top,rgba(0,0,0,.9),transparent)}
+.glow-line{position:absolute;top:50%;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,245,255,.4),transparent);z-index:2}
+
+.top{position:relative;z-index:10}
+.logo{font-family:'Monoton',cursive;font-size:18px;color:#00F5FF;text-shadow:0 0 12px #00F5FF,0 0 28px #FF006E;margin-bottom:20px}
+.logo span{color:#FF006E}
+.new-chip{display:inline-block;background:rgba(0,255,163,.15);border:1px solid rgba(0,255,163,.4);color:#00FFA3;font-size:11px;font-weight:900;padding:5px 14px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:20px}
+
+.edit-hint{position:absolute;top:8px;right:8px;background:rgba(255,214,10,.15);border:1px solid rgba(255,214,10,.4);color:#FFD60A;font-size:10px;padding:3px 8px;border-radius:6px;z-index:20;pointer-events:none}
+
+.middle{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.card{background:rgba(10,0,32,.85);border:1px solid rgba(0,245,255,.2);border-radius:20px;padding:24px 20px;display:flex;flex-direction:column;gap:12px}
+.card-tag{font-size:11px;font-weight:700;color:#00FFA3;text-transform:uppercase;letter-spacing:2px}
+.card-title{font-family:'Audiowide',sans-serif;font-size:20px;color:#F2ECFF;line-height:1.3}
+.card-title em{color:#00F5FF;font-style:normal}
+.card-desc{font-size:13px;color:#9480C0;line-height:1.6}
+.card-cta{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:800;color:#00F5FF;margin-top:4px}
+.card-cta::after{content:"→"}
+
+.bottom{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between}
+.handle{font-size:13px;color:#9480C0;font-weight:700}
+.handle strong{color:#00F5FF}
+.cta{font-size:12px;color:#F2ECFF;font-weight:700;background:rgba(0,245,255,.1);border:1px solid rgba(0,245,255,.3);padding:8px 16px;border-radius:20px}
+</style>
+</head>
+<body>
+<div class="story">
+  <div class="bg-sky"></div>
+  <div class="bg-noise"></div>
+  <div class="grid"></div>
+  <div class="glow-line"></div>
+  <div class="edit-hint">✏️ Edita o HTML</div>
+
+  <div class="top">
+    <div class="logo">VICE<span>NEWS</span></div>
+    <div class="new-chip">✨ Novo artigo</div>
+  </div>
+
+  <div class="middle">
+    <div class="card">
+      <!-- EDITA AQUI: categoria -->
+      <div class="card-tag">🎮 Gameplay · Extended Look</div>
+      <!-- EDITA AQUI: título do artigo -->
+      <div class="card-title">26 minutos de <em>GTA 6</em> — tudo o que viste explicado</div>
+      <!-- EDITA AQUI: descrição curta -->
+      <div class="card-desc">Analisámos cada segundo do Extended Look. Jason, Lucia, Vice City, polícia, física, fauna — está tudo aqui.</div>
+      <div class="card-cta">Ler artigo completo</div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="handle">📸 <strong>@gtavi.vicecitynews</strong></div>
+    <div class="cta">Link na bio 👆</div>
+  </div>
+</div>
+</body>
+</html>

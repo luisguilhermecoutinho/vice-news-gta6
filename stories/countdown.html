@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Story — Countdown</title>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Outfit:wght@300;400;600;800;900&family=Audiowide&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#111;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:'Outfit',sans-serif}
+.story{width:390px;height:694px;position:relative;overflow:hidden;background:#04010E;display:flex;flex-direction:column;justify-content:space-between;padding:40px 28px 36px}
+.bg-sky{position:absolute;inset:0;background:linear-gradient(180deg,#000 0%,#05001E 20%,#110045 40%,#3D006B 60%,#CC0040 85%,#FF4500 100%);opacity:.5;z-index:0}
+.bg-noise{position:absolute;inset:0;z-index:1;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+.grid{position:absolute;bottom:0;left:0;right:0;height:50%;z-index:1;background-image:linear-gradient(rgba(255,214,10,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(255,214,10,.6) 1px,transparent 1px);background-size:36px 36px;opacity:.1;-webkit-mask-image:linear-gradient(to top,rgba(0,0,0,.9),transparent);mask-image:linear-gradient(to top,rgba(0,0,0,.9),transparent)}
+
+.top{position:relative;z-index:10}
+.logo{font-family:'Monoton',cursive;font-size:18px;color:#00F5FF;text-shadow:0 0 12px #00F5FF,0 0 28px #FF006E;margin-bottom:8px}
+.logo span{color:#FF006E}
+.tagline{font-size:12px;color:#9480C0;margin-bottom:0}
+
+.middle{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;text-align:center}
+.launch-label{font-size:13px;font-weight:700;color:#FFD60A;text-transform:uppercase;letter-spacing:3px}
+.date-big{font-family:'Audiowide',sans-serif;font-size:36px;color:#F2ECFF;text-shadow:0 0 30px rgba(255,214,10,.4);line-height:1.1}
+.date-big span{color:#FFD60A}
+
+.countdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:100%}
+.cnt-box{background:rgba(10,0,32,.8);border:1px solid rgba(255,214,10,.25);border-radius:14px;padding:14px 8px;text-align:center}
+.cnt-num{font-family:'Audiowide',sans-serif;font-size:32px;color:#FFD60A;text-shadow:0 0 16px rgba(255,214,10,.5);line-height:1}
+.cnt-label{font-size:10px;color:#9480C0;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+.bottom{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between}
+.handle{font-size:13px;color:#9480C0;font-weight:700}
+.handle strong{color:#00F5FF}
+.cta{font-size:12px;color:#FFD60A;font-weight:700;background:rgba(255,214,10,.1);border:1px solid rgba(255,214,10,.3);padding:8px 16px;border-radius:20px}
+</style>
+</head>
+<body>
+<div class="story">
+  <div class="bg-sky"></div>
+  <div class="bg-noise"></div>
+  <div class="grid"></div>
+
+  <div class="top">
+    <div class="logo">VICE<span>NEWS</span></div>
+    <div class="tagline">GTA 6 — Vice City, Leonida</div>
+  </div>
+
+  <div class="middle">
+    <div class="launch-label">⏳ Contagem decrescente</div>
+    <div class="date-big">19 <span>NOV</span><br>2026</div>
+    <div class="countdown-grid">
+      <div class="cnt-box"><div class="cnt-num" id="days">--</div><div class="cnt-label">Dias</div></div>
+      <div class="cnt-box"><div class="cnt-num" id="hours">--</div><div class="cnt-label">Horas</div></div>
+      <div class="cnt-box"><div class="cnt-num" id="mins">--</div><div class="cnt-label">Min</div></div>
+      <div class="cnt-box"><div class="cnt-num" id="secs">--</div><div class="cnt-label">Seg</div></div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="handle">📸 <strong>@gtavi.vicecitynews</strong></div>
+    <div class="cta">vicenewsgta6.com</div>
+  </div>
+</div>
+<script>
+function update(){
+  const target=new Date('2026-11-19T00:00:00');
+  const now=new Date();
+  const diff=target-now;
+  if(diff<=0){document.getElementById('days').textContent='0';document.getElementById('hours').textContent='0';document.getElementById('mins').textContent='0';document.getElementById('secs').textContent='0';return}
+  const d=Math.floor(diff/864e5);
+  const h=Math.floor((diff%864e5)/36e5);
+  const m=Math.floor((diff%36e5)/6e4);
+  const s=Math.floor((diff%6e4)/1e3);
+  document.getElementById('days').textContent=String(d).padStart(2,'0');
+  document.getElementById('hours').textContent=String(h).padStart(2,'0');
+  document.getElementById('mins').textContent=String(m).padStart(2,'0');
+  document.getElementById('secs').textContent=String(s).padStart(2,'0');
+}
+update();setInterval(update,1000);
+</script>
+</body>
+</html>

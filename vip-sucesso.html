@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bem-vindo ao Vice News VIP! ⭐</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Outfit:wght@300;400;600;800;900&family=Audiowide&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#FF006E;--cyan:#00F5FF;--purple:#BD00FF;--gold:#FFD60A;--green:#00FFA3;--bg:#04010E;--text:#F2ECFF;--muted:#9480C0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px}
+.sky{position:fixed;inset:0;z-index:-3;background:linear-gradient(180deg,#000 0%,#05001E 15%,#110045 30%,#3D006B 45%,#7A004E 58%,#CC0040 72%,#FF4500 85%,#FFD60A 100%);opacity:.4}
+.fade{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(4,1,14,.85) 0%,var(--bg) 60%)}
+.card{background:rgba(10,0,32,.8);backdrop-filter:blur(18px);border:1px solid rgba(255,214,10,.35);border-radius:28px;padding:48px 40px;max-width:520px;width:100%;text-align:center;box-shadow:0 0 80px rgba(255,214,10,.15)}
+.star{font-size:72px;margin-bottom:16px;animation:pulse 2s ease-in-out infinite alternate}
+@keyframes pulse{0%{transform:scale(1);filter:drop-shadow(0 0 10px rgba(255,214,10,.5))}100%{transform:scale(1.08);filter:drop-shadow(0 0 30px rgba(255,214,10,.9))}}
+h1{font-family:'Audiowide';font-size:clamp(22px,5vw,32px);background:linear-gradient(90deg,var(--gold),var(--orange,#FF8C00));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:10px}
+.plan-label{display:inline-block;font-size:13px;font-weight:700;padding:5px 16px;border-radius:20px;background:rgba(255,214,10,.12);border:1px solid rgba(255,214,10,.4);color:var(--gold);margin-bottom:22px}
+p{color:#e7d9ff;font-size:16px;line-height:1.7;margin-bottom:16px}
+.benefits{background:rgba(0,255,163,.06);border:1px solid rgba(0,255,163,.2);border-radius:16px;padding:20px;margin:22px 0;text-align:left}
+.benefits h3{color:var(--green);font-size:15px;margin-bottom:12px}
+.bline{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;font-size:14px;color:#e7d9ff}
+.bline span{font-size:18px;flex-shrink:0}
+.btn{display:inline-block;font-weight:800;padding:14px 32px;border-radius:40px;cursor:pointer;border:none;font-family:'Outfit';font-size:16px;margin-top:8px;text-decoration:none;background:linear-gradient(90deg,var(--pink),var(--purple));color:#fff;box-shadow:0 0 30px rgba(255,0,110,.4);transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(255,0,110,.6)}
+.note{font-size:13px;color:var(--muted);margin-top:18px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="sky"></div><div class="fade"></div>
+<div class="card">
+  <div class="star">⭐</div>
+  <h1>Bem-vindo ao VIP!</h1>
+  <div class="plan-label" id="planLabel">Vice News VIP</div>
+  <p>O teu pagamento foi processado com sucesso. Já fazes parte da comunidade VIP do Vice News — o acesso exclusivo de GTA 6 em português.</p>
+  <div class="benefits">
+    <h3>O que tens agora desbloqueado:</h3>
+    <div class="bline"><span>🚫</span><span>Navegação sem anúncios em todo o site</span></div>
+    <div class="bline"><span>⚡</span><span>Early access a notícias antes de toda a gente</span></div>
+    <div class="bline"><span>🗺️</span><span>Localizações secretas e builds de stats</span></div>
+    <div class="bline"><span>💬</span><span>Comunidade VIP exclusiva no site</span></div>
+    <div class="bline"><span>🏅</span><span>Badge de Founder — acesso vitalício à história do projeto</span></div>
+  </div>
+  <p>Verifica o teu email — deves ter recebido a confirmação do Stripe com os detalhes da subscrição.</p>
+  <a href="index.html" class="btn">Ir para o Vice News →</a>
+  <p class="note">Se tiveres algum problema com o acesso, contacta-nos em <a href="mailto:clubpenguinvaidoso1999@gmail.com" style="color:var(--cyan)">clubpenguinvaidoso1999@gmail.com</a></p>
+</div>
+<script>
+  const params=new URLSearchParams(window.location.search);
+  const plan=params.get('plan');
+  if(plan) document.getElementById('planLabel').textContent='Vice News '+plan;
+</script>
+</body>
+</html>

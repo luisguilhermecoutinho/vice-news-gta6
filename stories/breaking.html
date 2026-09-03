@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Story — Breaking News</title>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Outfit:wght@300;400;600;800;900&family=Audiowide&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#111;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:'Outfit',sans-serif}
+.story{width:390px;height:694px;position:relative;overflow:hidden;background:#04010E;display:flex;flex-direction:column;justify-content:space-between;padding:40px 28px 36px}
+
+/* Background */
+.bg-sky{position:absolute;inset:0;background:linear-gradient(180deg,#000 0%,#05001E 20%,#110045 40%,#3D006B 60%,#CC0040 85%,#FF4500 100%);opacity:.5;z-index:0}
+.bg-noise{position:absolute;inset:0;z-index:1;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+.grid{position:absolute;bottom:0;left:0;right:0;height:40%;z-index:1;background-image:linear-gradient(rgba(255,0,110,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,0,110,.5) 1px,transparent 1px);background-size:36px 36px;opacity:.12;-webkit-mask-image:linear-gradient(to top,rgba(0,0,0,.8),transparent);mask-image:linear-gradient(to top,rgba(0,0,0,.8),transparent)}
+
+/* Content */
+.top{position:relative;z-index:10}
+.logo{font-family:'Monoton',cursive;font-size:18px;color:#00F5FF;text-shadow:0 0 12px #00F5FF,0 0 28px #FF006E;margin-bottom:24px}
+.logo span{color:#FF006E}
+.breaking-chip{display:inline-block;background:#FF006E;color:#fff;font-size:11px;font-weight:900;padding:5px 14px;border-radius:4px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,0,110,.6)}50%{box-shadow:0 0 0 8px rgba(255,0,110,0)}}
+
+.middle{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px}
+.headline{font-family:'Audiowide',sans-serif;font-size:26px;line-height:1.25;color:#F2ECFF;text-shadow:0 2px 20px rgba(0,0,0,.8)}
+.headline em{color:#00F5FF;font-style:normal}
+.subline{font-size:15px;color:#9480C0;line-height:1.6}
+
+/* Edit this text */
+.edit-hint{position:absolute;top:8px;right:8px;background:rgba(255,214,10,.15);border:1px solid rgba(255,214,10,.4);color:#FFD60A;font-size:10px;padding:3px 8px;border-radius:6px;z-index:20;pointer-events:none}
+
+.bottom{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between}
+.handle{font-size:13px;color:#9480C0;font-weight:700}
+.handle strong{color:#00F5FF}
+.cta{font-size:12px;color:#F2ECFF;font-weight:700;background:rgba(0,245,255,.1);border:1px solid rgba(0,245,255,.3);padding:8px 16px;border-radius:20px}
+</style>
+</head>
+<body>
+<div class="story">
+  <div class="bg-sky"></div>
+  <div class="bg-noise"></div>
+  <div class="grid"></div>
+  <div class="edit-hint">✏️ Edita o HTML</div>
+
+  <div class="top">
+    <div class="logo">VICE<span>NEWS</span></div>
+    <div class="breaking-chip">🔴 Breaking</div>
+  </div>
+
+  <div class="middle">
+    <!-- EDITA AQUI: título principal -->
+    <div class="headline">Novo leak de <em>GTA 6</em> confirma personagem secreta</div>
+    <!-- EDITA AQUI: subtítulo -->
+    <div class="subline">Um ator de voz deixou escapar o nome de uma personagem inédita no seu portfólio. A internet já viu tudo.</div>
+  </div>
+
+  <div class="bottom">
+    <div class="handle">📸 <strong>@gtavi.vicecitynews</strong></div>
+    <div class="cta">Link na bio 👆</div>
+  </div>
+</div>
+</body>
+</html>

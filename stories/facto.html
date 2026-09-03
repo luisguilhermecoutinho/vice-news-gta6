@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Story — Facto GTA 6</title>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Outfit:wght@300;400;600;800;900&family=Audiowide&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#111;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:'Outfit',sans-serif}
+.story{width:390px;height:694px;position:relative;overflow:hidden;background:#04010E;display:flex;flex-direction:column;justify-content:space-between;padding:40px 28px 36px}
+.bg-sky{position:absolute;inset:0;background:linear-gradient(180deg,#000 0%,#05001E 20%,#110045 40%,#3D006B 60%,#CC0040 85%,#FF4500 100%);opacity:.45;z-index:0}
+.bg-noise{position:absolute;inset:0;z-index:1;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+.grid{position:absolute;bottom:0;left:0;right:0;height:45%;z-index:1;background-image:linear-gradient(rgba(189,0,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(189,0,255,.5) 1px,transparent 1px);background-size:36px 36px;opacity:.1;-webkit-mask-image:linear-gradient(to top,rgba(0,0,0,.9),transparent);mask-image:linear-gradient(to top,rgba(0,0,0,.9),transparent)}
+
+.edit-hint{position:absolute;top:8px;right:8px;background:rgba(255,214,10,.15);border:1px solid rgba(255,214,10,.4);color:#FFD60A;font-size:10px;padding:3px 8px;border-radius:6px;z-index:20;pointer-events:none}
+
+.top{position:relative;z-index:10}
+.logo{font-family:'Monoton',cursive;font-size:18px;color:#00F5FF;text-shadow:0 0 12px #00F5FF,0 0 28px #FF006E;margin-bottom:20px}
+.logo span{color:#FF006E}
+.facto-chip{display:inline-block;background:rgba(189,0,255,.15);border:1px solid rgba(189,0,255,.4);color:#BD00FF;font-size:11px;font-weight:900;padding:5px 14px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+
+.middle{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;justify-content:center;gap:20px}
+.big-emoji{font-size:64px;text-align:center;filter:drop-shadow(0 0 20px rgba(189,0,255,.5))}
+
+/* Number highlight */
+.stat-wrap{text-align:center}
+.stat-num{font-family:'Audiowide',sans-serif;font-size:72px;line-height:1;background:linear-gradient(135deg,#BD00FF,#00F5FF);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 20px rgba(189,0,255,.4))}
+.stat-unit{font-family:'Audiowide',sans-serif;font-size:22px;color:#9480C0;margin-top:-4px}
+
+.fact-text{font-size:17px;color:#F2ECFF;line-height:1.6;text-align:center}
+.fact-text em{color:#00F5FF;font-style:normal;font-weight:800}
+.source{font-size:11px;color:#9480C0;text-align:center}
+
+.bottom{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between}
+.handle{font-size:13px;color:#9480C0;font-weight:700}
+.handle strong{color:#00F5FF}
+.cta{font-size:12px;color:#F2ECFF;font-weight:700;background:rgba(189,0,255,.1);border:1px solid rgba(189,0,255,.3);padding:8px 16px;border-radius:20px}
+</style>
+</head>
+<body>
+<div class="story">
+  <div class="bg-sky"></div>
+  <div class="bg-noise"></div>
+  <div class="grid"></div>
+  <div class="edit-hint">✏️ Edita o HTML</div>
+
+  <div class="top">
+    <div class="logo">VICE<span>NEWS</span></div>
+    <!-- EDITA AQUI: tipo de facto -->
+    <div class="facto-chip">💡 Sabes que...</div>
+  </div>
+
+  <div class="middle">
+    <!-- ESCOLHE: usa big-emoji OU stat-wrap -->
+
+    <!-- OPÇÃO A: número/estatística -->
+    <div class="stat-wrap">
+      <div class="stat-num">$8B</div>
+      <div class="stat-unit">mil milhões</div>
+    </div>
+
+    <!-- EDITA AQUI: texto do facto -->
+    <div class="fact-text">
+      É o que a <em>Take-Two</em> projeta em receitas para o ano fiscal de 2027 — tudo ancorado no lançamento de <em>GTA 6</em>.
+    </div>
+
+    <!-- EDITA AQUI: fonte -->
+    <div class="source">📊 Fonte: Take-Two Earnings Call Q4 FY2026</div>
+  </div>
+
+  <div class="bottom">
+    <div class="handle">📸 <strong>@gtavi.vicecitynews</strong></div>
+    <div class="cta">Mais em vicenewsgta6.com</div>
+  </div>
+</div>
+</body>
+</html>
