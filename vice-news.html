@@ -503,6 +503,16 @@ footer .logo{font-size:22px;margin-bottom:14px}
 .nl-form button{background:linear-gradient(90deg,var(--pink),var(--purple));color:#fff;border:none;border-radius:40px;padding:13px 24px;font-family:'Outfit';font-weight:800;cursor:pointer;font-size:14px;transition:.2s}
 .nl-form button:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,45,149,.4)}
 .nl-small{font-size:11px;color:var(--muted);margin-top:10px}
+
+/* Screenshots grid */
+.ss-item{position:relative;border-radius:12px;overflow:hidden;cursor:zoom-in;border:1px solid rgba(0,245,255,.1);transition:.2s;aspect-ratio:16/9}
+.ss-item img{width:100%;height:100%;object-fit:cover;display:block;transition:.3s}
+.ss-item:hover img{transform:scale(1.04)}
+.ss-item span{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(4,1,14,.9),transparent);color:#9480C0;font-size:11px;font-weight:700;padding:16px 10px 6px;opacity:0;transition:.2s}
+.ss-item:hover span{opacity:1}
+#lightbox{display:none}
+#lightbox.active{display:flex!important}
+
 </style>
 <script src="https://js.stripe.com/v3/"></script>
 <!-- OneSignal Push Notifications -->
@@ -531,6 +541,7 @@ footer .logo{font-size:22px;margin-bottom:14px}
       <a href="#trailers" data-i18n="nav_trailers">Trailers</a>
       <a href="#tips" data-i18n="nav_tips">Tips</a>
       <a href="#cars" data-i18n="nav_cars">Carros</a>
+      <a href="#screenshots">📸 Screens</a>
       <a href="#map" data-i18n="nav_map">Mapa</a>
       <a href="#comunidade" data-i18n="nav_community">Comunidade</a>
       <a href="#premium" data-i18n="nav_premium">Premium</a>
@@ -952,11 +963,15 @@ footer .logo{font-size:22px;margin-bottom:14px}
 <!-- CARS -->
 <section id="cars">
   <div class="container">
-    <div class="sec-head reveal">
-      <div class="k" data-i18n="cars_k">Garagem</div>
-      <h2 data-i18n="cars_h">Carros de Vice City</h2>
-      <p data-i18n="cars_p">198+ veículos confirmados. Stats baseados em trailers, Extended Look e screenshots oficiais.</p>
+    <div class="sec-head reveal" style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;justify-content:space-between">
+      <div>
+        <div class="k" data-i18n="cars_k">Garagem</div>
+        <h2 data-i18n="cars_h">Carros de Vice City</h2>
+        <p data-i18n="cars_p">198+ veículos confirmados. Stats baseados em trailers, Extended Look e screenshots oficiais.</p>
+      </div>
+      <button id="carsToggleBtn" onclick="toggleCars()" style="background:rgba(0,245,255,.1);border:1px solid rgba(0,245,255,.3);color:#00F5FF;font-family:'Outfit',sans-serif;font-weight:700;font-size:14px;padding:10px 22px;border-radius:30px;cursor:pointer;transition:.2s;white-space:nowrap">🚗 Ver Garagem ▼</button>
     </div>
+    <div id="carsGrid" style="display:none">
     <div class="car-grid">
       <div class="car reveal"><div class="pic" style="background-image:url('https://media-rockstargames-com.akamaized.net/tina-uploads/posts/517oa135328155/e11178dabf62ad8ef865e773b66250b9a26262e6.jpg');background-size:cover;background-position:center"></div><div class="info"><h3>Declasse Sabre Turbo</h3><div class="class">Muscle · Confirmado trailer</div>
         <div class="stat"><div class="row"><span>Velocidade</span><span>85</span></div><div class="bar"><i data-w="85"></i></div></div>
@@ -1034,6 +1049,7 @@ footer .logo{font-size:22px;margin-bottom:14px}
         <div class="stat"><div class="row"><span>Travagem</span><span>85</span></div><div class="bar"><i data-w="85"></i></div></div>
         <div class="class" style="margin-top:8px;font-size:11px">Supercar italiano · visto em Vice City no Extended Look</div></div></div>
     </div>
+    </div><!-- /carsGrid -->
   </div>
 </section>
 
@@ -1056,6 +1072,61 @@ footer .logo{font-size:22px;margin-bottom:14px}
     </p>
   </div>
 </section>
+
+<!-- SCREENSHOTS GALLERY -->
+<section id="screenshots">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="k">📸 Official Media</div>
+      <h2>GTA 6 Screenshots Gallery</h2>
+      <p>Every official screenshot released by Rockstar Games — from the Extended Look, Dazed magazine, the official website and pre-order announcements.</p>
+    </div>
+    <div id="ssGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-top:24px">
+
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screen-extendedlook-01-1080.jpg" alt="Extended Look" loading="lazy"><span>Extended Look</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screen-extendedlook-03-1080.jpg" alt="Extended Look" loading="lazy"><span>Extended Look</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screen-extendedlook-04-1080.jpg" alt="Extended Look" loading="lazy"><span>Extended Look</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screen-extendedlook-05-1080.jpg" alt="Extended Look" loading="lazy"><span>Extended Look</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screen-extendedlook-06-1080.jpg" alt="Extended Look" loading="lazy"><span>Extended Look</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screen-extendedlook-07-1080.jpg" alt="Extended Look" loading="lazy"><span>Extended Look</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screen-extendedlook-08-1080.jpg" alt="Extended Look" loading="lazy"><span>Extended Look</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screen-extendedlook-09-1080.jpg" alt="Extended Look" loading="lazy"><span>Extended Look</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screen-extendedlook-10-1080.jpg" alt="Extended Look" loading="lazy"><span>Extended Look</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screen-extendedlook-11-1080.jpg" alt="Extended Look" loading="lazy"><span>Extended Look</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screen-extendedlook-12-1080.jpg" alt="Extended Look" loading="lazy"><span>Extended Look</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screen-extendedlook-14-1080.jpg" alt="Extended Look" loading="lazy"><span>Extended Look</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screen-extendedlook-15-1080.jpg" alt="Extended Look" loading="lazy"><span>Extended Look</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screen-extendedlook-16-1080.jpg" alt="Extended Look" loading="lazy"><span>Extended Look</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screen-extendedlook-20-1080.jpg" alt="Extended Look" loading="lazy"><span>Extended Look</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screen-extendedlook-21-1080.jpg" alt="Extended Look" loading="lazy"><span>Extended Look</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/jason-and-lucia-03-1080.jpg" alt="Jason & Lucia" loading="lazy"><span>Jason &amp; Lucia</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/jason-and-lucia-04-1080.jpg" alt="Jason & Lucia" loading="lazy"><span>Jason &amp; Lucia</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/jason-and-lucia-06-1080.jpg" alt="Jason & Lucia" loading="lazy"><span>Jason &amp; Lucia</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/jason-and-lucia-07-1080.jpg" alt="Jason & Lucia" loading="lazy"><span>Jason &amp; Lucia</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/jason-and-lucia-09-1080.jpg" alt="Jason & Lucia" loading="lazy"><span>Jason &amp; Lucia</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/leonida-keys-06-1080.jpg" alt="Leonida Keys" loading="lazy"><span>Leonida Keys</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/vice-city-03-1080.jpg" alt="Vice City" loading="lazy"><span>Vice City</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/vice-city-05-1080.jpg" alt="Vice City" loading="lazy"><span>Vice City</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/vice-city-08-1080.jpg" alt="Vice City" loading="lazy"><span>Vice City</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/vice-city-09-1080.jpg" alt="Vice City" loading="lazy"><span>Vice City</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/vice-city-10-1080.jpg" alt="Vice City" loading="lazy"><span>Vice City</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screenshot-dazed-baeluxe-1080.jpg" alt="Dazed Magazine" loading="lazy"><span>Dazed Magazine</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screenshot-dazed-roxy-1080.jpg" alt="Dazed Magazine" loading="lazy"><span>Dazed Magazine</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta6-screenshot-dazed-raulbautista-1080.jpg" alt="Dazed Magazine" loading="lazy"><span>Dazed Magazine</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/ultimateedition-01-1080.jpg" alt="Ultimate Edition" loading="lazy"><span>Ultimate Edition</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/ultimateedition-02-1080.jpg" alt="Ultimate Edition" loading="lazy"><span>Ultimate Edition</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/postcard-vicecity-1080.jpg" alt="Vice City Postcard" loading="lazy"><span>Vice City Postcard</span></div>
+      <div class="ss-item reveal" onclick="openLightbox(this)"><img src="https://www.gtabase.com/igallery/gta-6-screens/gta-6-vice-city-skyline-website-teaser-1080.jpg" alt="Vice City Skyline" loading="lazy"><span>Vice City Skyline</span></div>
+    </div>
+    <p style="text-align:center;margin-top:20px;font-size:13px;color:var(--muted)">Images © Rockstar Games. Click to enlarge. <a href="artigo-63-screenshots.html" style="color:var(--cyan)">Read our full analysis →</a></p>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:999;align-items:center;justify-content:center;cursor:zoom-out" onclick="document.getElementById('lightbox').style.display='none'">
+  <img id="lbImg" src="" alt="" style="max-width:92vw;max-height:92vh;border-radius:12px;box-shadow:0 0 60px rgba(0,245,255,.2)">
+  <div id="lbCaption" style="position:absolute;bottom:24px;left:50%;transform:translateX(-50%);color:#9480C0;font-size:13px;font-weight:700;background:rgba(4,1,14,.8);padding:6px 16px;border-radius:20px"></div>
+</div>
 
 <!-- COMUNIDADE VIP -->
 <section id="comunidade">
@@ -1443,7 +1514,7 @@ const I18N={
    auth_login:"Entrar en Vice News",auth_google:"Continuar con Google",auth_fb:"Continuar con Facebook",auth_discord:"Continuar con Discord",auth_or:"o con email",auth_tab_login:"Entrar",auth_tab_signup:"Crear cuenta",auth_name:"Nombre",auth_email:"Email",auth_pass:"Contraseña",cancel:"cancelar",
    earn_fab:"Ganancias",earn_title:"💰 Panel de Ganancias (simulación)",earn_sub:"Estimación en tiempo real — anuncios + suscripciones VIP. Valores ficticios de demo.",earn_total:"Ingresos estimados este mes",earn_views:"Visualizaciones de anuncios",earn_adrev:"Ingresos de anuncios (CPM €2,80)",earn_subs:"Suscriptores VIP",earn_subrev:"Ingresos VIP (MRR)",earn_note:"Cada vista de anuncio suma ingresos. Conecta AdSense + Stripe y aloja el sitio para que sea real.",close:"cerrar",close_btn:"Cerrar",login_btn:"Entrar / Registrarse"}
 };
-let LANG=localStorage.getItem('vn_lang')||'pt';
+let LANG=localStorage.getItem('vn_lang')||'en';
 function applyLang(l){const d=I18N[l]||I18N.pt;
   document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.dataset.i18n;if(d[k]!=null)e.textContent=d[k]});
   document.querySelectorAll('[data-i18n-ph]').forEach(e=>{const k=e.dataset.i18nPh;if(d[k]!=null)e.placeholder=d[k]});
@@ -1812,6 +1883,22 @@ function requestNotif(){
 
 applyLang(LANG);applyMembership();updateEarn();initAdSense();newsReactions();syncVipStatus();addShareButtons();
 window.addEventListener('load',()=>{setTimeout(()=>{countAdView('pageview',true)},600)});
+</script>
+<script>
+function toggleCars(){
+  const g=document.getElementById('carsGrid');
+  const b=document.getElementById('carsToggleBtn');
+  const open=g.style.display==='none';
+  g.style.display=open?'block':'none';
+  b.textContent=open?'🚗 Fechar Garagem ▲':'🚗 Ver Garagem ▼';
+}
+function openLightbox(el){
+  const img=el.querySelector('img');
+  const cap=el.querySelector('span');
+  document.getElementById('lbImg').src=img.src;
+  document.getElementById('lbCaption').textContent=cap?cap.textContent:'';
+  document.getElementById('lightbox').style.display='flex';
+}
 </script>
 </body>
 </html>
