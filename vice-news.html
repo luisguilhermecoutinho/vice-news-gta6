@@ -505,6 +505,17 @@ footer .logo{font-size:22px;margin-bottom:14px}
 .nl-small{font-size:11px;color:var(--muted);margin-top:10px}
 </style>
 <script src="https://js.stripe.com/v3/"></script>
+<!-- OneSignal Push Notifications -->
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "1d8b9c2a-0f5e-4936-a138-dd0463cc7f4e",
+      notifyButton: { enable: true },
+    });
+  });
+</script>
 </head>
 <body>
 <div class="sky"></div>
