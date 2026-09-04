@@ -43,6 +43,8 @@ footer a{color:var(--muted)}footer a:hover{color:var(--cyan)}
 .share-btn.tw{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff}.share-btn.tw:hover{background:#fff;color:#000}
 .share-btn.facebook{background:rgba(24,119,242,.15);border:1px solid rgba(24,119,242,.4);color:#1877F2}.share-btn.facebook:hover{background:#1877F2;color:#fff}
 .share-btn.copy{background:rgba(0,245,255,.1);border:1px solid rgba(0,245,255,.3);color:var(--cyan)}.share-btn.copy:hover{background:var(--cyan);color:var(--bg)}
+
+.reading-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--pink));width:0%;z-index:999;transition:width .08s linear;border-radius:0 2px 2px 0}
 </style>
 </head>
 <body>
@@ -115,5 +117,7 @@ footer a{color:var(--muted)}footer a:hover{color:var(--cyan)}
   </div>
   <p>© 2026 Vice News — GTA 6 Fan Hub. Unofficial site.</p>
 </footer>
+
+<script>(function(){var b=document.createElement('div');b.className='reading-bar';document.body.prepend(b);window.addEventListener('scroll',function(){var h=document.documentElement;var pct=(h.scrollTop||document.body.scrollTop)/(h.scrollHeight-h.clientHeight)*100;b.style.width=Math.min(pct,100)+'%'})})();</script>
 </body>
 </html>

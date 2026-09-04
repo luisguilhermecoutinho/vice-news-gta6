@@ -58,6 +58,8 @@ a{color:var(--pink)}a:hover{color:var(--cyan)}
 .foot{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08)}
 .foot a{color:var(--cyan);font-weight:600;font-size:14px}
 footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 22px;border-top:1px solid rgba(0,240,255,.2)}
+
+.reading-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--pink));width:0%;z-index:999;transition:width .08s linear;border-radius:0 2px 2px 0}
 </style>
 </head>
 <body>
@@ -255,5 +257,7 @@ footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 22px;bor
   </div>
 </div>
 <footer>Site não oficial de fãs. Não afiliado à Rockstar Games ou Take-Two Interactive. © 2026 Vice News. · <a href="privacy.html" style="color:var(--muted)">Política de Privacidade</a></footer>
+
+<script>(function(){var b=document.createElement('div');b.className='reading-bar';document.body.prepend(b);window.addEventListener('scroll',function(){var h=document.documentElement;var pct=(h.scrollTop||document.body.scrollTop)/(h.scrollHeight-h.clientHeight)*100;b.style.width=Math.min(pct,100)+'%'})})();</script>
 </body>
 </html>
