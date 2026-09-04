@@ -18,13 +18,13 @@
 :root{--pink:#FF006E;--cyan:#00F5FF;--purple:#BD00FF;--orange:#FF8C00;--bg:#04010E;--card:#0A0020;--text:#F2ECFF;--muted:#9480C0}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
-.sky{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,#000000 0%,#05001E 12%,#110045 25%,#3D006B 40%,#7A004E 53%,#CC0040 66%,#FF4500 80%,#FF8C00 91%,#FFD60A 100%)}
-.fade{position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(4,1,14,.72),var(--bg) 48%)}
-header{position:sticky;top:0;backdrop-filter:blur(18px);background:rgba(4,1,14,.8);border-bottom:1px solid rgba(255,0,110,.3);padding:14px 22px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-family:'Monoton',cursive;font-size:22px;color:var(--cyan);text-shadow:0 0 10px var(--cyan),0 0 24px var(--pink)}
-.logo span{color:var(--pink)}
-.home{color:var(--cyan);font-weight:700;font-size:14px;border:1px solid var(--cyan);padding:8px 16px;border-radius:30px;text-decoration:none;transition:.2s}
-.home:hover{background:var(--cyan);color:var(--bg)}
+.sky{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,#09051A 0%,#190A3A 12%,#3A1268 24%,#6B2268 38%,#A03870 52%,#C86060 66%,#E08048 80%,#F0A040 91%,#FFB830 100%)}
+.fade{position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(9,5,26,.65),var(--bg) 48%)}
+header{position:sticky;top:0;backdrop-filter:blur(18px);background:rgba(9,5,26,.82);border-bottom:1px solid rgba(139,72,160,.35);padding:14px 22px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Audiowide',cursive;font-size:20px;background:linear-gradient(90deg,#F0C0E0,#C4538A,#FF8040);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 14px rgba(196,83,138,.3))}
+.logo span{background:inherit;-webkit-background-clip:text;background-clip:text;color:transparent}
+.home{color:#E8B0CC;font-weight:700;font-size:14px;border:1px solid rgba(196,83,138,.6);padding:8px 16px;border-radius:30px;text-decoration:none;transition:.2s}
+.home:hover{background:rgba(196,83,138,.15);color:#fff}
 .hero-wrap{position:relative;height:340px;overflow:hidden}
 .hero-img{width:100%;height:100%;object-fit:cover;filter:saturate(1.3) brightness(.75)}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,1,14,.3),rgba(4,1,14,.95));display:flex;align-items:flex-end;padding:28px}
@@ -56,7 +56,7 @@ strong{color:#fff}
 .quote{border-left:3px solid var(--pink);padding:14px 20px;margin:20px 0;background:rgba(255,0,110,.06);border-radius:0 12px 12px 0}
 .quote p{font-style:italic;color:var(--muted);font-size:15px;margin:0}
 .quote cite{display:block;margin-top:6px;font-size:12px;color:var(--pink);font-style:normal;font-weight:700}
-.toc{background:rgba(10,0,32,.7);border:1px solid rgba(0,245,255,.2);border-radius:16px;padding:22px 26px;margin:28px 0}
+.toc{background:rgba(23,10,46,.7);border:1px solid rgba(139,72,160,.25);border-radius:16px;padding:22px 26px;margin:28px 0}
 .toc h4{color:var(--cyan);font-family:'Audiowide';font-size:12px;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px}
 .toc ol{margin:0;padding-left:20px}
 .toc li{margin-bottom:8px;font-size:15px;color:var(--muted)}
@@ -81,7 +81,7 @@ strong{color:#fff}
 .share-btn.facebook{background:rgba(24,119,242,.15);border:1px solid rgba(24,119,242,.4);color:#1877F2}.share-btn.facebook:hover{background:#1877F2;color:#fff}
 .share-btn.copy{background:rgba(0,245,255,.1);border:1px solid rgba(0,245,255,.3);color:var(--cyan)}.share-btn.copy:hover{background:var(--cyan);color:var(--bg)}
 
-.reading-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--pink));width:0%;z-index:999;transition:width .08s linear;border-radius:0 2px 2px 0}
+.reading-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#C4538A,#FF8040);width:0%;z-index:999;transition:width .08s linear;border-radius:0 2px 2px 0}
 </style>
 </head>
 <body>

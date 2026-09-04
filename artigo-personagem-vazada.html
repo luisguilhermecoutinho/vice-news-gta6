@@ -16,7 +16,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line
 .fade{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(4,1,14,.85) 0%,var(--bg) 50%)}
 header{position:sticky;top:0;backdrop-filter:blur(14px);background:rgba(4,1,14,.75);border-bottom:1px solid rgba(0,245,255,.2);padding:14px 22px;display:flex;justify-content:space-between;align-items:center;z-index:100}
 .logo{font-family:'Monoton',cursive;font-size:20px;color:var(--cyan);text-decoration:none;text-shadow:0 0 10px var(--cyan),0 0 24px var(--pink)}
-.logo span{color:var(--pink)}
+.logo span{background:inherit;-webkit-background-clip:text;background-clip:text;color:transparent}
 .back-btn{color:var(--cyan);font-weight:700;font-size:13px;border:1px solid var(--cyan);padding:7px 16px;border-radius:30px;text-decoration:none;transition:.2s}
 .back-btn:hover{background:var(--cyan);color:var(--bg)}
 .wrap{max-width:780px;margin:0 auto;padding:44px 22px 100px}
@@ -32,7 +32,7 @@ strong{color:var(--text)}
 .leak-label{font-size:11px;font-weight:700;color:var(--pink);margin-bottom:8px}
 .disclaimer{background:rgba(10,0,32,.6);border:1px solid rgba(148,128,192,.2);border-radius:12px;padding:16px;font-size:13px;color:var(--muted);margin-top:28px}
 footer{text-align:center;color:var(--muted);font-size:12px;padding:30px 22px 50px;border-top:1px solid rgba(0,245,255,.1);margin-top:40px}
-footer a{color:var(--muted)}footer a:hover{color:var(--cyan)}
+footer a{color:var(--muted)}footer a:hover{color:#E8B0CC}
 .foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:10px}
 
 .share-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:36px 0 0;padding:20px;background:rgba(10,0,32,.6);border:1px solid rgba(0,245,255,.15);border-radius:14px}
@@ -43,7 +43,7 @@ footer a{color:var(--muted)}footer a:hover{color:var(--cyan)}
 .share-btn.facebook{background:rgba(24,119,242,.15);border:1px solid rgba(24,119,242,.4);color:#1877F2}.share-btn.facebook:hover{background:#1877F2;color:#fff}
 .share-btn.copy{background:rgba(0,245,255,.1);border:1px solid rgba(0,245,255,.3);color:var(--cyan)}.share-btn.copy:hover{background:var(--cyan);color:var(--bg)}
 
-.reading-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--pink));width:0%;z-index:999;transition:width .08s linear;border-radius:0 2px 2px 0}
+.reading-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#C4538A,#FF8040);width:0%;z-index:999;transition:width .08s linear;border-radius:0 2px 2px 0}
 </style>
 </head>
 <body>
