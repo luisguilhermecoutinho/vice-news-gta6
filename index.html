@@ -73,10 +73,10 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:14px 2
 .lang-menu button:hover{background:rgba(0,240,255,.15)}
 
 /* hero */
-.hero{position:relative;min-height:96vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:70px 22px;overflow:hidden}
+.hero{position:relative;min-height:85vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:70px 22px;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;z-index:1;background:repeating-linear-gradient(0deg,rgba(0,0,0,.06) 0px,rgba(0,0,0,.06) 1px,transparent 1px,transparent 3px);pointer-events:none}
-.hero-bg{position:absolute;inset:0;z-index:0;background-image:url('https://media-rockstargames-com.akamaized.net/tina-uploads/posts/517oa135328155/e11178dabf62ad8ef865e773b66250b9a26262e6.jpg');background-size:cover;background-position:center top;transform:scale(1.07);filter:saturate(1.3) brightness(0.7) hue-rotate(10deg)}
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,5,26,.5) 0%,rgba(60,18,104,.25) 40%,rgba(9,5,26,.78) 80%,var(--bg) 100%)}
+.hero-bg{position:absolute;inset:0;z-index:0;background-image:url('https://www.rockstargames.com/VI/_next/static/media/poster_full.0az_iud2g3y4j.jpg');background-size:cover;background-position:center center;filter:saturate(1.1) brightness(0.65)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,5,26,.25) 0%,rgba(30,10,60,.15) 45%,rgba(9,5,26,.7) 82%,var(--bg) 100%)}
 .hero-inner{position:relative;z-index:2;max-width:880px}
 .tag{display:inline-block;font-family:'Audiowide';font-size:11px;letter-spacing:5px;color:var(--gold);border:1px solid rgba(255,214,10,.6);background:rgba(255,214,10,.08);padding:9px 22px;border-radius:30px;margin-bottom:30px;box-shadow:0 0 26px rgba(255,214,10,.3),inset 0 1px 0 rgba(255,255,255,.1);text-transform:uppercase}
 .hero h1{font-family:'Audiowide',cursive;font-size:clamp(42px,8.5vw,100px);line-height:.92;background:linear-gradient(135deg,#ffffff 0%,#F0C0D8 30%,#C4538A 65%,#FF8040 100%);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:20px;filter:drop-shadow(0 4px 24px rgba(196,83,138,.4))}
@@ -513,6 +513,13 @@ footer .logo{font-size:22px;margin-bottom:14px}
 #lightbox{display:none}
 #lightbox.active{display:flex!important}
 
+
+/* Jason & Lucia parallax */
+.plx-wrap{position:relative;height:75vh;overflow:hidden;margin:0}
+.plx-img{position:absolute;top:-20%;left:0;right:0;bottom:-20%;background-image:url('https://www.rockstargames.com/VI/_next/static/media/featured.0y5yxwenpsgc3.jpg');background-size:cover;background-position:center 30%;will-change:transform;transition:transform .05s linear}
+.plx-overlay{position:absolute;inset:0;background:linear-gradient(180deg,var(--bg) 0%,rgba(9,5,26,.1) 20%,rgba(9,5,26,.1) 70%,var(--bg) 100%)}
+.plx-label{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);text-align:center;z-index:2}
+.plx-label p{font-family:'Audiowide';font-size:clamp(11px,1.5vw,14px);letter-spacing:6px;text-transform:uppercase;color:rgba(240,192,216,.7);text-shadow:0 2px 20px rgba(0,0,0,.8)}
 </style>
 <script src="https://js.stripe.com/v3/"></script>
 <!-- OneSignal Push Notifications -->
@@ -571,9 +578,7 @@ footer .logo{font-size:22px;margin-bottom:14px}
 <div id="top" class="hero">
   <div class="hero-bg"></div>
   <div class="hero-inner">
-    <span class="tag" data-i18n="hero_tag">⚡ O teu hub nº1 de Vice City</span>
-    <h1>GTA <em>VI</em><br>VICE NEWS</h1>
-    <p data-i18n="hero_sub">Novidades, leaks, trailers, clips a bombar, tips, carros e o mapa de Leonida — direto das ruas neon de Vice City.</p>
+    <span class="tag" data-i18n="hero_tag">⚡ Your #1 GTA VI Hub</span>
     <div class="hero-btns">
       <a href="#clips" class="btn btn-ghost" data-i18n="hero_clips">🔥 Ver Clips</a>
       <button class="btn btn-vip" onclick="goVip()" data-i18n="hero_vip">Tornar-me VIP ★</button>
@@ -585,6 +590,16 @@ footer .logo{font-size:22px;margin-bottom:14px}
       <div class="cd-box"><div class="num" id="m">--</div><div class="lbl" data-i18n="cd_m">Min</div></div>
       <div class="cd-box"><div class="num" id="s">--</div><div class="lbl" data-i18n="cd_s">Seg</div></div>
     </div>
+  </div>
+</div>
+
+
+<!-- PARALLAX — Jason & Lucia -->
+<div class="plx-wrap">
+  <div class="plx-img" id="plxImg"></div>
+  <div class="plx-overlay"></div>
+  <div class="plx-label">
+    <p>Jason &amp; Lucia — Leonida, 2026</p>
   </div>
 </div>
 
@@ -1796,6 +1811,21 @@ function toggleCars(){
   g.style.display=open?'block':'none';
   b.textContent=open?'🚗 Close Garage ▲':'🚗 View Garage ▼';
 }
+</script>
+<script>
+(function(){
+  var el = document.getElementById('plxImg');
+  if(!el) return;
+  function onScroll(){
+    var wrap = el.parentElement;
+    var rect = wrap.getBoundingClientRect();
+    if(rect.bottom < 0 || rect.top > window.innerHeight) return;
+    var pct = (window.scrollY - wrap.offsetTop + window.innerHeight) / (window.innerHeight + wrap.offsetHeight);
+    el.style.transform = 'translateY(' + (pct * 18 - 9) + '%)';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
 </script>
 </body>
 </html>
